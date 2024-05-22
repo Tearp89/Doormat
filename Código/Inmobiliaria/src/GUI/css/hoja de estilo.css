@@ -1,0 +1,141 @@
+.semi-top-form{
+    -fx-background-color:#000000;
+    -fx-background-insets: 0, 100%;
+    -fx-background-radius: 0;
+}
+.top-form{
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0;
+}
+.top-buttom{
+    -fx-background-color:white;
+    -fx-cursor:hand;
+    -fx-font-size:10px;
+    -fx-font-family:"Arial";
+
+}
+.top-buttom:hover{
+    -fx-background-color:#c4c4c481;
+    -fx-font-size:11px;
+    -fx-font-family:"Arial";
+}
+
+.user-buttom{
+    -fx-background-color:transparent;
+    -fx-border-color:#0066FF;
+    -fx-border-radius:20px;
+    -fx-background-radius:20px;
+    -fx-cursor:hand;
+}
+.user-buttom:hover{
+    -fx-background-color:#FF3A58;
+}
+
+.pane-background{
+    -fx-background-color: #f1f0f0;
+}
+
+.label-blue{
+    -fx-background-color: rgba(13, 239, 255, 0.303)
+    
+}
+.categories-buttom{
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+    -fx-graphic-text-gap: 0;
+    -fx-cursor:hand;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+    -fx-transition: all 0.3s ease;
+}
+
+.categories-buttom .image-view {
+    -fx-alignment: center; 
+}
+
+.categories-buttom:hover{
+    -fx-background-color: rgba(13, 239, 255, 0.149);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.02;
+}
+.top-icons{
+    -fx-background-color: transparent;
+    fx-cursor:hand;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+}
+.top-icons:hover{
+    -fx-background-color:#7d7d7d;
+    -fx-scale-x: 1.04;
+    -fx-scale-y: 1.03;  
+}
+.top-logo{
+    -fx-cursor:hand;
+    -fx-background-color:transparent;
+    -fx-alignment: center;
+    -fx-graphic-text-gap: 3;
+}
+.top-logo .image-view {
+    -fx-alignment: center; 
+}
+.search{
+    -fx-background-color:transparent;
+    -fx-border-color:linear-gradient(to bottom right,  #4d4d4d, #d9cdd5);
+    -fx-border-radius:20px;
+    -fx-font-size:13px;
+    -fx-font-family:"Arial";
+    -fx-border-width:1px;
+    -fx-padding:0px 0px 0px 28px;
+}
+.search:focused{
+    -fx-border-width:2px;
+}
+.check-box .box {
+    -fx-background-color: white;
+    -fx-pref-width: 12px; 
+    -fx-pref-height: 12px;
+    -bx-border-color: rgb(147, 147, 147);
+    -fx-border-radius:0px;
+    -fx-border-color:rgb(117, 117, 117);
+}
+.check-box:selected .mark{
+    -fx-background:white;
+    -fx-background-color: #0066ff; /* Cambia el color de la marca cuando esté seleccionado */
+    -fx-stroke: #0066ff;
+}
+.check-box .text {
+    -fx-font-size: 12px;
+}
+
+.textfield{
+    -fx-background-color:#D9D9D9;
+    -fx-background-radius:7px;
+    -fx-font-family:"Tahoma";
+    -fx-cursor:text;
+}
+.textfield:focused{
+    -fx-background-color:#efefef;
+    
+}
+
+.blue-buttom{
+    -fx-background-color: transparent;
+    -fx-cursor:hand;
+}
+.blue-buttom:hover{
+    -fx-background-color:#0050c7;
+}
+
+.combo-box{
+    fx-background-color:#D9D9D9;
+    -fx-border-radius:20px;
+    -fx-background-radius:20px;
+    -fx-border-color:#929292;
+    -fx-border-width: .8px;
+    -fx-font-family:"Tahoma";
+}
+.combo-box:focused{
+    -fx-border-width:1.8px;
+    -fx-border-radius:10px;
+    
+}

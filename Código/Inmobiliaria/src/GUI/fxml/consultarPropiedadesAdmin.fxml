@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <BorderPane layoutX="228.0" layoutY="89.0" prefHeight="600.0" prefWidth="900.0" stylesheets="@../css/hoja%20de%20estilo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="98.0" prefWidth="900.0" styleClass="top-form" stylesheets="@../css/hoja%20de%20estilo.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="160.0" layoutY="-63.0" prefHeight="36.0" prefWidth="900.0" styleClass="semi-top-form" stylesheets="@../css/hoja%20de%20estilo.css" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon fill="WHITE" glyphName="INSTAGRAM" layoutX="750.0" layoutY="26.0" size="2em" styleClass="top-icons" />
+                              <FontAwesomeIcon fill="WHITE" glyphName="LINKEDIN" layoutX="815.0" layoutY="26.0" size="2em" styleClass="top-icons" text="" />
+                              <FontAwesomeIcon fill="WHITE" glyphName="FACEBOOK" layoutX="685.0" layoutY="26.0" size="2em" styleClass="top-icons" />
+                           </children>
+                        </AnchorPane>
+                        <Button fx:id="buttonSale" layoutX="553.0" layoutY="59.0" mnemonicParsing="false" onAction="#goToSale" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Venta">
+                           <font>
+                              <Font size="9.0" />
+                           </font></Button>
+                        <Button layoutX="-5.0" layoutY="38.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="148.0" styleClass="top-logo" stylesheets="@../css/hoja%20de%20estilo.css" text="Dormat">
+                           <graphic>
+                              <ImageView fitHeight="45.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../../../../../../../Downloads/logo%205%201.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Tahoma Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="buttonHome" layoutX="500.0" layoutY="59.0" mnemonicParsing="false" onAction="#goToHomePage" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Inicio">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="buttonRent" layoutX="605.0" layoutY="59.0" mnemonicParsing="false" onAction="#goToRent" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Renta">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="buttonAppointments" layoutX="653.0" layoutY="59.0" mnemonicParsing="false" onAction="#goToAppointments" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Citas">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="buttonUser" layoutX="849.0" layoutY="51.0" mnemonicParsing="false" onAction="#goToUser" prefHeight="26.0" prefWidth="4.0" styleClass="user-buttom" stylesheets="@../css/hoja%20de%20estilo.css">
+                           <graphic>
+                              <FontAwesomeIcon fill="#0066ff" glyphName="USER" size="2em" />
+                           </graphic>
+                        </Button>
+                        <Label fx:id="labelUser" layoutX="814.0" layoutY="59.0" text="User" textFill="#0066ff" />
+                     </children>
+                  </AnchorPane>
+               </top>
+               <center>
+                  <ScrollPane prefHeight="625.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="898.0" style="-fx-background-color: white;" stylesheets="@../css/hoja%20de%20estilo.css">
+                           <children>
+                              <Label layoutX="75.0" layoutY="36.0" prefHeight="11.0" prefWidth="78.0" styleClass="label-blue" stylesheets="@../css/hoja%20de%20estilo.css" text="             ">
+                                 <font>
+                                    <Font size="6.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="75.0" layoutY="20.0" text="Propiedades" textFill="#0066ff">
+                                 <font>
+                                    <Font name="Tahoma" size="22.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane layoutX="34.0" layoutY="61.0" prefHeight="660.0" prefWidth="200.0">
+                                 <children>
+                                    <TextField layoutX="13.0" layoutY="8.0" prefHeight="38.0" prefWidth="178.0" promptText="Buscar" styleClass="search" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <FontAwesomeIcon fill="#a8a8a8" glyphName="SEARCH" layoutX="21.0" layoutY="34.0" size="1.8em" />
+                                    <CheckBox layoutX="15.0" layoutY="87.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Rentar" />
+                                    <Label layoutX="5.0" layoutY="64.0" text="Tarea">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox layoutX="15.0" layoutY="105.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Comprar" />
+                                    <CheckBox layoutX="15.0" layoutY="158.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="106.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Departamentos" />
+                                    <Label layoutX="5.0" layoutY="135.0" text="Tipo de propiedad">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox layoutX="15.0" layoutY="176.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Cuartos" />
+                                    <CheckBox layoutX="15.0" layoutY="194.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Casas" />
+                                    <CheckBox layoutX="15.0" layoutY="247.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="106.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Xalapa" />
+                                    <Label layoutX="5.0" layoutY="224.0" text="Ciudad">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox layoutX="15.0" layoutY="265.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Orizaba" />
+                                    <CheckBox layoutX="15.0" layoutY="283.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Veracruz" />
+                                    <Label layoutX="5.0" layoutY="313.0" text="Zona">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox layoutX="15.0" layoutY="336.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="106.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Centro" />
+                                    <CheckBox layoutX="15.0" layoutY="354.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Orillas" />
+                                    <CheckBox layoutX="15.0" layoutY="372.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="87.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Residencial" />
+                                    <Label layoutX="5.0" layoutY="402.0" text="Estancias">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="107.0" layoutY="402.0" text="Habitaciones">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="5.0" layoutY="425.0" prefHeight="25.0" prefWidth="85.0" styleClass="textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <TextField layoutX="107.0" layoutY="425.0" prefHeight="25.0" prefWidth="85.0" styleClass="textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <Label layoutX="5.0" layoutY="465.0" text="Baños">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="107.0" layoutY="465.0" text="Cochera">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="5.0" layoutY="488.0" prefHeight="25.0" prefWidth="85.0" styleClass="textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <TextField layoutX="107.0" layoutY="488.0" prefHeight="25.0" prefWidth="85.0" styleClass="textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <ImageView fitHeight="43.0" fitWidth="184.0" layoutX="7.0" layoutY="600.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../media/botón%20rectangulo.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Button layoutX="7.0" layoutY="600.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="184.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Aplicar Filtros" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma" size="16.0" />
+                                       </font>
+                                    </Button>
+                                    <Label layoutX="5.0" layoutY="528.0" text="Precio">
+                                       <font>
+                                          <Font name="Tahoma" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField layoutX="5.0" layoutY="551.0" prefHeight="25.0" prefWidth="85.0" styleClass="textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <TextField layoutX="107.0" layoutY="551.0" prefHeight="25.0" prefWidth="85.0" styleClass="textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                 </children>
+                              </AnchorPane>
+                              <Line endX="500.0" fill="#00000078" layoutX="51.0" layoutY="368.0" rotate="90.0" startX="-100.0" stroke="#00000079" strokeWidth="0.8" />
+                              <Label disable="true" layoutX="258.0" layoutY="68.0" prefHeight="17.0" prefWidth="104.0" text="0 Resultados" />
+                              <ImageView fitHeight="43.0" fitWidth="184.0" layoutX="700.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../media/boton%20rectangulo2.png" />
+                                 </image>
+                              </ImageView>
+                              <Button layoutX="700.0" layoutY="12.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="184.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Agregar Nueva Propiedad" textFill="WHITE">
+                                 <font>
+                                    <Font name="Tahoma" size="14.0" />
+                                 </font>
+                              </Button>
+                              <ComboBox layoutX="735.0" layoutY="61.0" opacity="0.52" prefHeight="31.0" prefWidth="114.0" promptText="Ordenar por" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
