@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -30,7 +28,7 @@
                               <FontAwesomeIcon fx:id="iconFacebook" fill="WHITE" glyphName="FACEBOOK" layoutX="685.0" layoutY="26.0" size="2em" styleClass="top-icons" />
                            </children>
                         </AnchorPane>
-                        <Button fx:id="logo" layoutX="-5.0" layoutY="38.0" mnemonicParsing="false" onAction="#goToInicio" prefHeight="45.0" prefWidth="148.0" styleClass="top-logo" stylesheets="@../css/hoja%20de%20estilo.css" text="Dormat">
+                        <Button fx:id="logo" layoutX="-5.0" layoutY="38.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="148.0" styleClass="top-logo" stylesheets="@../css/hoja%20de%20estilo.css" text="Dormat">
                            <graphic>
                               <ImageView fitHeight="45.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -42,7 +40,7 @@
                               <Font name="Tahoma Bold" size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="buttonInicio" layoutX="598.0" layoutY="59.0" mnemonicParsing="false" onAction="#goToHomePage" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Inicio">
+                        <Button fx:id="buttonHome" layoutX="599.0" layoutY="59.0" mnemonicParsing="false" onAction="#goToHomePage" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Inicio">
                            <font>
                               <Font size="9.0" />
                            </font>
@@ -71,14 +69,14 @@
                                     <Font size="6.0" />
                                  </font>
                               </Label>
-                              <Label layoutX="75.0" layoutY="20.0" text="Registrar nueva propiedad" textFill="#0066ff">
+                              <Label layoutX="75.0" layoutY="20.0" text="Consultar propiedad" textFill="#0066ff">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="24.0" />
                                  </font>
                               </Label>
                               <AnchorPane layoutX="227.0" layoutY="88.0" prefHeight="720.0" prefWidth="596.0" styleClass="black-anchor" stylesheets="@../css/hoja%20de%20estilo.css">
                                  <children>
-                                    <Label layoutX="139.0" layoutY="30.0" text="Agrega la información requerida" textFill="#0dedff">
+                                    <Label layoutX="139.0" layoutY="30.0" text="Información de la propiedad" textFill="#0dedff">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="20.0" />
                                        </font>
@@ -88,96 +86,95 @@
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="textFieldResumen" layoutX="139.0" layoutY="100.0" prefHeight="25.0" prefWidth="381.0" promptText="Introduce el resumen de la poriedad ej. Departamento en zona centro" styleClass="white-textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <Label layoutX="139.0" layoutY="100.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: white;" />
                                     <Label layoutX="139.0" layoutY="138.0" text="Ciudad" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="textFieldCiudad" layoutX="139.0" layoutY="160.0" prefHeight="25.0" prefWidth="175.0" promptText="Introduce la ciudad" styleClass="white-textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <Label layoutX="139.0" layoutY="160.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: white;" />
                                     <Label layoutX="345.0" layoutY="137.0" text="Zona" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <ComboBox fx:id="comboBoxZona" layoutX="345.0" layoutY="160.0" prefHeight="25.0" prefWidth="171.0" promptText="Introduce la zona" styleClass="white-combobox" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <Label layoutX="345.0" layoutY="160.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: white;" />
                                     <Label layoutX="139.0" layoutY="198.0" prefHeight="15.0" prefWidth="55.0" text="Dirección" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="textFieldDireccion" layoutX="139.0" layoutY="220.0" prefHeight="25.0" prefWidth="381.0" promptText="Introduce la dirección de la propiedad" styleClass="white-textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
-                                    <CheckBox fx:id="checkBoxDepartamento" layoutX="141.0" layoutY="276.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="106.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Departamento" textFill="WHITE" />
+                                    <Label layoutX="139.0" layoutY="220.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: white;" />
                                     <Label layoutX="139.0" layoutY="258.0" text="Tipo de propiedad" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <CheckBox fx:id="checkBoxCuarto" layoutX="141.0" layoutY="294.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Cuartos" textFill="WHITE" />
-                                    <CheckBox fx:id="checkBoxCasa" layoutX="141.0" layoutY="312.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Casa" textFill="WHITE" />
-                                    <CheckBox fx:id="checkBoxRenta" layoutX="279.0" layoutY="276.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="106.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Renta" textFill="WHITE" />
-                                    <Label layoutX="277.0" layoutY="258.0" text="Propiedad en..." textFill="WHITE">
+                                    <Label layoutX="139.0" layoutY="280.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: white;" />
+                                    <Label layoutX="289.0" layoutY="257.0" text="Propiedad en..." textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <CheckBox fx:id="checkBoxVenta" layoutX="279.0" layoutY="294.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Venta" textFill="WHITE" />
-                                    <Label layoutX="155.0" layoutY="344.0" text="Número de&#10;habitaciones" textAlignment="CENTER" textFill="WHITE">
+                                    <Label layoutX="280.0" layoutY="279.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: white;" />
+                                    <Label layoutX="156.0" layoutY="318.0" text="Número de&#10;habitaciones" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="textFieldNumeroHabitaciones" alignment="CENTER" layoutX="139.0" layoutY="380.0" prefHeight="25.0" prefWidth="102.0" promptText="Cantidad" styleClass="white-textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
-                                    <Label fx:id="textFieldNumeroBaños" layoutX="439.0" layoutY="344.0" text="Número de&#10;baños" textAlignment="CENTER" textFill="WHITE">
+                                    <Label layoutX="139.0" layoutY="354.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="textFieldNumeroBaños" layoutX="440.0" layoutY="318.0" text="Número de&#10;baños" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="textFieldNumeroBaños" alignment="CENTER" layoutX="417.0" layoutY="380.0" prefHeight="25.0" prefWidth="102.0" promptText="Cantidad" styleClass="white-textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
-                                    <Label fx:id="textFieldNumeroEstancias" layoutX="301.0" layoutY="344.0" text="Número de&#10;estancias" textAlignment="CENTER" textFill="WHITE">
+                                    <Label layoutX="419.0" layoutY="354.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="textFieldNumeroEstancias" layoutX="302.0" layoutY="318.0" text="Número de&#10;estancias" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="textFieldNumeroEstancias" alignment="CENTER" layoutX="279.0" layoutY="380.0" prefHeight="25.0" prefWidth="102.0" promptText="Cantidad" styleClass="white-textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
-                                    <Label layoutX="139.0" layoutY="418.0" text="Cochera" textFill="WHITE">
+                                    <Label layoutX="282.0" layoutY="354.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: white;" />
+                                    <Label layoutX="139.0" layoutY="392.0" text="Cochera" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <CheckBox fx:id="checkBoxSiCochera" layoutX="141.0" layoutY="436.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="106.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Sí" textFill="WHITE" />
-                                    <CheckBox fx:id="checkBoxNoCochera" layoutX="141.0" layoutY="454.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="No" textFill="WHITE" />
-                                    <TextField fx:id="textFieldCantidadCochera" alignment="CENTER" layoutX="209.0" layoutY="443.0" prefHeight="25.0" prefWidth="76.0" promptText="Cantidad" />
-                                    <Label layoutX="343.0" layoutY="422.0" text="Tamaño en metros cuadrados" textFill="WHITE">
+                                    <Label layoutX="139.0" layoutY="414.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white;" />
+                                    <Label layoutX="209.0" layoutY="414.0" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: white;" />
+                                    <Label layoutX="342.0" layoutY="392.0" text="Tamaño en metros cuadrados" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="textFieldTamañoMetros" layoutX="343.0" layoutY="444.0" prefHeight="25.0" prefWidth="175.0" promptText="Introduzca el tamaño" />
-                                    <Label layoutX="139.0" layoutY="492.0" prefHeight="15.0" prefWidth="100.0" text="Descripción" textFill="WHITE">
+                                    <Label layoutX="343.0" layoutY="414.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: white;" />
+                                    <Label layoutX="139.0" layoutY="452.0" prefHeight="15.0" prefWidth="100.0" text="Descripción" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextArea fx:id="textAreaDescripcion" layoutX="139.0" layoutY="514.0" prefHeight="130.0" prefWidth="381.0" promptText="Indroduce la descripción de la propiedad" />
-                                    <Label layoutX="418.0" layoutY="264.0" text="Precio" textAlignment="CENTER" textFill="WHITE">
+                                    <TextArea fx:id="textAreaDescripcion" editable="false" layoutX="139.0" layoutY="474.0" prefHeight="130.0" prefWidth="381.0">
+                                       <cursor>
+                                          <Cursor fx:constant="DEFAULT" />
+                                       </cursor></TextArea>
+                                    <Label layoutX="416.0" layoutY="258.0" text="Precio" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="textFieldPrecio" alignment="CENTER" layoutX="418.0" layoutY="283.0" prefHeight="25.0" prefWidth="102.0" promptText="Cantidad" styleClass="white-textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
-                                    <ImageView fitHeight="33.0" fitWidth="147.0" layoutX="454.0" layoutY="675.0" pickOnBounds="true" preserveRatio="true">
+                                    <Label layoutX="416.0" layoutY="280.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: white;" />
+                                    <ImageView fitHeight="33.0" fitWidth="147.0" layoutX="454.0" layoutY="645.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../media/botón%20finalizar.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="buttonFinalizarRegistro" layoutX="453.0" layoutY="675.0" mnemonicParsing="false" onAction="#registrarPropiedad" prefHeight="33.0" prefWidth="127.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Finalizar Registro" />
-                                    <ImageView fitHeight="34.0" fitWidth="70.0" layoutX="350.0" layoutY="675.0" pickOnBounds="true" preserveRatio="true">
+                                    <Button fx:id="buttonFinalizarRegistro" layoutX="453.0" layoutY="645.0" mnemonicParsing="false" onAction="#registrarPropiedad" prefHeight="33.0" prefWidth="127.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Visitar Propiedad" />
+                                    <ImageView fitHeight="33.0" fitWidth="147.0" layoutX="315.0" layoutY="645.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../media/botón%20cancelar.png" />
+                                          <Image url="@../media/botón%20finalizar.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="buttonCancelar" layoutX="348.0" layoutY="675.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="73.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Cancelar" />
+                                    <Button fx:id="buttonFinalizarRegistro1" layoutX="315.0" layoutY="645.0" mnemonicParsing="false" onAction="#registrarPropiedad" prefHeight="33.0" prefWidth="127.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Calificar Propiedad" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="65.0" layoutY="64.0" prefHeight="320.0" prefWidth="227.0" styleClass="grey-anchor" stylesheets="@../css/hoja%20de%20estilo.css">
@@ -195,6 +192,15 @@
                   </ScrollPane>
                </center>
             </BorderPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <AnchorPane layoutX="217.0" layoutY="153.0" prefHeight="329.0" prefWidth="466.0">
+               <children>
+                  <BorderPane prefHeight="329.0" prefWidth="466.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>

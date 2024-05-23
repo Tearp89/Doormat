@@ -26,9 +26,12 @@
     -fx-border-radius:20px;
     -fx-background-radius:20px;
     -fx-cursor:hand;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
 }
 .user-buttom:hover{
-    -fx-background-color:#FF3A58;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
 }
 
 .pane-background{
@@ -63,11 +66,12 @@
     fx-cursor:hand;
     -fx-scale-x: 1.0;
     -fx-scale-y: 1.0;
+    -fx-cursor:hand;
 }
 .top-icons:hover{
     -fx-background-color:#7d7d7d;
-    -fx-scale-x: 1.04;
-    -fx-scale-y: 1.03;  
+    -fx-scale-x: 1.07;
+    -fx-scale-y: 1.06;  
 }
 .top-logo{
     -fx-cursor:hand;
@@ -186,5 +190,14 @@
     -fx-font-family:"Tahoma";
     -fx-cursor:hand;
     
-    
+}
+
+.trash-buttom{
+    -fx-background-color: transparent;
+    -fx-cursor:hand;
+    -fx-background-radius:10px;
+    -fx-border-radius:10px;
+}
+.trash-buttom:hover{
+    -fx-background-color:#ea0404;
 }
