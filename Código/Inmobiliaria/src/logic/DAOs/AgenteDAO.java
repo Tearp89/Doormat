@@ -2,6 +2,7 @@ package logic.DAOs;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dataAccess.DatabaseManager;
@@ -41,5 +42,31 @@ public class AgenteDAO {
         pStatement.setInt(1, agente.getValoracion());
         result = pStatement.executeUpdate();
         return result;
+    }
+
+    public int calificarAgente(int calificacion, String usuarioAgente) throws SQLException{
+        DatabaseManager databaseManager = new DatabaseManager();
+        String query = "INSERT INTO CalificacionesAgente (calificacion, Agente_usuarioAgente) VALUES = (?, ?)";
+        int result = 0;
+        Connection connection = databaseManager.getConnection();
+        PreparedStatement pStatement = connection.prepareStatement(query);
+        pStatement.setInt(1, calificacion);
+        pStatement.setString(2, usuarioAgente);
+        result = pStatement.executeUpdate();
+        return result;
+    }
+
+    public double obtenerPromedioCalificacionesPropiedad(String usuarioAgente) throws SQLException{
+        DatabaseManager databaseManager = new DatabaseManager();
+        String query = "SELECT AVG(calificacion) AS promedio FROM CalificacionesAgente WHERE Agente_usuarioAgente = ?";
+        double promedio = 0.0;
+        Connection connection = databaseManager.getConnection();
+        PreparedStatement pStatement = connection.prepareStatement(query);
+        pStatement.setString(1, usuarioAgente);
+        ResultSet resultSet = pStatement.executeQuery();
+        if(resultSet.next()){
+            promedio = resultSet.getDouble("promedio");
+        }
+        return promedio;
     }
 }
