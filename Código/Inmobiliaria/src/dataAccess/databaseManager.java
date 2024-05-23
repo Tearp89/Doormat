@@ -1,39 +1,14 @@
 package dataAccess;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class DatabaseManager {
     private Connection connection;
-    private final String DATABASE_NAME="db.url";
-    private final String DATABASE_USER="db.user";
-    private final String DATABASE_PASSWORD="db.password";
-
-
-    private Properties getDatabaseConfig(){
-        Properties configuration = null;
-        try{
-            FileInputStream databaseConfig = new FileInputStream("src/dataAccess/DatabaseConfig.properties");
-            if(databaseConfig != null){
-                configuration = new Properties();
-                configuration.load(databaseConfig);
-            }
-            databaseConfig.close();
-        } 
-        catch (FileNotFoundException getDatabaseConfigException){
-            
-        } 
-        catch (IOException databaseConfigIoException){
-            
-        }
-
-        return configuration;
-    }
+    private final String DATABASE_NAME="jdbc:mysql://127.0.0.1/doormat";
+    private final String DATABASE_USER="adminDoormat";
+    private final String DATABASE_PASSWORD="taylor";
     
     public Connection getConnection() throws SQLException{
         connect();
@@ -41,15 +16,7 @@ public class DatabaseManager {
     }
     
     private void connect() throws SQLException{
-        Properties properties = new DatabaseManager().getDatabaseConfig();
-        if (properties != null){
-            connection=DriverManager.getConnection( properties.getProperty(DATABASE_NAME), 
-            properties.getProperty(DATABASE_USER), 
-            properties.getProperty(DATABASE_PASSWORD));
-        } else {
-            throw new SQLException ("No se pudo conectar a la base de datos");
-        }
-        
+        connection = DriverManager.getConnection(DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD);
     }
     
     public void closeConnection(){
