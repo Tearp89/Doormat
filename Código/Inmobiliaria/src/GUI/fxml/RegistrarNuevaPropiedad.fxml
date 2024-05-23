@@ -47,11 +47,6 @@
                               <Font name="Tahoma Bold" size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="buttonHome" layoutX="500.0" layoutY="59.0" mnemonicParsing="false" onAction="#regresarInicio" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Inicio">
-                           <font>
-                              <Font size="9.0" />
-                           </font>
-                        </Button>
                         <Button fx:id="buttonRent" layoutX="605.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css">
                            <font>
                               <Font size="9.0" />
@@ -187,7 +182,7 @@
                                           <Image url="@../media/botón%20cancelar.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="buttonCancelar" layoutX="348.0" layoutY="675.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="73.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Cancelar" />
+                                    <Button fx:id="buttonCancelar" layoutX="348.0" layoutY="675.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="36.0" prefWidth="73.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Cancelar" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="65.0" layoutY="64.0" prefHeight="320.0" prefWidth="227.0" styleClass="grey-anchor" stylesheets="@../css/hoja%20de%20estilo.css">

@@ -67,7 +67,13 @@ public class ConsultarPropiedadesAgenteController {
     private Button buttonAplicarFiltros;
 
     @FXML
+    private Label labelUsuario;
+
+    @FXML
     private void initialize(){
+        Agente agenteData = new Agente();
+        agenteData = UserSessionManager.getInstance().getAgenteData();
+        labelUsuario.setText(agenteData.getUsuarioAgente());
         aplicarFiltros(null);
     }
 
