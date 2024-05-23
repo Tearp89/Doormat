@@ -2,8 +2,6 @@ package GUI.controllers;
 
 import java.sql.SQLException;
 import java.util.function.UnaryOperator;
-
-import GUI.windows.ChangeWindowManager;
 import GUI.windows.UserSessionManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -89,8 +87,8 @@ public class RegistrarNuevaPropiedadController {
 
     @FXML
     public void initialize(){
-        //Agente agenteData = UserSessionManager.getInstance().getAgenteData();
-        //labelUser.setText(agenteData.getUsuarioAgente());
+        Agente agenteData = UserSessionManager.getInstance().getAgenteData();
+        labelUser.setText(agenteData.getUsuarioAgente());
         ObservableList<String> opcionesZona = FXCollections.observableArrayList();
         opcionesZona.add("Centro");
         opcionesZona.add("Orilla");
@@ -250,11 +248,5 @@ public class RegistrarNuevaPropiedadController {
             alertDatosVacios.setHeaderText("Ocurrio un error");
             alertDatosVacios.show();
         }
-    }
-
-    @FXML
-    public void regresarInicio(ActionEvent event){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/consultarPropiedadesAdmin.fxml"));
-        ChangeWindowManager.changeWindowTo(event, loader);
     }
 }
