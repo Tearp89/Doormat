@@ -107,21 +107,21 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="textFieldDireccion" disable="true" layoutX="139.0" layoutY="220.0" prefHeight="25.0" prefWidth="381.0" styleClass="white-textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
-                                    <CheckBox fx:id="checkBoxDepartamento" layoutX="141.0" layoutY="276.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="106.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Departamento" textFill="WHITE" />
+                                    <CheckBox fx:id="checkBoxDepartamento" layoutX="141.0" layoutY="276.0" mnemonicParsing="false" onAction="#seleccionarDepartamento" prefHeight="19.0" prefWidth="106.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Departamento" textFill="WHITE" />
                                     <Label layoutX="139.0" layoutY="258.0" text="Tipo de propiedad" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <CheckBox fx:id="checkBoxCuarto" layoutX="141.0" layoutY="294.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Cuartos" textFill="WHITE" />
-                                    <CheckBox fx:id="checkBoxCasa" layoutX="141.0" layoutY="312.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Casa" textFill="WHITE" />
-                                    <CheckBox fx:id="checkBoxRenta" layoutX="279.0" layoutY="276.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="106.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Renta" textFill="WHITE" />
+                                    <CheckBox fx:id="checkBoxCuarto" layoutX="141.0" layoutY="294.0" mnemonicParsing="false" onAction="#seleccionarCuarto" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Cuartos" textFill="WHITE" />
+                                    <CheckBox fx:id="checkBoxCasa" layoutX="141.0" layoutY="312.0" mnemonicParsing="false" onAction="#seleccionarCasa" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Casa" textFill="WHITE" />
+                                    <CheckBox fx:id="checkBoxRenta" layoutX="279.0" layoutY="276.0" mnemonicParsing="false" onAction="#seleccionarRenta" prefHeight="19.0" prefWidth="106.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Renta" textFill="WHITE" />
                                     <Label layoutX="277.0" layoutY="258.0" text="Propiedad en..." textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <CheckBox fx:id="checkBoxVenta" layoutX="279.0" layoutY="294.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Venta" textFill="WHITE" />
+                                    <CheckBox fx:id="checkBoxVenta" layoutX="279.0" layoutY="294.0" mnemonicParsing="false" onAction="#seleccionarVenta" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Venta" textFill="WHITE" />
                                     <Label layoutX="155.0" layoutY="344.0" text="Número de&#10;habitaciones" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
@@ -145,8 +145,8 @@
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <CheckBox fx:id="checkBoxSiCochera" layoutX="141.0" layoutY="436.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="106.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Sí" textFill="WHITE" />
-                                    <CheckBox fx:id="checkBoxNoCochera" layoutX="141.0" layoutY="454.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="No" textFill="WHITE" />
+                                    <CheckBox fx:id="checkBoxSiCochera" layoutX="141.0" layoutY="436.0" mnemonicParsing="false" onAction="#seleccionarSiCochera" prefHeight="19.0" prefWidth="106.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Sí" textFill="WHITE" />
+                                    <CheckBox fx:id="checkBoxNoCochera" layoutX="141.0" layoutY="454.0" mnemonicParsing="false" onAction="#seleccionarNoCochera" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="No" textFill="WHITE" />
                                     <TextField fx:id="textFieldCantidadCochera" alignment="CENTER" layoutX="209.0" layoutY="443.0" prefHeight="25.0" prefWidth="76.0" />
                                     <Label layoutX="343.0" layoutY="422.0" text="Tamaño en metros cuadrados" textFill="WHITE">
                                        <font>

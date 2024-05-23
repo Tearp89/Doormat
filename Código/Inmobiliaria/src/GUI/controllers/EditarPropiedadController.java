@@ -268,12 +268,12 @@ public class EditarPropiedadController {
     
                 if (checkBoxRenta.isSelected()) {
                     propiedad.setPropiedadEn("Renta");
-                } else {
+                } else if(checkBoxVenta.isSelected()){
                     propiedad.setPropiedadEn("Venta");
                 }
-    
+
                 PropiedadDAO propiedadDAO = new PropiedadDAO();
-                propiedadDAO.agregarPropiedad(propiedad);
+                propiedadDAO.actualizarPropiedadPorIdPropiedad(propiedad);
     
                 Alert agregoPropiedad = new Alert(AlertType.INFORMATION);
                 agregoPropiedad.setTitle("Confirmación registro");
@@ -304,4 +304,6 @@ public class EditarPropiedadController {
             alertDatosVacios.show();
         }
     }
+
+    
 }
