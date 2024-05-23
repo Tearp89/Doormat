@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="154.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="271.0" prefWidth="147.0">
+         <children>
+            <ImageView fitHeight="271.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../media/tres%20habitacione%201.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutY="183.33333333333334" prefHeight="88.0" prefWidth="155.0" styleClass="anchor-propiedad" stylesheets="@../css/hoja%20de%20estilo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="183.0">
+               <children>
+                  <Label fx:id="labelPropiedadEn" layoutX="9.0" layoutY="1.0" prefHeight="15.0" prefWidth="47.0" text="Alquiler">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="labelHabitaciones" layoutX="75.0" layoutY="58.0" prefHeight="15.0" prefWidth="70.0" text="habitaciones">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#0066ff" glyphName="BED" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="labelTamanio" layoutX="96.0" layoutY="40.0" prefHeight="15.0" prefWidth="53.0" text="mtrs">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#0066ff" glyphName="SQUARE" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="labelEstancias" layoutX="14.0" layoutY="40.0" prefHeight="15.0" prefWidth="74.0" text="Estancias">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#0066ff" glyphName="GAMEPAD" text="" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="labelBanios" layoutX="14.0" layoutY="58.0" prefHeight="15.0" prefWidth="55.0" text="Baños">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#0066ff" glyphName="TINT" />
+                     </graphic>
+                  </Label>
+                  <Label fx:id="labelResumen" layoutX="9.0" layoutY="19.0" prefHeight="15.0" prefWidth="140.0" text="Resumen">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="74.0" layoutY="171.0" prefHeight="23.0" prefWidth="80.0" styleClass="label-fondo-precio" stylesheets="@../css/hoja%20de%20estilo.css">
+               <children>
+                  <FontAwesomeIcon fill="WHITE" glyphName="DOLLAR" layoutX="5.0" layoutY="15.0" />
+                  <Label fx:id="labelPrecio" layoutX="15.0" layoutY="2.0" prefHeight="17.0" prefWidth="57.0">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Button layoutX="-1.0" mnemonicParsing="false" prefHeight="271.3333333333333" prefWidth="154.66666666666666" styleClass="tranparent-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Button" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
