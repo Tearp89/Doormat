@@ -139,3 +139,52 @@
     -fx-border-radius:10px;
     
 }
+
+.black-anchor{
+    -fx-background-color: #333333;
+}
+
+.grey-anchor{
+    -fx-background-color: #D9D9D9;
+    -fx-background-radius:10px;
+}
+
+.dotted-border {
+    -fx-background-color: #0080dc0f;
+    -fx-border-color: #0080DC; /* Color del borde */
+    -fx-background-radius:15px;
+    -fx-border-radius: 15px;
+    -fx-border-width: 2px;   /* Ancho del borde */
+    -fx-border-style: dotted; /* Estilo del borde */
+}
+.white-textfield{
+    -fx-background-color:#ffffff;
+    -fx-background-radius:0px;
+    -fx-font-size: 12px;
+    -fx-font-family:"Tahoma";
+    -fx-cursor:text;
+}
+.white-textfield:focused{
+    -fx-background-color:#e2e2e2;
+    
+    
+}
+
+.white-combobox{
+    -fx-background-color:#ffffff;
+    -fx-background-radius:0px;
+    -fx-border-radius:0px;
+    -fx-font-size: 12px;
+    -fx-font-family:"Tahoma";
+    -fx-cursor:hand;
+}
+.white-combobox:focused{
+    -fx-background-color:#e2e2e2;
+    -fx-background-radius:0px;
+    -fx-border-radius:0px;
+    -fx-font-size: 12px;
+    -fx-font-family:"Tahoma";
+    -fx-cursor:hand;
+    
+    
+}
