@@ -3,11 +3,12 @@ package GUI.controllers;
 import java.sql.SQLException;
 import java.util.function.UnaryOperator;
 
-import logic.DAOs.PropiedadDAO;
+import GUI.windows.ChangeWindowManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -79,6 +80,9 @@ public class EditarPropiedadController {
 
     @FXML 
     private Button buttonCancelar;
+
+    @FXML
+    private Button buttonEliminar;
 
     @FXML
     private Label labelUser;
@@ -306,5 +310,27 @@ public class EditarPropiedadController {
         }
     }
 
-    
+    @FXML
+    public void regresarInicio(ActionEvent event){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/consultarPropiedadesAdmin.fxml"));
+        ChangeWindowManager.changeWindowTo(event, loader);
+    }
+
+    @FXML
+    public void eliminarPropiedad(ActionEvent event){
+        PropiedadDAO propiedadDAO = new PropiedadDAO();
+        Propiedad propiedad = new Propiedad();
+        propiedad.setIdPropiedad(idPropiedadUsada);
+        try {
+            propiedadDAO.eliminarPropiedadPorId(propiedad);
+            Alert agregoPropiedad = new Alert(AlertType.INFORMATION);
+            agregoPropiedad.setTitle("Confirmación eliminación");
+            agregoPropiedad.setHeaderText("Se elimino correctamente");
+            agregoPropiedad.setContentText("Se elimino de manera exitosa la propiedad");
+            agregoPropiedad.show();
+            regresarInicio(event);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -10,6 +10,7 @@ import GUI.windows.UserSessionManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -66,6 +67,11 @@ public class ConsultarPropiedadesAgenteController {
     private Button buttonAplicarFiltros;
 
     @FXML
+    private void initialize(){
+        aplicarFiltros(null);
+    }
+
+    @FXML
     private void aplicarFiltros(ActionEvent event) {
         PropiedadDAO propiedadDAO = new PropiedadDAO();
         try {
@@ -106,21 +112,26 @@ public class ConsultarPropiedadesAgenteController {
         gridPaneResultados.getChildren().clear();
         
         int columnas = 0;
-        int filas = 1;
+        int filas = 0;
         for (int i = 0; i < propiedades.size(); i++) {
             Propiedad propiedad = propiedades.get(i);
             FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/GUI/fxml/propiedad.fxml"));
             try {
-                loader.setLocation(getClass().getResource("/GUI/fxml/propiedad.fxml"));
                 Parent root = loader.load();
                 PropiedadController controller = loader.getController();
                 controller.ingresarInformacion(propiedad);
+
+                gridPaneResultados.add(root, columnas, filas);
+                GridPane.setMargin(root, new Insets(10));
+
+                columnas++;
                 if(columnas == 3){ 
                     columnas = 0;
                     ++filas;
                 }
 
-                gridPaneResultados.add(root, columnas, filas);
+                
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -133,13 +144,90 @@ public class ConsultarPropiedadesAgenteController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/RegistrarNuevaPropiedad.fxml"));
         ChangeWindowManager.changeWindowTo(event, loader);
     }
-    @FXML
-    private Label labelUsuario;
-    @FXML
-    public void initialize(){
-        Agente agenteData = new Agente();
-        agenteData = UserSessionManager.getInstance().getAgenteData();
-        labelUsuario.setText(agenteData.getUsuarioAgente());
 
+    @FXML
+    public void seleccionarDepartamento(ActionEvent event){
+        if(checkBoxDepartamento.isSelected()){
+            checkBoxCuarto.setSelected(false);
+            checkBoxCasa.setSelected(false);
+        }
+    }
+
+    @FXML
+    public void seleccionarCasa(ActionEvent event){
+        if(checkBoxCasa.isSelected()){
+            checkBoxDepartamento.setSelected(false);
+            checkBoxCuarto.setSelected(false);
+        }
+    }
+
+    @FXML
+    public void seleccionarCuarto(ActionEvent event){
+        if(checkBoxCuarto.isSelected()){
+            checkBoxDepartamento.setSelected(false);
+            checkBoxCasa.setSelected(false);
+        }
+    }
+
+    @FXML
+    public void seleccionarRenta(ActionEvent event){
+        if(checkBoxRenta.isSelected()){
+            checkBoxCompra.setSelected(false);
+        }
+    }
+
+    @FXML
+    public void seleccionarCompra(ActionEvent event){
+        if(checkBoxCompra.isSelected()){
+            checkBoxRenta.setSelected(false);
+        }
+    }
+
+    @FXML
+    public void seleccionarZonaCentro(ActionEvent event){
+        if(checkBoxCentro.isSelected()){
+            checkBoxOrillas.setSelected(false);
+            checkBoxResidencial.setSelected(false);
+        }
+    }
+
+    @FXML
+    public void seleccionarZonaOrillas(ActionEvent event){
+        if(checkBoxOrillas.isSelected()){
+            checkBoxCentro.setSelected(false);
+            checkBoxResidencial.setSelected(false);
+        }
+    }
+
+    @FXML
+    public void seleccionarZonaResidencial(ActionEvent event){
+        if(checkBoxResidencial.isSelected()){
+            checkBoxCentro.setSelected(false);
+            checkBoxOrillas.setSelected(false);
+        }
+    }
+
+    @FXML
+    public void seleccionarCiudadOrizaba(ActionEvent event){
+        if(checkBoxOrizaba.isSelected()){
+            checkBoxXalapa.setSelected(false);
+            checkBoxVeracruz.setSelected(false);
+        }
+    }
+
+    @FXML
+    public void seleccionarCiudadXalapa(ActionEvent event){
+        if(checkBoxXalapa.isSelected()){
+            checkBoxOrizaba.setSelected(false);
+            checkBoxVeracruz.setSelected(false);
+        }
+    }
+
+    @FXML
+    public void seleccionarCiudadVeracruz(ActionEvent event){
+        if(checkBoxVeracruz.isSelected()){
+            checkBoxOrizaba.setSelected(false);
+            checkBoxXalapa.setSelected(false);
+        }
     }
 }
