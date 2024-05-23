@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="black-anchor" stylesheets="@../css/hoja%20de%20estilo.css">
+         <children>
+            <ImageView fitHeight="393.0" fitWidth="900.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../media/blue-ripples-and-water-splashes-waves-surface-flat-style-design-illustration-vector-Photoroom.png-Photoroom.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="256.0" layoutY="64.0" prefHeight="506.0" prefWidth="388.0" stylesheets="@../css/hoja%20de%20estilo.css">
+               <styleClass>
+                  <String fx:value="white-bg" />
+                  <String fx:value="shadow" />
+               </styleClass>
+               <children>
+                  <BorderPane prefHeight="541.0" prefWidth="388.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <top>
+                        <AnchorPane prefHeight="91.0" prefWidth="388.0" styleClass="top-login" stylesheets="@../css/hoja%20de%20estilo.css" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="62.0" fitWidth="58.0" layoutX="80.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../media/logo%205%201-Photoroom.png-Photoroom.png" />
+                                 </image>
+                              </ImageView>
+                              <Line endX="-40.0" layoutX="217.0" layoutY="45.0" rotate="90.0" startX="-100.0" stroke="WHITE" />
+                              <Label layoutX="155.0" layoutY="23.0" text="DOOR" textFill="#01013c">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="244.0" layoutY="23.0" text="MAT" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="155.0" layoutY="57.0" text="INMOBILIARIA" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <AnchorPane prefHeight="392.0" prefWidth="388.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <TextField fx:id="textFieldCorreoIniciar" layoutX="67.0" layoutY="29.0" prefHeight="30.0" prefWidth="254.0" promptText="Correo" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+                              <FontAwesomeIcon fill="#6396e1" glyphName="USER" layoutX="77.0" layoutY="50.0" selectionFill="#6396e1" size="1.6em" />
+                              <PasswordField fx:id="textFieldContraseñaIniciar" layoutX="67.0" layoutY="75.0" prefHeight="30.0" prefWidth="254.0" promptText="Contraseña" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+                              <Line endX="156.0" layoutX="177.0" layoutY="191.0" startX="-122.0" stroke="#6f6f6f" />
+                              <FontAwesomeIcon fill="#6396e1" glyphName="LOCK" layoutX="77.0" layoutY="96.0" selectionFill="#6396e1" size="1.6em" />
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="393.0" fitWidth="900.0" layoutY="250.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../media/blue-ripples-and-water-splashes-waves-surface-flat-style-design-illustration-vector-Photoroom.png-Photoroom.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="buttonIniciar" layoutX="385.0" layoutY="278.0" mnemonicParsing="false" onAction="#goToInicio" prefHeight="39.0" prefWidth="131.0" styleClass="button-logIn" stylesheets="@../css/hoja%20de%20estilo.css" text="INICIAR" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="21.0" />
+               </font>
+            </Button>
+            <PasswordField fx:id="textFieldContraseñaCrear" layoutX="323.0" layoutY="451.0" prefHeight="30.0" prefWidth="254.0" promptText="Contraseña" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+            <TextField fx:id="textFieldCorreoCrear" layoutX="323.0" layoutY="405.0" prefHeight="30.0" prefWidth="254.0" promptText="Correo" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+            <Button fx:id="buttonCrear" layoutX="385.0" layoutY="500.0" mnemonicParsing="false" onAction="#goToInicio" prefHeight="39.0" prefWidth="131.0" styleClass="button-singUp" stylesheets="@../css/hoja%20de%20estilo.css" text="CREAR" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="21.0" />
+               </font>
+            </Button>
+            <FontAwesomeIcon fill="#6396e1" glyphName="USER" layoutX="333.0" layoutY="426.0" selectionFill="#6396e1" size="1.6em" />
+            <FontAwesomeIcon fill="#6396e1" glyphName="LOCK" layoutX="333.0" layoutY="472.0" selectionFill="#6396e1" size="1.6em" />
+            <Label layoutX="311.0" layoutY="355.0" text="Crea una cuenta" textFill="#6396e1">
+               <font>
+                  <Font name="Arial Rounded MT Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
