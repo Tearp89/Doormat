@@ -2,6 +2,8 @@ package GUI.controllers;
 
 import java.sql.SQLException;
 import java.util.function.UnaryOperator;
+
+import logic.DAOs.PropiedadDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -15,7 +17,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-import logic.DAOs.PropiedadDAO;
 import logic.classes.Propiedad;
 
 public class EditarPropiedadController {

@@ -2,6 +2,8 @@ package GUI.controllers;
 
 import java.sql.SQLException;
 import java.util.function.UnaryOperator;
+
+import PropiedadDAO;
 import GUI.windows.UserSessionManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -16,7 +18,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-import logic.DAOs.PropiedadDAO;
 import logic.classes.Agente;
 import logic.classes.Propiedad;
 

@@ -3,6 +3,7 @@ package GUI.controllers;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import PropiedadDAO;
 import GUI.windows.ChangeWindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import logic.DAOs.PropiedadDAO;
 import logic.classes.Propiedad;
 
 public class ConsultarPropiedadesAgenteController {
