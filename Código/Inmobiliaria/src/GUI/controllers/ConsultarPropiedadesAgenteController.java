@@ -3,7 +3,7 @@ package GUI.controllers;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import PropiedadDAO;
+import logic.DAOs.PropiedadDAO;
 import GUI.windows.ChangeWindowManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
