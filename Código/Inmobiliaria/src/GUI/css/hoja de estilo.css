@@ -145,7 +145,7 @@
 }
 
 .black-anchor{
-    -fx-background-color: #333333;
+    -fx-background-color: rgb(51, 51, 51);
 }
 
 .grey-anchor{
@@ -155,7 +155,7 @@
 
 .dotted-border {
     -fx-background-color: #0080dc0f;
-    -fx-border-color: #0080DC; /* Color del borde */
+    -fx-border-color: #0080dc; /* Color del borde */
     -fx-background-radius:15px;
     -fx-border-radius: 15px;
     -fx-border-width: 2px;   /* Ancho del borde */
@@ -192,6 +192,19 @@
     
 }
 
+.black-radius{
+    -fx-background-color:#636363;
+    -fx-radius-color: #333333;
+    -fx-border-width: 10px;
+    -fx-background-radius: 8px;
+
+}
+.black-top-anchor{
+    -fx-background-color: rgb(51, 51, 51);
+    -fx-background-radius: 8px;
+
+}
+
 .trash-buttom{
     -fx-background-color: transparent;
     -fx-cursor:hand;
@@ -200,4 +213,53 @@
 }
 .trash-buttom:hover{
     -fx-background-color:#ea0404;
+}
+.shadow{
+    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.5), 6,0,0,0);
+}
+.white-bg{
+    -fx-background-color:#fff;
+    -fx-background-radius:8px;
+}
+.anchor-transparent{
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-background-radius:7px;
+}
+.top-login{
+    -fx-background-color: #1d61c8;
+    -fx-background-radius: 8px 8px 0 0; 
+    -fx-border-radius: 8px 8px 0 0;
+}
+.textfield-login{
+    -fx-background-color:white;
+    -fx-border-color:#6396e1;
+    -fx-radius-width: 1px;
+    -fx-border-radius:10px;
+    -fx-padding:0px 0px 0px 28px;
+}
+.button-logIn{
+    -fx-background-color:#6396e1;
+    -fx-background-radius:20px;
+    -fx-scale-x: 1.00;
+    -fx-scale-y: 1.00;
+    -fx-cursor:hand;
+
+}
+
+.button-logIn:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+}
+.button-singUp{
+    -fx-background-color:#333333;
+    -fx-background-radius:20px;
+    -fx-scale-x: 1.00;
+    -fx-scale-y: 1.00;
+    -fx-cursor:hand;
+
+}
+
+.button-singUp:hover{
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
 }
