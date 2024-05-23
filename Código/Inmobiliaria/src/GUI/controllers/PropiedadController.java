@@ -51,8 +51,8 @@ public class PropiedadController {
     }
 
     @FXML
-    public void consultarPropiedad(ActionEvent event){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("null"));
+    public void editarPropiedad(ActionEvent event){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/editarPropiedad.fxml"));
         try {
             Parent root = loader.load();
             EditarPropiedadController controller = loader.getController();

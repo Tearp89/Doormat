@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="154.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="271.0" prefWidth="154.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.PropiedadController">
    <children>
       <AnchorPane prefHeight="271.0" prefWidth="147.0">
          <children>
@@ -26,7 +25,7 @@
                         <Font size="8.0" />
                      </font>
                   </Label>
-                  <Label fx:id="labelHabitaciones" layoutX="75.0" layoutY="58.0" prefHeight="15.0" prefWidth="70.0" text="habitaciones">
+                  <Label fx:id="labelHabitaciones" layoutX="75.0" layoutY="58.0" prefHeight="15.0" prefWidth="70.0" text="10">
                      <font>
                         <Font size="9.0" />
                      </font>
@@ -34,7 +33,7 @@
                         <FontAwesomeIcon fill="#0066ff" glyphName="BED" />
                      </graphic>
                   </Label>
-                  <Label fx:id="labelTamanio" layoutX="96.0" layoutY="40.0" prefHeight="15.0" prefWidth="53.0" text="mtrs">
+                  <Label fx:id="labelTamanio" layoutX="96.0" layoutY="40.0" prefHeight="15.0" prefWidth="53.0" text="120">
                      <font>
                         <Font size="9.0" />
                      </font>
@@ -42,7 +41,7 @@
                         <FontAwesomeIcon fill="#0066ff" glyphName="SQUARE" />
                      </graphic>
                   </Label>
-                  <Label fx:id="labelEstancias" layoutX="14.0" layoutY="40.0" prefHeight="15.0" prefWidth="74.0" text="Estancias">
+                  <Label fx:id="labelEstancias" layoutX="14.0" layoutY="40.0" prefHeight="15.0" prefWidth="71.0" text="100">
                      <font>
                         <Font size="9.0" />
                      </font>
@@ -50,7 +49,7 @@
                         <FontAwesomeIcon fill="#0066ff" glyphName="GAMEPAD" text="" />
                      </graphic>
                   </Label>
-                  <Label fx:id="labelBanios" layoutX="14.0" layoutY="58.0" prefHeight="15.0" prefWidth="55.0" text="Baños">
+                  <Label fx:id="labelBanios" layoutX="14.0" layoutY="58.0" prefHeight="15.0" prefWidth="55.0" text="10">
                      <font>
                         <Font size="9.0" />
                      </font>
@@ -60,7 +59,27 @@
                   </Label>
                   <Label fx:id="labelResumen" layoutX="9.0" layoutY="19.0" prefHeight="15.0" prefWidth="140.0" text="Resumen">
                      <font>
-                        <Font size="10.0" />
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="43.0" layoutY="40.0" prefHeight="15.0" prefWidth="40.0" text="Estancias">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="35.0" layoutY="55.0" prefHeight="22.0" prefWidth="41.0" text="Baños">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="131.0" layoutY="35.0" prefHeight="22.0" prefWidth="22.0" text="mts2">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="101.0" layoutY="55.0" prefHeight="22.0" prefWidth="52.0" text="Habitaciones">
+                     <font>
+                        <Font size="9.0" />
                      </font>
                   </Label>
                </children>
@@ -68,14 +87,14 @@
             <AnchorPane layoutX="74.0" layoutY="171.0" prefHeight="23.0" prefWidth="80.0" styleClass="label-fondo-precio" stylesheets="@../css/hoja%20de%20estilo.css">
                <children>
                   <FontAwesomeIcon fill="WHITE" glyphName="DOLLAR" layoutX="5.0" layoutY="15.0" />
-                  <Label fx:id="labelPrecio" layoutX="15.0" layoutY="2.0" prefHeight="17.0" prefWidth="57.0">
+                  <Label fx:id="labelPrecio" layoutX="15.0" layoutY="2.0" prefHeight="17.0" prefWidth="57.0" textFill="WHITE">
                      <font>
                         <Font size="11.0" />
                      </font>
                   </Label>
                </children>
             </AnchorPane>
-            <Button layoutX="-1.0" mnemonicParsing="false" prefHeight="271.3333333333333" prefWidth="154.66666666666666" styleClass="tranparent-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Button" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Button fx:id="butttonConsultar" layoutX="-1.0" mnemonicParsing="false" onAction="#editarPropiedad" prefHeight="271.3333333333333" prefWidth="154.66666666666666" styleClass="tranparent-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Button" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
          </children>
       </AnchorPane>
    </children>

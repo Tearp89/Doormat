@@ -2,11 +2,14 @@ package GUI.controllers;
 
 import java.sql.SQLException;
 import java.util.function.UnaryOperator;
+
+import GUI.windows.ChangeWindowManager;
 import GUI.windows.UserSessionManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -247,5 +250,11 @@ public class RegistrarNuevaPropiedadController {
             alertDatosVacios.setHeaderText("Ocurrio un error");
             alertDatosVacios.show();
         }
+    }
+
+    @FXML
+    public void regresarInicio(ActionEvent event){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/consultarPropiedadesAdmin.fxml"));
+        ChangeWindowManager.changeWindowTo(event, loader);
     }
 }
