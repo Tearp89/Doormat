@@ -1,5 +1,6 @@
 package GUI.controllers;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -100,14 +101,26 @@ public class ConsultarPropiedadesAgenteController {
 
     private void populateGridPane(ArrayList<Propiedad> propiedades) {
         gridPaneResultados.getChildren().clear();
+        
+        int columnas = 0;
+        int filas = 1;
         for (int i = 0; i < propiedades.size(); i++) {
             Propiedad propiedad = propiedades.get(i);
-            TextField direccion = new TextField(propiedad.getDireccion());
-            TextField precio = new TextField(String.valueOf(propiedad.getPrecio()));
-            TextField resumen = new TextField(propiedad.getResumen());
-            gridPaneResultados.add(direccion, 0, i);
-            gridPaneResultados.add(precio, 1, i);
-            gridPaneResultados.add(resumen, 2, i);
+            FXMLLoader loader = new FXMLLoader();
+            try {
+                loader.setLocation(getClass().getResource("/GUI/fxml/propiedad.fxml"));
+                Parent root = loader.load();
+                PropiedadController controller = loader.getController();
+                controller.ingresarInformacion(propiedad);
+                if(columnas == 3){ 
+                    columnas = 0;
+                    ++filas;
+                }
+
+                gridPaneResultados.add(root, columnas, filas);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
