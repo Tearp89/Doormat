@@ -12,7 +12,7 @@ import logic.classes.Propiedad;
 public class PropiedadDAO {
     public int agregarPropiedad(Propiedad propiedad) throws SQLException{
         DatabaseManager databaseManager = new DatabaseManager();
-        String query = "INSER INTO Propiedad (dirección, descripción, estadoPropiedad, Agente_Usuario, Ciudad, Zona, TipoPropiedad, Precio, NoHabitaciones, NoEstancias, NoBaños, Cochera, Tamaño, Resumen) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO propiedad (dirección, descripción, estadoPropiedad, Agente_Usuario, Ciudad, Zona, TipoPropiedad, Precio, NoHabitaciones, NoEstancias, NoBaños, Cochera, Tamaño, Resumen) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         int result = 0;
         Connection connection = databaseManager.getConnection();
         PreparedStatement pStatement = connection.prepareStatement(query);
