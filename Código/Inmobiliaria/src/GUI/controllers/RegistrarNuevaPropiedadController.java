@@ -19,6 +19,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import logic.DAOs.PropiedadDAO;
 import logic.classes.Agente;
 import logic.classes.Propiedad;
 
@@ -88,8 +89,8 @@ public class RegistrarNuevaPropiedadController {
 
     @FXML
     public void initialize(){
-        //Agente agenteData = UserSessionManager.getInstance().getAgenteData();
-        //labelUser.setText(agenteData.getUsuarioAgente());
+        Agente agenteData = UserSessionManager.getInstance().getAgenteData();
+        labelUser.setText(agenteData.getUsuarioAgente());
         ObservableList<String> opcionesZona = FXCollections.observableArrayList();
         opcionesZona.add("Centro");
         opcionesZona.add("Orilla");

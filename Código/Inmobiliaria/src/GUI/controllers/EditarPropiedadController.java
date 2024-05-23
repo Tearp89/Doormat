@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.function.UnaryOperator;
 
 import GUI.windows.ChangeWindowManager;
+import GUI.windows.UserSessionManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,6 +19,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import logic.DAOs.PropiedadDAO;
+import logic.classes.Agente;
 import logic.classes.Propiedad;
 
 public class EditarPropiedadController {
@@ -91,8 +94,8 @@ public class EditarPropiedadController {
 
     @FXML
     public void initialize(int idPropiedad){
-        //Agente agenteData = UserSessionManager.getInstance().getAgenteData();
-        //labelUser.setText(agenteData.getUsuarioAgente());
+        Agente agenteData = UserSessionManager.getInstance().getAgenteData();
+        labelUser.setText(agenteData.getUsuarioAgente());
         this.idPropiedadUsada = idPropiedad;
         ObservableList<String> opcionesZona = FXCollections.observableArrayList();
         opcionesZona.add("Centro");
