@@ -2,7 +2,6 @@ package GUI.controllers;
 
 import java.sql.SQLException;
 import java.util.function.UnaryOperator;
-import GUI.windows.UserSessionManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,10 +16,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import logic.DAOs.PropiedadDAO;
-import logic.classes.Agente;
 import logic.classes.Propiedad;
 
-public class RegistrarNuevaPropiedadController {
+public class EditarPropiedadController {
     @FXML
     private TextField textFieldResumen;
 
@@ -76,7 +74,7 @@ public class RegistrarNuevaPropiedadController {
     private TextArea textAreaDescripcion;
 
     @FXML
-    private Button buttonFinalizarRegistro;
+    private Button buttonEditarPropiedad;
 
     @FXML 
     private Button buttonCancelar;
@@ -84,10 +82,13 @@ public class RegistrarNuevaPropiedadController {
     @FXML
     private Label labelUser;
 
+    private int idPropiedadUsada;
+
     @FXML
-    public void initialize(){
+    public void initialize(int idPropiedad){
         //Agente agenteData = UserSessionManager.getInstance().getAgenteData();
         //labelUser.setText(agenteData.getUsuarioAgente());
+        this.idPropiedadUsada = idPropiedad;
         ObservableList<String> opcionesZona = FXCollections.observableArrayList();
         opcionesZona.add("Centro");
         opcionesZona.add("Orilla");
@@ -100,6 +101,51 @@ public class RegistrarNuevaPropiedadController {
         aplicarTextFormatterNumerico(textFieldNumeroBanios);
         aplicarTextFormatterNumerico(textFieldTamanioMetros);
         textFieldCantidadCochera.setDisable(true);
+
+        PropiedadDAO propiedadDAO = new PropiedadDAO();
+        try {
+            Propiedad propiedad = propiedadDAO.obtenerPropiedadPorId(idPropiedad);
+            textFieldResumen.setText(propiedad.getResumen());
+            textFieldCiudad.setText(propiedad.getCiudad());
+            comboBoxZona.setValue(propiedad.getZona());
+            textFieldDireccion.setText(propiedad.getDireccion());
+            String tipo = propiedad.getTipoPropiedad();
+            if(tipo == "Departamento"){
+                checkBoxDepartamento.setSelected(true);
+            } else if(tipo == "Cuarto"){
+                checkBoxCuarto.setSelected(true);
+            } else {
+                checkBoxCasa.setSelected(true);
+            }
+
+            String propiedadEn = propiedad.getPropiedadEn();
+            if(propiedadEn == "Renta"){
+                checkBoxRenta.setSelected(true);
+            } else {
+                checkBoxVenta.setSelected(true);
+            }
+
+            textFieldPrecio.setText(String.valueOf(propiedad.getPrecio()));
+            textFieldNumeroHabitaciones.setText(String.valueOf(propiedad.getNoHabitaciones()));
+            textFieldNumeroEstancias.setText(String.valueOf(propiedad.getNoEstancias()));
+            textFieldNumeroBanios.setText(String.valueOf(propiedad.getNoBanios()));
+
+            int cochera = propiedad.getCochera();
+            if(cochera > 0){
+                checkBoxSiCochera.setSelected(true);
+                checkBoxSiCochera.setDisable(true);
+                textFieldCantidadCochera.setText(String.valueOf(cochera));
+            } else {
+                checkBoxNoCochera.setSelected(true);
+                checkBoxSiCochera.setDisable(false);
+                textFieldCantidadCochera.setDisable(true);
+            }
+
+            textFieldTamanioMetros.setText(String.valueOf(propiedad.getTamanio()));
+            textAreaDescripcion.setText(propiedad.getDescripcion());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private void aplicarTextFormatterNumerico(TextField textField) {
@@ -172,79 +218,89 @@ public class RegistrarNuevaPropiedadController {
     }
 
     @FXML
-    public void registrarPropiedad(ActionEvent event){
+    public void editarPropiedad(ActionEvent event) {
         Propiedad propiedad = new Propiedad();
         String resumen = textFieldResumen.getText();
         String ciudad = textFieldCiudad.getText();
         String zona = comboBoxZona.getValue();
         String direccion = textFieldDireccion.getText();
-        
         String descripcion = textAreaDescripcion.getText();
-
-        if(!resumen.isBlank() && !ciudad.isBlank() && ((zona != null && !zona.isBlank())|| (zona != null && !zona.equals("Introduce la zona"))) &&
-        !direccion.isBlank() && (checkBoxDepartamento.isSelected() || checkBoxCuarto.isSelected() || checkBoxCasa.isSelected()) && (checkBoxRenta.isSelected() || checkBoxVenta.isSelected()) &&
-        (!textFieldPrecio.getText().isBlank() || (Integer.parseInt(textFieldPrecio.getText()) != 0) && (!textFieldNumeroHabitaciones.getText().isBlank() || (Integer.parseInt(textFieldNumeroHabitaciones.getText())) != 0) && (!textFieldNumeroEstancias.getText().isBlank() || (Integer.parseInt(textFieldNumeroEstancias.getText())) != 0) && 
-        (!textFieldNumeroBanios.getText().isBlank() || (Integer.parseInt(textFieldNumeroBanios.getText())) != 0) && ((checkBoxSiCochera.isSelected() && (!textFieldCantidadCochera.getText().isBlank() || (Integer.parseInt(textFieldCantidadCochera.getText())) != 0))|| checkBoxNoCochera.isSelected()) && 
-        (!textFieldTamanioMetros.getText().isBlank() || (Integer.parseInt(textFieldTamanioMetros.getText())) != 0) && !descripcion.isBlank())){
-            int precio = Integer.parseInt(textFieldPrecio.getText());
-            int noHabitaciones = Integer.parseInt(textFieldNumeroHabitaciones.getText());
-            int noEstancias = Integer.parseInt(textFieldNumeroEstancias.getText());
-            int noBanios = Integer.parseInt(textFieldNumeroBanios.getText());
+    
+        if (!resumen.isBlank() && !ciudad.isBlank() && (zona != null && !zona.isBlank()) &&
+            !direccion.isBlank() && (checkBoxDepartamento.isSelected() || checkBoxCuarto.isSelected() || checkBoxCasa.isSelected()) && 
+            (checkBoxRenta.isSelected() || checkBoxVenta.isSelected())) {
             
-            int tamanio = Integer.parseInt(textFieldTamanioMetros.getText());
-            propiedad.setResumen(resumen);
-            propiedad.setCiudad(ciudad);
-            propiedad.setZona(zona);
-            propiedad.setDireccion(direccion);
-            propiedad.setPrecio(precio);
-            propiedad.setNoHabitaciones(noHabitaciones);
-            propiedad.setNoEstancias(noEstancias);
-            propiedad.setNoBanios(noBanios);
-            String tempCochera = textFieldCantidadCochera.getText();
-            if(tempCochera != null && tempCochera.isBlank()){
-                int noCocheras = Integer.parseInt(textFieldCantidadCochera.getText());
-                propiedad.setCochera(noCocheras);
-            } else {
-                propiedad.setCochera(0);
-            }
-            propiedad.setTamanio(tamanio);
-            propiedad.setDescripcion(descripcion);
-            propiedad.setUsuarioAgente("Agente de Prueba");
-            if (checkBoxDepartamento.isSelected()){
-                propiedad.setTipoPropiedad("Departamento");
-            } else if (checkBoxCuarto.isSelected()) {
-                propiedad.setTipoPropiedad("Cuarto");
-            } else {
-                propiedad.setTipoPropiedad("Casa");
-            }
-
-            if(checkBoxRenta.isSelected()){
-                propiedad.setPropiedadEn("Renta");
-            } else {
-                propiedad.setPropiedadEn("Venta");
-            }
-
             try {
+                int precio = Integer.parseInt(textFieldPrecio.getText());
+                int noHabitaciones = Integer.parseInt(textFieldNumeroHabitaciones.getText());
+                int noEstancias = Integer.parseInt(textFieldNumeroEstancias.getText());
+                int noBanios = Integer.parseInt(textFieldNumeroBanios.getText());
+                int tamanio = Integer.parseInt(textFieldTamanioMetros.getText());
+    
+                propiedad.setIdPropiedad(idPropiedadUsada);
+                propiedad.setResumen(resumen);
+                propiedad.setCiudad(ciudad);
+                propiedad.setZona(zona);
+                propiedad.setDireccion(direccion);
+                propiedad.setPrecio(precio);
+                propiedad.setNoHabitaciones(noHabitaciones);
+                propiedad.setNoEstancias(noEstancias);
+                propiedad.setNoBanios(noBanios);
+    
+                if (checkBoxSiCochera.isSelected() && !textFieldCantidadCochera.getText().isBlank()) {
+                    int noCocheras = Integer.parseInt(textFieldCantidadCochera.getText());
+                    propiedad.setCochera(noCocheras);
+                } else {
+                    propiedad.setCochera(0);
+                }
+    
+                propiedad.setTamanio(tamanio);
+                propiedad.setDescripcion(descripcion);
+                propiedad.setUsuarioAgente("Agente de Prueba");
+    
+                if (checkBoxDepartamento.isSelected()) {
+                    propiedad.setTipoPropiedad("Departamento");
+                } else if (checkBoxCuarto.isSelected()) {
+                    propiedad.setTipoPropiedad("Cuarto");
+                } else {
+                    propiedad.setTipoPropiedad("Casa");
+                }
+    
+                if (checkBoxRenta.isSelected()) {
+                    propiedad.setPropiedadEn("Renta");
+                } else {
+                    propiedad.setPropiedadEn("Venta");
+                }
+    
                 PropiedadDAO propiedadDAO = new PropiedadDAO();
                 propiedadDAO.agregarPropiedad(propiedad);
+    
                 Alert agregoPropiedad = new Alert(AlertType.INFORMATION);
                 agregoPropiedad.setTitle("Confirmación registro");
                 agregoPropiedad.setHeaderText("Confirmación se agrego la propiedad");
                 agregoPropiedad.setContentText("Se abrio de manera exitosa la propiedad");
                 agregoPropiedad.show();
+    
+            } catch (NumberFormatException e) {
+                Alert alertDatosInvalidos = new Alert(AlertType.ERROR);
+                alertDatosInvalidos.setTitle("Datos inválidos");
+                alertDatosInvalidos.setHeaderText("Error en el formato de los datos");
+                alertDatosInvalidos.setContentText("Por favor, asegúrate de que todos los campos numéricos contienen valores válidos.");
+                alertDatosInvalidos.show();
+                e.printStackTrace();
             } catch (SQLException e) {
                 Alert alertBaseDeDatos = new Alert(AlertType.ERROR);
-                alertBaseDeDatos.setTitle("Ocurrio un error en la base");
-                alertBaseDeDatos.setContentText("Hubo un error al activar la colaboración");
-                alertBaseDeDatos.setHeaderText("Ocurrio un error");
+                alertBaseDeDatos.setTitle("Ocurrió un error en la base de datos");
+                alertBaseDeDatos.setHeaderText("Ocurrió un error al interactuar con la base de datos");
+                alertBaseDeDatos.setContentText("Hubo un error al intentar agregar la propiedad. Por favor, intenta de nuevo.");
                 alertBaseDeDatos.show();
                 e.printStackTrace();
             }
         } else {
             Alert alertDatosVacios = new Alert(AlertType.ERROR);
-            alertDatosVacios.setTitle("No ha ingresado datos correctos");
-            alertDatosVacios.setContentText("Revise si hay datos por rellenar o dejo alguno en 0");
-            alertDatosVacios.setHeaderText("Ocurrio un error");
+            alertDatosVacios.setTitle("Datos incompletos");
+            alertDatosVacios.setHeaderText("Faltan datos por completar");
+            alertDatosVacios.setContentText("Por favor, asegúrate de que todos los campos obligatorios están llenos y contienen valores válidos.");
             alertDatosVacios.show();
         }
     }
