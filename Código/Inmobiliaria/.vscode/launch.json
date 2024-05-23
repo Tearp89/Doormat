@@ -4,6 +4,13 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+        {
+            "type": "java",
+            "name": "MainLogin",
+            "request": "launch",
+            "mainClass": "GUI.windows.MainLogin",
+            "projectName": "Inmobiliaria_a39644a8",
+            "vmArgs": "--module-path \"C:/Users/marla/OneDrive - Universidad Veracruzana/Documentos/4to semestre/Principios de construcción/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+        }
     ]
 }

@@ -1,3 +1,6 @@
+package GUI.windows;
+
+
 import GUI.controllers.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +13,7 @@ public class MainLogin extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/login.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/login.fxml"));
         Parent root = loader.load();
 
         LoginController loginController = loader.getController();

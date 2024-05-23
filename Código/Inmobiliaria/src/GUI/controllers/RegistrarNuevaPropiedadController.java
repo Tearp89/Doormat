@@ -3,7 +3,7 @@ package GUI.controllers;
 import java.sql.SQLException;
 import java.util.function.UnaryOperator;
 
-import PropiedadDAO;
+import logic.DAOs.*;
 import GUI.windows.UserSessionManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

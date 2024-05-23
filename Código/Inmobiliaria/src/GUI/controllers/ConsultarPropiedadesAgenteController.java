@@ -6,14 +6,17 @@ import java.util.ArrayList;
 
 import logic.DAOs.PropiedadDAO;
 import GUI.windows.ChangeWindowManager;
+import GUI.windows.UserSessionManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import logic.classes.Agente;
 import logic.classes.Propiedad;
 
 public class ConsultarPropiedadesAgenteController {
@@ -123,10 +126,20 @@ public class ConsultarPropiedadesAgenteController {
             }
         }
     }
-
+    
     @FXML
     public void goToAgregarPropiedad(ActionEvent event){
+        
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/RegistrarNuevaPropiedad.fxml"));
         ChangeWindowManager.changeWindowTo(event, loader);
+    }
+    @FXML
+    private Label labelUsuario;
+    @FXML
+    public void initialize(){
+        Agente agenteData = new Agente();
+        agenteData = UserSessionManager.getInstance().getAgenteData();
+        labelUsuario.setText(agenteData.getUsuarioAgente());
+
     }
 }

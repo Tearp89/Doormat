@@ -11,7 +11,7 @@ public class LoginDAO {
 
     public boolean validarAgente(String nombreUsuario, String contraseña){
         DatabaseManager dbManager = new DatabaseManager();
-        String query = "SELECT (*) COUNT AS count FROM Agente WHERE usuarioAgente = ? AND contraseña = ?";
+        String query = "SELECT COUNT(*) AS count FROM Agente WHERE usuarioAgente = ? AND contraseña = ?";
         try{
             Connection connection = dbManager.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -33,7 +33,7 @@ public class LoginDAO {
 
     public boolean validarCliente(String usuarioCliente, String contraseñaCliente){
         DatabaseManager dbManager = new DatabaseManager();
-        String query = "SELECT (*) COUNT AS count FROM Cliente WHERE usuarioCliente = ? AND contraseña = ?";
+        String query = "SELECT COUNT(*) AS count FROM Cliente WHERE usuarioCliente = ? AND contraseña = ?";
         try{
             Connection connection = dbManager.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);
