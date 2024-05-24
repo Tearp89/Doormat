@@ -277,3 +277,44 @@
     -fx-background-color: transparent;
     -fx-cursor:hand;
 }
+.button-consultar{
+    -fx-background-color: #0DEDFF;
+    -fx-background-radius: 0 8px 0 8px;
+    -fx-cursor:hand;
+}
+
+.button-consultar:hover{
+    -fx-background-color:#0050c7;
+    -fx-background-radius: 0 8px 0 8px;
+    }
+.button-close{
+    -fx-background-color: transparent;
+    -fx-background-radius: 10px;
+    -fx-cursor:hand;
+}
+.button-close:hover{
+    -fx-background-color: rgba(255, 0, 0, 0.784);
+    -fx-background-radius: 10px;
+}
+.date-picker{
+    -fx-background-color: #6396e1;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+.date-picker:focused{
+    -fx-background-color: #5787ceb3;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+/* Personaliza el botón del DatePicker */
+.date-picker .arrow-button {
+    -fx-background-color: #6396e1;
+}
+
+/* Personaliza el contenido del popup del DatePicker */
+.date-picker-popup {
+    -fx-background-color: #6396e1;
+    -fx-border-color: #000000;
+    -fx-border-radius: 7px;
+    -fx-background-radius: 7px;
+}
