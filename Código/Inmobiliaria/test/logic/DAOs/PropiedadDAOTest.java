@@ -15,13 +15,13 @@ public class PropiedadDAOTest {
     public void testAgregarPropiedadSuccess() {
         Propiedad propiedad = new Propiedad();
         PropiedadDAO propiedadDAO = new PropiedadDAO();
-        propiedad.setDireccion("Dirección de prueba");
-        propiedad.setDescripcion("Descripción de prueba");
+        propiedad.setDireccion("Lomas verdes #23");
+        propiedad.setDescripcion("Casa de 2 pisos color, con 3 recamaras y 2 baños completos");
         propiedad.setEstadoPropiedad("Disponible");
-        propiedad.setUsuarioAgente("Agente de prueba");
-        propiedad.setCiudad("Ciudad de prueba");
-        propiedad.setZona("Zona de prueba");
-        propiedad.setTipoPropiedad("Renta");
+        propiedad.setUsuarioAgente("Agente de Prueba");
+        propiedad.setCiudad("Xalapa");
+        propiedad.setZona("Zona trancas");
+        propiedad.setTipoPropiedad("Casa");
         propiedad.setPrecio(1000);
         propiedad.setNoHabitaciones(3);
         propiedad.setNoEstancias(2);
