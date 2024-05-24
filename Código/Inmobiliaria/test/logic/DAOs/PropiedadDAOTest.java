@@ -17,8 +17,6 @@ public class PropiedadDAOTest {
         PropiedadDAO propiedadDAO = new PropiedadDAO();
         propiedad.setDireccion("Dirección de prueba");
         propiedad.setDescripcion("Descripción de prueba");
-        propiedad.setEstadoPropiedad("Disponible");
-        propiedad.setUsuarioAgente("Agente de prueba");
         propiedad.setCiudad("Ciudad de prueba");
         propiedad.setZona("Zona de prueba");
         propiedad.setTipoPropiedad("Renta");
@@ -36,5 +34,17 @@ public class PropiedadDAOTest {
         } catch (SQLException e) {
             fail("Excepción al agregar propiedad: " + e.getMessage());
         }
+    }
+
+    @Test
+    public void testEditarPropiedadSucces() {
+        System.out.println("editarPropiedad");
+        Propiedad propiedad = new Propiedad();
+
+        propiedad.setDescripcion("Descripción de prueba editada");
+        propiedad.setCiudad("Ciudad de prueba editada");
+        propiedad.setZona("Zona de prueba editada");
+        propiedad.setPrecio(1500);
+
     }
 }
