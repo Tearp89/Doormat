@@ -10,7 +10,7 @@ import logic.classes.Cliente;
 public class ClienteDAO {
     public int agregarCliente(Cliente cliente) throws SQLException{
         DatabaseManager databaseManager = new DatabaseManager();
-        String query = "INSER INTO Cliente (usuarioCliente, correoElectrónico, contraseña, preferencias) VALUES (?, ?, SHA(?, 256), ?)";
+        String query = "INSERT INTO Cliente (usuarioCliente, correoElectrónico, contraseña, preferencias) VALUES (?, ?, SHA2(?, 256), ?)";
         int result = 0;
         Connection connection = databaseManager.getConnection();
         PreparedStatement pStatement = connection.prepareStatement(query);

@@ -11,7 +11,7 @@ import logic.classes.Agente;
 public class AgenteDAO {
     public int agregarAgente(Agente agente) throws SQLException{
         DatabaseManager databaseManager = new DatabaseManager();
-        String query = "INSER INTO Agente (usuarioAgente, contraseña) VALUES (?, SHA(?, 256))";
+        String query = "INSERT INTO Agente (usuarioAgente, contraseña) VALUES (?, SHA2(?, 256))";
         int result = 0;
         Connection connection = databaseManager.getConnection();
         PreparedStatement pStatement = connection.prepareStatement(query);

@@ -12,7 +12,7 @@ import logic.classes.Propiedad;
 public class PropiedadDAO {
     public int agregarPropiedad(Propiedad propiedad) throws SQLException{
         DatabaseManager databaseManager = new DatabaseManager();
-        String query = "INSER INTO Propiedad (dirección, descripción, estadoPropiedad, Agente_Usuario, Ciudad, Zona, TipoPropiedad, Precio, NoHabitaciones, NoEstancias, NoBaños, Cochera, Tamaño, Resumen) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO propiedad (dirección, descripción, estadoPropiedad, Agente_Usuario, Ciudad, Zona, Tipo, Precio, NoHabitaciones, NoEstancias, NoBaños, Cochera, Tamaño, Resumen, PropiedadEn) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         int result = 0;
         Connection connection = databaseManager.getConnection();
         PreparedStatement pStatement = connection.prepareStatement(query);
@@ -30,6 +30,7 @@ public class PropiedadDAO {
         pStatement.setInt(12, propiedad.getCochera());
         pStatement.setInt(13, propiedad.getTamanio());
         pStatement.setString(14, propiedad.getResumen());
+        pStatement.setString(15, propiedad.getPropiedadEn());
 
         result = pStatement.executeUpdate();
         return result;
@@ -48,13 +49,13 @@ public class PropiedadDAO {
 
     public int actualizarPropiedadPorIdPropiedad(Propiedad propiedad) throws SQLException{
         DatabaseManager databaseManager = new DatabaseManager();
-        String query = "UPDATE Propiedad SET dirección = ?, descripción = ?, estadoPropiedad = ?, Ciudad = ?, Zona = ?, TipoPropiedad = ?, Precio = ?, NoHabitaciones = ?, NoEstancias = ?, NoBaños = ?, Cochera = ?, Tamaño = ?, Resumen = ? WHERE idPropiedad = ?";
+        String query = "UPDATE propiedad SET dirección = ?, descripción = ?, estadoPropiedad = ?, Ciudad = ?, Zona = ?, Tipo = ?, Precio = ?, NoHabitaciones = ?, NoEstancias = ?, NoBaños = ?, Cochera = ?, Tamaño = ?, Resumen = ?, PropiedadEn = ? WHERE idPropiedad = ?";
         int result = 0;
         Connection connection = databaseManager.getConnection();
         PreparedStatement pStatement = connection.prepareStatement(query);
         pStatement.setString(1, propiedad.getDireccion());
         pStatement.setString(2, propiedad.getDescripcion());
-        pStatement.setString(3, propiedad.getEstadoPropiedad());
+        pStatement.setString(3, "Disponible");
         pStatement.setString(4, propiedad.getCiudad());
         pStatement.setString(5, propiedad.getZona());
         pStatement.setString(6, propiedad.getTipoPropiedad());
@@ -65,7 +66,8 @@ public class PropiedadDAO {
         pStatement.setInt(11, propiedad.getCochera());
         pStatement.setInt(12, propiedad.getTamanio());
         pStatement.setString(13, propiedad.getResumen());
-        pStatement.setInt(14, propiedad.getIdPropiedad());
+        pStatement.setString(14, propiedad.getPropiedadEn());
+        pStatement.setInt(15, propiedad.getIdPropiedad()); 
 
         result = pStatement.executeUpdate();
         return result;
@@ -135,7 +137,7 @@ public class PropiedadDAO {
 
     public Propiedad obtenerPropiedadPorId(int idPropiedad) throws SQLException{
         DatabaseManager databaseManager = new DatabaseManager();
-        String query = "SELECT dirección, descripción, estadoPropiedad, Agente_Usuario, Ciudad, Zona, TipoPropiedad, Precio, NoHabitaciones, NoEstancias, NoBaños, Cochera, Tamaño, Resumen FROM Propiedad WHERE idPropiedad = ?";
+        String query = "SELECT dirección, descripción, estadoPropiedad, Agente_Usuario, Ciudad, Zona, Tipo, Precio, NoHabitaciones, NoEstancias, NoBaños, Cochera, Tamaño, Resumen, PropiedadEn FROM Propiedad WHERE idPropiedad = ?";
         Propiedad propiedad = new Propiedad();
         Connection connection = databaseManager.getConnection();
         PreparedStatement pStatement = connection.prepareStatement(query);
@@ -143,20 +145,81 @@ public class PropiedadDAO {
         ResultSet resultSet = pStatement.executeQuery();
         if(resultSet.next()){
             propiedad.setDireccion(resultSet.getString("dirección"));
-            propiedad.setDescripcion(resultSet.getString("descripcion"));
+            propiedad.setDescripcion(resultSet.getString("descripción"));
             propiedad.setEstadoPropiedad(resultSet.getString("estadoPropiedad"));
             propiedad.setUsuarioAgente(resultSet.getString("Agente_Usuario"));
             propiedad.setCiudad(resultSet.getString("Ciudad"));
             propiedad.setZona(resultSet.getString("Zona"));
-            propiedad.setTipoPropiedad(resultSet.getString("TipoPropiedad"));
+            propiedad.setTipoPropiedad(resultSet.getString("Tipo"));
             propiedad.setPrecio(resultSet.getInt("Precio"));
             propiedad.setNoHabitaciones(resultSet.getInt("NoHabitaciones"));
             propiedad.setNoEstancias(resultSet.getInt("NoEstancias"));
             propiedad.setNoBanios(resultSet.getInt("NoBaños"));
             propiedad.setCochera(resultSet.getInt("Cochera"));
             propiedad.setTamanio(resultSet.getInt("Tamaño"));
-            propiedad.setDireccion(resultSet.getString("Resumen"));
+            propiedad.setResumen(resultSet.getString("Resumen"));
+            propiedad.setPropiedadEn(resultSet.getString("PropiedadEn"));
         }
         return propiedad;
+    }
+
+    public ArrayList<Propiedad> buscarPropiedadesFiltradas(boolean rentar, boolean comprar, boolean departamento, boolean cuarto, boolean casa,
+    boolean xalapa, boolean orizaba, boolean veracruz, boolean centro, boolean orillas, boolean residencial, int precioMin, int precioMax,
+    int numHabitaciones, int numEstancias, int numBanios, int cochera) throws SQLException {
+        DatabaseManager databaseManager = new DatabaseManager();
+        ArrayList<Propiedad> propiedades = new ArrayList<>();
+
+        StringBuilder queryBuilder = new StringBuilder("SELECT * FROM propiedad WHERE 1=1");
+
+        if (rentar) queryBuilder.append(" AND PropiedadEn = 'Renta'");
+        if (comprar) queryBuilder.append(" AND PropiedadEn = 'Venta'");
+        if (departamento) queryBuilder.append(" AND Tipo = 'Departamento'");
+        if (cuarto) queryBuilder.append(" AND Tipo = 'Cuarto'");
+        if (casa) queryBuilder.append(" AND Tipo = 'Casa'");
+        if (xalapa) queryBuilder.append(" AND Ciudad = 'Xalapa'");
+        if (orizaba) queryBuilder.append(" AND Ciudad = 'Orizaba'");
+        if (veracruz) queryBuilder.append(" AND Ciudad = 'Veracruz'");
+        if (centro) queryBuilder.append(" AND Zona = 'Centro'");
+        if (orillas) queryBuilder.append(" AND Zona = 'Orilla'");
+        if (residencial) queryBuilder.append(" AND Zona = 'Residencial'");
+        queryBuilder.append(" AND Precio BETWEEN ? AND ?");
+        if (numHabitaciones > 0) queryBuilder.append(" AND NoHabitaciones >= ?");
+        if (numEstancias > 0) queryBuilder.append(" AND NoEstancias >= ?");
+        if (numBanios > 0) queryBuilder.append(" AND NoBaños >= ?");
+        if (cochera > 0) queryBuilder.append(" AND Cochera >= ?");
+
+        Connection connection = databaseManager.getConnection();
+        PreparedStatement pStatement = connection.prepareStatement(queryBuilder.toString());
+
+        int paramIndex = 1;
+        pStatement.setInt(paramIndex++, precioMin);
+        pStatement.setInt(paramIndex++, precioMax);
+        if (numHabitaciones > 0) pStatement.setInt(paramIndex++, numHabitaciones);
+        if (numEstancias > 0) pStatement.setInt(paramIndex++, numEstancias);
+        if (numBanios > 0) pStatement.setInt(paramIndex++, numBanios);
+        if (cochera > 0) pStatement.setInt(paramIndex++, cochera);
+
+        ResultSet resultSet = pStatement.executeQuery();
+        while (resultSet.next()) {
+            Propiedad propiedad = new Propiedad();
+            propiedad.setIdPropiedad(resultSet.getInt("idPropiedad"));
+            propiedad.setDireccion(resultSet.getString("dirección"));
+            propiedad.setDescripcion(resultSet.getString("descripción"));
+            propiedad.setEstadoPropiedad(resultSet.getString("estadoPropiedad"));
+            propiedad.setUsuarioAgente(resultSet.getString("Agente_Usuario"));
+            propiedad.setCiudad(resultSet.getString("Ciudad"));
+            propiedad.setZona(resultSet.getString("Zona"));
+            propiedad.setTipoPropiedad(resultSet.getString("Tipo"));
+            propiedad.setPrecio(resultSet.getInt("Precio"));
+            propiedad.setNoHabitaciones(resultSet.getInt("NoHabitaciones"));
+            propiedad.setNoEstancias(resultSet.getInt("NoEstancias"));
+            propiedad.setNoBanios(resultSet.getInt("NoBaños"));
+            propiedad.setCochera(resultSet.getInt("Cochera"));
+            propiedad.setTamanio(resultSet.getInt("Tamaño"));
+            propiedad.setResumen(resultSet.getString("Resumen"));
+            propiedad.setPropiedadEn(resultSet.getString("PropiedadEn"));
+            propiedades.add(propiedad);
+        }
+        return propiedades;
     }
 }

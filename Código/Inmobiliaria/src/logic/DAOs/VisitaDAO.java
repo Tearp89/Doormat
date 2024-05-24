@@ -10,7 +10,7 @@ import logic.classes.Visita;
 public class VisitaDAO {
     public int agregarVisita(Visita visita) throws SQLException{
         DatabaseManager databaseManager = new DatabaseManager();
-        String query = "INSER INTO Visita (fecha, Agente_Usuario, Cliente_usuarioCliente, Propiedad_idPropiedad) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO Visita (fecha, Agente_Usuario, Cliente_usuarioCliente, Propiedad_idPropiedad) VALUES (?, ?, ?, ?)";
         int result = 0;
         Connection connection = databaseManager.getConnection();
         PreparedStatement pStatement = connection.prepareStatement(query);

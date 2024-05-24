@@ -19,6 +19,7 @@ public class Propiedad {
     private int tamanio;
     private String resumen;
     private int calificacion;
+    private String propiedadEn;
 
     public String getEtiquetas() {
         return etiquetas;
@@ -127,5 +128,11 @@ public class Propiedad {
     }
     public void setNoBanios(int noBanios) {
         this.noBanios = noBanios;
+    }
+    public String getPropiedadEn() {
+        return propiedadEn;
+    }
+    public void setPropiedadEn(String propiedadEn) {
+        this.propiedadEn = propiedadEn;
     }
 }
