@@ -97,7 +97,7 @@ public class PropiedadDAO {
 
     public int calificarPropiedad(int calificacion, int propiedadId) throws SQLException{
         DatabaseManager databaseManager = new DatabaseManager();
-        String query = "INSERT INTO CalificacionesPropiedad (calificacion, Propiedad_idPropiedad) VALUES = (?, ?)";
+        String query = "INSERT INTO CalificacionesPropiedad (calificacion, Propiedad_idPropiedad) VALUES (?, ?)";
         int result = 0;
         Connection connection = databaseManager.getConnection();
         PreparedStatement pStatement = connection.prepareStatement(query);

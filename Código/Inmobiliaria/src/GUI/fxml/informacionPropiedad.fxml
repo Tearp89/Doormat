@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.InformacionPropiedadController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
@@ -31,11 +31,11 @@
                               <FontAwesomeIcon fx:id="iconFacebook" fill="WHITE" glyphName="FACEBOOK" layoutX="685.0" layoutY="26.0" size="2em" styleClass="top-icons" />
                            </children>
                         </AnchorPane>
-                        <Button fx:id="logo" layoutX="-5.0" layoutY="38.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="148.0" styleClass="top-logo" stylesheets="@../css/hoja%20de%20estilo.css" text="Dormat">
+                        <Button fx:id="logo" layoutX="-5.0" layoutY="38.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="45.0" prefWidth="148.0" styleClass="top-logo" stylesheets="@../css/hoja%20de%20estilo.css" text="Dormat">
                            <graphic>
                               <ImageView fitHeight="45.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../../../../../../../Downloads/logo%205%201.png" />
+                                    <Image url="@../media/logo%205%201.png" />
                                  </image>
                               </ImageView>
                            </graphic>
@@ -43,23 +43,18 @@
                               <Font name="Tahoma Bold" size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="buttonCitas" layoutX="653.0" layoutY="59.0" mnemonicParsing="false" onAction="#goToCitas" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Citas" visible="false">
+                        <Button layoutX="653.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Citas" visible="false">
                            <font>
                               <Font size="9.0" />
                            </font>
                         </Button>
-                        <Button fx:id="buttonUser" layoutX="849.0" layoutY="51.0" mnemonicParsing="false" onAction="#goToUser" prefHeight="26.0" prefWidth="4.0" styleClass="user-buttom" stylesheets="@../css/hoja%20de%20estilo.css">
+                        <Button fx:id="buttonUser" layoutX="849.0" layoutY="51.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="4.0" styleClass="user-buttom" stylesheets="@../css/hoja%20de%20estilo.css">
                            <graphic>
                               <FontAwesomeIcon fill="#0066ff" glyphName="USER" size="2em" />
                            </graphic>
                         </Button>
                         <Label fx:id="labelUser" layoutX="800.0" layoutY="59.0" text="User" textFill="#0066ff" />
-                        <Button fx:id="buttonInicio" layoutX="553.0" layoutY="58.0" mnemonicParsing="false" onAction="#goToInicio" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Inicio">
-                           <font>
-                              <Font size="9.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="buttonRenta" layoutX="605.0" layoutY="58.0" mnemonicParsing="false" onAction="#goToSobreNosotros" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Sobre Nosotros">
+                        <Button fx:id="buttonInicio" layoutX="553.0" layoutY="58.0" mnemonicParsing="false" onAction="#regresarInicio" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Inicio">
                            <font>
                               <Font size="9.0" />
                            </font>
@@ -94,68 +89,67 @@
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="labelResumen" layoutX="139.0" layoutY="100.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="labelResumen" layoutX="139.0" layoutY="100.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: #FFFFFF;" />
                                     <Label layoutX="139.0" layoutY="138.0" text="Ciudad" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="labelCiudad" layoutX="139.0" layoutY="160.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="labelCiudad" layoutX="139.0" layoutY="160.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #FFFFFF;" />
                                     <Label layoutX="345.0" layoutY="137.0" text="Zona" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="labelZona" layoutX="345.0" layoutY="160.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="labelZona" layoutX="345.0" layoutY="160.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #FFFFFF;" />
                                     <Label layoutX="139.0" layoutY="198.0" prefHeight="15.0" prefWidth="55.0" text="Dirección" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="labelDireccion" layoutX="139.0" layoutY="220.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="labelDireccion" layoutX="139.0" layoutY="220.0" prefHeight="25.0" prefWidth="381.0" style="-fx-background-color: #FFFFFF;" />
                                     <Label layoutX="139.0" layoutY="258.0" text="Tipo de propiedad" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="label" layoutX="139.0" layoutY="280.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="labelTipo" layoutX="139.0" layoutY="280.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #FFFFFF;" />
                                     <Label layoutX="289.0" layoutY="257.0" text="Propiedad en..." textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="labelPropiedadEn" layoutX="280.0" layoutY="279.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="labelPropiedadEn" layoutX="280.0" layoutY="279.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #FFFFFF;" />
                                     <Label layoutX="156.0" layoutY="318.0" text="Número de&#10;habitaciones" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="139.0" layoutY="354.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: white;" />
-                                    <Label fx:id="textFieldNumeroBaños" layoutX="440.0" layoutY="318.0" text="Número de&#10;baños" textAlignment="CENTER" textFill="WHITE">
+                                    <Label fx:id="labelHabitaciones" layoutX="139.0" layoutY="354.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #FFFFFF;" />
+                                    <Label layoutX="440.0" layoutY="318.0" text="Número de&#10;baños" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="419.0" layoutY="354.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: white;" />
-                                    <Label fx:id="textFieldNumeroEstancias" layoutX="302.0" layoutY="318.0" text="Número de&#10;estancias" textAlignment="CENTER" textFill="WHITE">
+                                    <Label fx:id="labelBanios" layoutX="419.0" layoutY="354.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #FFFFFF;" />
+                                    <Label layoutX="302.0" layoutY="318.0" text="Número de&#10;estancias" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label layoutX="282.0" layoutY="354.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="labelEstancias" layoutX="282.0" layoutY="354.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #FFFFFF;" />
                                     <Label layoutX="139.0" layoutY="392.0" text="Cochera" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="labelCochera1" layoutX="139.0" layoutY="414.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white;" />
-                                    <Label fx:id="labelCochera2" layoutX="209.0" layoutY="414.0" prefHeight="25.0" prefWidth="76.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="labelCochera" layoutX="139.0" layoutY="414.0" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: #FFFFFF;" />
                                     <Label layoutX="342.0" layoutY="392.0" text="Tamaño en metros cuadrados" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="labelTamanio" layoutX="343.0" layoutY="414.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: white;" />
+                                    <Label fx:id="labelTamanio" layoutX="343.0" layoutY="414.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #FFFFFF;" />
                                     <Label layoutX="139.0" layoutY="452.0" prefHeight="15.0" prefWidth="100.0" text="Descripción" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
@@ -170,9 +164,9 @@
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <Label fx:id="labelPrecio" layoutX="416.0" layoutY="280.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: white;" />
-                                    <Button fx:id="buttonVisitar" layoutX="453.0" layoutY="645.0" mnemonicParsing="false" onAction="#goToVisitar" prefHeight="33.0" prefWidth="127.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Visitar Propiedad" />
-                                    <Button fx:id="buttonCalificar" layoutX="315.0" layoutY="645.0" mnemonicParsing="false" onAction="#goToCalificar" prefHeight="33.0" prefWidth="127.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Calificar Propiedad" />
+                                    <Label fx:id="labelPrecio" layoutX="416.0" layoutY="280.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #FFFFFF;" />
+                                    <Button fx:id="buttonVisitar" layoutX="453.0" layoutY="645.0" mnemonicParsing="false" onAction="#abrirVisita" prefHeight="33.0" prefWidth="127.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Visitar Propiedad" />
+                                    <Button fx:id="buttonCalificar" layoutX="315.0" layoutY="645.0" mnemonicParsing="false" onAction="#abrirCalificar" prefHeight="33.0" prefWidth="127.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Calificar Propiedad" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="65.0" layoutY="64.0" prefHeight="320.0" prefWidth="227.0" styleClass="grey-anchor" stylesheets="@../css/hoja%20de%20estilo.css">
@@ -192,7 +186,7 @@
             </BorderPane>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="anchorPaneCalificar" prefHeight="200.0" prefWidth="200.0" visible="false">
          <children>
             <AnchorPane layoutX="186.0" layoutY="166.0" prefHeight="302.0" prefWidth="503.0" stylesheets="@../css/hoja%20de%20estilo.css">
                <children>
@@ -200,7 +194,7 @@
                      <top>
                         <AnchorPane prefHeight="25.0" prefWidth="466.0" styleClass="black-top-anchor" stylesheets="@../css/hoja%20de%20estilo.css" BorderPane.alignment="CENTER">
                            <children>
-                              <Button layoutX="500.0" mnemonicParsing="false" styleClass="button-close" stylesheets="@../css/hoja%20de%20estilo.css">
+                              <Button fx:id="buttonCerrarCalificar" layoutX="500.0" mnemonicParsing="false" onAction="#cerrarCalificar" styleClass="button-close" stylesheets="@../css/hoja%20de%20estilo.css">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" />
                                  </graphic>
@@ -254,7 +248,7 @@
                                     <Font name="Arial Rounded MT Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <Button layoutX="164.0" layoutY="65.0" mnemonicParsing="false" style="-fx-background-color: TRANPARENT;">
+                              <Button fx:id="buttonCal1Propiedad" layoutX="164.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad1" style="-fx-background-color: TRANPARENT;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -262,7 +256,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button layoutX="204.0" layoutY="65.0" mnemonicParsing="false" style="-fx-background-color: TRANPARENT;">
+                              <Button fx:id="buttonCal2Propiedad" layoutX="204.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad2" style="-fx-background-color: TRANPARENT;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -270,7 +264,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button layoutX="244.0" layoutY="65.0" mnemonicParsing="false" style="-fx-background-color: TRANPARENT;">
+                              <Button fx:id="buttonCal3Propiedad" layoutX="244.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad3" style="-fx-background-color: TRANPARENT;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -278,7 +272,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button layoutX="284.0" layoutY="65.0" mnemonicParsing="false" style="-fx-background-color: TRANPARENT;">
+                              <Button fx:id="buttonCal4Propiedad" layoutX="284.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad4" style="-fx-background-color: TRANPARENT;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -286,7 +280,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button layoutX="324.0" layoutY="65.0" mnemonicParsing="false" style="-fx-background-color: TRANPARENT;">
+                              <Button fx:id="buttonCal5Propiedad" layoutX="324.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad5" style="-fx-background-color: TRANPARENT;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -294,7 +288,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button layoutX="164.0" layoutY="180.0" mnemonicParsing="false" style="-fx-background-color: TRANPARENT;">
+                              <Button fx:id="buttonCal1Asesor" layoutX="164.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente1" style="-fx-background-color: TRANPARENT;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -302,7 +296,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button layoutX="204.0" layoutY="180.0" mnemonicParsing="false" style="-fx-background-color: TRANPARENT;">
+                              <Button fx:id="buttonCal2Asesor" layoutX="204.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente2" style="-fx-background-color: TRANPARENT;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -310,7 +304,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button layoutX="244.0" layoutY="180.0" mnemonicParsing="false" style="-fx-background-color: TRANPARENT;">
+                              <Button fx:id="buttonCal3Asesor" layoutX="244.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente3" style="-fx-background-color: TRANPARENT;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -318,7 +312,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button layoutX="284.0" layoutY="180.0" mnemonicParsing="false" style="-fx-background-color: TRANPARENT;">
+                              <Button fx:id="buttonCal4Asesor" layoutX="284.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente4" style="-fx-background-color: TRANPARENT;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -326,7 +320,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button layoutX="324.0" layoutY="180.0" mnemonicParsing="false" style="-fx-background-color: TRANPARENT;">
+                              <Button fx:id="buttonCal5Asesor" layoutX="324.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente5" style="-fx-background-color: TRANPARENT;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -346,7 +340,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" visible="false">
+      <AnchorPane fx:id="anchorPaneVisitar" prefHeight="200.0" prefWidth="200.0" visible="false">
          <children>
             <AnchorPane layoutX="186.0" layoutY="166.0" prefHeight="302.0" prefWidth="503.0" stylesheets="@../css/hoja%20de%20estilo.css">
                <children>
@@ -354,7 +348,7 @@
                      <top>
                         <AnchorPane prefHeight="25.0" prefWidth="466.0" styleClass="black-top-anchor" stylesheets="@../css/hoja%20de%20estilo.css" BorderPane.alignment="CENTER">
                            <children>
-                              <Button layoutX="500.0" mnemonicParsing="false" styleClass="button-close" stylesheets="@../css/hoja%20de%20estilo.css">
+                              <Button fx:id="buttonCerrarVisita" layoutX="500.0" mnemonicParsing="false" onAction="#cerrarVisita" styleClass="button-close" stylesheets="@../css/hoja%20de%20estilo.css">
                                  <graphic>
                                     <FontAwesomeIcon fill="WHITE" glyphName="CLOSE" />
                                  </graphic>
