@@ -73,7 +73,7 @@ public class PropiedadController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/informacionPropiedad.fxml"));
             try {
                 Parent root = loader.load();
-                EditarPropiedadController controller = loader.getController();
+                InformacionPropiedadController controller = loader.getController();
                 controller.initialize(propiedadUso.getIdPropiedad());
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();

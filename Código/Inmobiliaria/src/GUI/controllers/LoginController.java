@@ -38,16 +38,16 @@ public class LoginController {
     
     @FXML
     private void goToInicio(ActionEvent event){
-        String correo = textFieldCorreoIniciar.getText();
+        String usuario = textFieldCorreoIniciar.getText();
         String contraseña = textFieldContraseñaIniciar.getText();
-        if(!(correo.isEmpty() && contraseña.isEmpty())){
+        if(!(usuario.isEmpty() && contraseña.isEmpty())){
             buttonIniciar.setDisable(false);
         }
         LoginDAO loginDAO = new LoginDAO();
-        if(loginDAO.validarAgente(correo, contraseña)){
+        if(loginDAO.validarAgente(usuario, contraseña)){
             Agente agenteData = new Agente();
             agenteData.setContrasenia(contraseña);
-            agenteData.setUsuarioAgente(correo);
+            agenteData.setUsuarioAgente(usuario);
             UserSessionManager.getInstance().loginAgente(agenteData);
             Node source = (Node) event.getSource();
             stage = (Stage) source.getScene().getWindow();
@@ -67,10 +67,10 @@ public class LoginController {
             
 
 
-        } else if(loginDAO.validarCliente(correo, contraseña)) {
+        } else if(loginDAO.validarCliente(usuario, contraseña)) {
             Cliente clienteData = new Cliente();
             clienteData.setContrasenia(contraseña);
-            clienteData.setCorreo(correo);
+            clienteData.setUsuarioCliente(usuario);
 
             UserSessionManager.getInstance().loginCliente(clienteData);
             Node source = (Node) event.getSource();
