@@ -73,10 +73,8 @@
                                     <Font name="Tahoma" size="22.0" />
                                  </font>
                               </Label>
-                              <AnchorPane layoutX="34.0" layoutY="61.0" prefHeight="660.0" prefWidth="200.0">
+                              <AnchorPane layoutX="35.0" layoutY="-5.0" prefHeight="665.0" prefWidth="200.0">
                                  <children>
-                                    <TextField fx:id="textFiledSearch" layoutX="13.0" layoutY="8.0" prefHeight="38.0" prefWidth="178.0" promptText="Buscar" styleClass="search" stylesheets="@../css/hoja%20de%20estilo.css" />
-                                    <FontAwesomeIcon fill="#a8a8a8" glyphName="SEARCH" layoutX="21.0" layoutY="34.0" size="1.8em" />
                                     <CheckBox fx:id="checkBoxRenta" layoutX="15.0" layoutY="87.0" mnemonicParsing="false" onAction="#seleccionarRenta" prefHeight="19.0" prefWidth="70.0" stylesheets="@../css/hoja%20de%20estilo.css" text="Rentar" />
                                     <Label layoutX="5.0" layoutY="64.0" text="Tarea">
                                        <font>
@@ -152,7 +150,6 @@
                                  </children>
                               </AnchorPane>
                               <Line endX="500.0" fill="#00000078" layoutX="51.0" layoutY="368.0" rotate="90.0" startX="-100.0" stroke="#00000079" strokeWidth="0.8" />
-                              <Label fx:id="labelResultados" disable="true" layoutX="258.0" layoutY="68.0" prefHeight="17.0" prefWidth="104.0" text="0 Resultados" />
                               <ImageView fitHeight="43.0" fitWidth="184.0" layoutX="700.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../media/boton%20rectangulo2.png" />
