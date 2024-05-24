@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import logic.DAOs.PropiedadDAO;
-import GUI.windows.ChangeWindowManager;
 import GUI.windows.UserSessionManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,10 +16,10 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import logic.classes.Agente;
+import logic.classes.Cliente;
 import logic.classes.Propiedad;
 
-public class ConsultarPropiedadesAgenteController {
+public class ConsultarPropiedadesClienteController {
     @FXML
     private CheckBox checkBoxDepartamento;
 
@@ -71,9 +70,9 @@ public class ConsultarPropiedadesAgenteController {
 
     @FXML
     private void initialize(){
-        Agente agenteData = new Agente();
-        agenteData = UserSessionManager.getInstance().getAgenteData();
-        labelUsuario.setText(agenteData.getUsuarioAgente());
+        Cliente clienteData = new Cliente();
+        clienteData = UserSessionManager.getInstance().getClienteData();
+        labelUsuario.setText(clienteData.getUsuarioCliente());
         aplicarFiltros(null);
     }
 
@@ -142,13 +141,6 @@ public class ConsultarPropiedadesAgenteController {
                 e.printStackTrace();
             }
         }
-    }
-    
-    @FXML
-    public void goToAgregarPropiedad(ActionEvent event){
-        
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/RegistrarNuevaPropiedad.fxml"));
-        ChangeWindowManager.changeWindowTo(event, loader);
     }
 
     @FXML

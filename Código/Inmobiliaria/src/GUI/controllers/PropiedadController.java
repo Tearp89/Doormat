@@ -2,6 +2,7 @@ package GUI.controllers;
 
 import java.io.IOException;
 
+import GUI.windows.UserSessionManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -51,21 +52,39 @@ public class PropiedadController {
     }
 
     @FXML
-    public void consultarPropiedad(ActionEvent event){
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("null"));
-        try {
-            Parent root = loader.load();
-            EditarPropiedadController controller = loader.getController();
-            controller.initialize(propiedadUso.getIdPropiedad());
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            Node source = (Node) event.getSource();
-            Stage actual = (Stage) source.getScene().getWindow();
-            actual.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+    public void manejarPropiedad(ActionEvent event){
+        if(UserSessionManager.getInstance().isAgenteLogIn()){
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/editarPropiedad.fxml"));
+            try {
+                Parent root = loader.load();
+                EditarPropiedadController controller = loader.getController();
+                controller.initialize(propiedadUso.getIdPropiedad());
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+                Node source = (Node) event.getSource();
+                Stage actual = (Stage) source.getScene().getWindow();
+                actual.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/informacionPropiedad.fxml"));
+            try {
+                Parent root = loader.load();
+                EditarPropiedadController controller = loader.getController();
+                controller.initialize(propiedadUso.getIdPropiedad());
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+                Node source = (Node) event.getSource();
+                Stage actual = (Stage) source.getScene().getWindow();
+                actual.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

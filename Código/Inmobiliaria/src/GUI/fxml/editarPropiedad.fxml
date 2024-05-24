@@ -30,7 +30,7 @@
                               <FontAwesomeIcon fx:id="iconFacebook" fill="WHITE" glyphName="FACEBOOK" layoutX="685.0" layoutY="26.0" size="2em" styleClass="top-icons" />
                            </children>
                         </AnchorPane>
-                        <Button fx:id="logo" layoutX="-5.0" layoutY="38.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="148.0" styleClass="top-logo" stylesheets="@../css/hoja%20de%20estilo.css" text="Dormat">
+                        <Button fx:id="logo" layoutX="-5.0" layoutY="38.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="58.0" prefWidth="163.0" styleClass="top-logo" stylesheets="@../css/hoja%20de%20estilo.css" text="Dormat">
                            <graphic>
                               <ImageView fitHeight="45.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -40,11 +40,6 @@
                            </graphic>
                            <font>
                               <Font name="Tahoma Bold" size="20.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="buttonHome" layoutX="599.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Inicio">
-                           <font>
-                              <Font size="9.0" />
                            </font>
                         </Button>
                         <Button fx:id="buttonCitas" layoutX="653.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Citas" visible="false">
@@ -180,8 +175,8 @@
                                           <Image url="@../media/botón%20cancelar.png" />
                                        </image>
                                     </ImageView>
-                                    <Button disable="true" layoutX="348.0" layoutY="675.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="73.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Cancelar" />
-                                    <Button layoutX="560.0" layoutY="3.0" mnemonicParsing="false" styleClass="trash-buttom" stylesheets="@../css/hoja%20de%20estilo.css">
+                                    <Button fx:id="buttonCancelar" layoutX="348.0" layoutY="675.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="36.0" prefWidth="73.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Cancelar" />
+                                    <Button fx:id="buttonEliminar" layoutX="560.0" layoutY="3.0" mnemonicParsing="false" onAction="#eliminarPropiedad" styleClass="trash-buttom" stylesheets="@../css/hoja%20de%20estilo.css">
                                        <graphic>
                                           <FontAwesomeIcon fill="WHITE" glyphName="TRASH" size="1.7em" />
                                        </graphic>

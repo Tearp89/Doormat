@@ -30,12 +30,12 @@
                               <FontAwesomeIcon fx:id="iconFacebook" fill="WHITE" glyphName="FACEBOOK" layoutX="685.0" layoutY="26.0" size="2em" styleClass="top-icons" />
                            </children>
                         </AnchorPane>
-                        <Button fx:id="buttonSale" layoutX="553.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Venta">
+                        <Button fx:id="buttonSale" layoutX="553.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css">
                            <font>
                               <Font size="9.0" />
                            </font>
                         </Button>
-                        <Button fx:id="logo" layoutX="-5.0" layoutY="38.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="148.0" styleClass="top-logo" stylesheets="@../css/hoja%20de%20estilo.css" text="Dormat">
+                        <Button fx:id="logo" layoutX="-5.0" layoutY="38.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="58.0" prefWidth="161.0" styleClass="top-logo" stylesheets="@../css/hoja%20de%20estilo.css" text="Dormat">
                            <graphic>
                               <ImageView fitHeight="45.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -47,17 +47,12 @@
                               <Font name="Tahoma Bold" size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="buttonHome" layoutX="500.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Inicio">
+                        <Button fx:id="buttonRent" layoutX="605.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css">
                            <font>
                               <Font size="9.0" />
                            </font>
                         </Button>
-                        <Button fx:id="buttonRent" layoutX="605.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Renta">
-                           <font>
-                              <Font size="9.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="buttonAppointments" layoutX="653.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Citas">
+                        <Button fx:id="buttonAppointments" layoutX="653.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css">
                            <font>
                               <Font size="9.0" />
                            </font>
@@ -187,7 +182,7 @@
                                           <Image url="@../media/botón%20cancelar.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="buttonCancelar" layoutX="348.0" layoutY="675.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="73.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Cancelar" />
+                                    <Button fx:id="buttonCancelar" layoutX="348.0" layoutY="675.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="36.0" prefWidth="73.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Cancelar" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="65.0" layoutY="64.0" prefHeight="320.0" prefWidth="227.0" styleClass="grey-anchor" stylesheets="@../css/hoja%20de%20estilo.css">

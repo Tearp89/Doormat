@@ -2,10 +2,14 @@ package GUI.controllers;
 
 import java.sql.SQLException;
 import java.util.function.UnaryOperator;
+
+import GUI.windows.ChangeWindowManager;
+import GUI.windows.UserSessionManager;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -16,6 +20,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import logic.DAOs.PropiedadDAO;
+import logic.classes.Agente;
 import logic.classes.Propiedad;
 
 public class EditarPropiedadController {
@@ -80,14 +85,17 @@ public class EditarPropiedadController {
     private Button buttonCancelar;
 
     @FXML
+    private Button buttonEliminar;
+
+    @FXML
     private Label labelUser;
 
     private int idPropiedadUsada;
 
     @FXML
     public void initialize(int idPropiedad){
-        //Agente agenteData = UserSessionManager.getInstance().getAgenteData();
-        //labelUser.setText(agenteData.getUsuarioAgente());
+        Agente agenteData = UserSessionManager.getInstance().getAgenteData();
+        labelUser.setText(agenteData.getUsuarioAgente());
         this.idPropiedadUsada = idPropiedad;
         ObservableList<String> opcionesZona = FXCollections.observableArrayList();
         opcionesZona.add("Centro");
@@ -305,5 +313,27 @@ public class EditarPropiedadController {
         }
     }
 
-    
+    @FXML
+    public void regresarInicio(ActionEvent event){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/consultarPropiedadesAdmin.fxml"));
+        ChangeWindowManager.changeWindowTo(event, loader);
+    }
+
+    @FXML
+    public void eliminarPropiedad(ActionEvent event){
+        PropiedadDAO propiedadDAO = new PropiedadDAO();
+        Propiedad propiedad = new Propiedad();
+        propiedad.setIdPropiedad(idPropiedadUsada);
+        try {
+            propiedadDAO.eliminarPropiedadPorId(propiedad);
+            Alert agregoPropiedad = new Alert(AlertType.INFORMATION);
+            agregoPropiedad.setTitle("Confirmación eliminación");
+            agregoPropiedad.setHeaderText("Se elimino correctamente");
+            agregoPropiedad.setContentText("Se elimino de manera exitosa la propiedad");
+            agregoPropiedad.show();
+            regresarInicio(event);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
