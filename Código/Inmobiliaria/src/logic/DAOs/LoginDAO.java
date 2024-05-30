@@ -52,4 +52,23 @@ public class LoginDAO {
         return false;
     }
 
+    public boolean esCuentaRegistrada(String correo){
+        DatabaseManager dbManager = new DatabaseManager();
+        String query = "SELECT COUNT(*) AS count FROM Cliente WHERE correoElectrónico = ?";
+        try{
+            Connection connection = dbManager.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, correo);
+            try(ResultSet resultSet = preparedStatement.executeQuery()){
+                if(resultSet.next()) {
+                    int count = resultSet.getInt("count");
+                    return count == 1;
+                }
+            }
+            connection.close();
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
 }
