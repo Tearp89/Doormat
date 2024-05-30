@@ -285,9 +285,9 @@ public class EditarPropiedadController {
                 propiedadDAO.actualizarPropiedadPorIdPropiedad(propiedad);
     
                 Alert agregoPropiedad = new Alert(AlertType.INFORMATION);
-                agregoPropiedad.setTitle("Confirmación registro");
-                agregoPropiedad.setHeaderText("Confirmación se agrego la propiedad");
-                agregoPropiedad.setContentText("Se abrio de manera exitosa la propiedad");
+                agregoPropiedad.setTitle("Confirmación edición");
+                agregoPropiedad.setHeaderText(null);
+                agregoPropiedad.setContentText("Se modifico de manera correcta la propiedad");
                 agregoPropiedad.show();
     
             } catch (NumberFormatException e) {
