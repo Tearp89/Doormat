@@ -20,6 +20,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import logic.DAOs.PropiedadDAO;
+import logic.DAOs.VisitaDAO;
 import logic.classes.Agente;
 import logic.classes.Propiedad;
 
@@ -323,15 +324,24 @@ public class EditarPropiedadController {
     public void eliminarPropiedad(ActionEvent event){
         PropiedadDAO propiedadDAO = new PropiedadDAO();
         Propiedad propiedad = new Propiedad();
+        VisitaDAO visitaDAO = new VisitaDAO();
         propiedad.setIdPropiedad(idPropiedadUsada);
         try {
-            propiedadDAO.eliminarPropiedadPorId(propiedad);
-            Alert agregoPropiedad = new Alert(AlertType.INFORMATION);
-            agregoPropiedad.setTitle("Confirmación eliminación");
-            agregoPropiedad.setHeaderText("Se elimino correctamente");
-            agregoPropiedad.setContentText("Se elimino de manera exitosa la propiedad");
-            agregoPropiedad.show();
-            regresarInicio(event);
+            if(visitaDAO.tieneVisita(idPropiedadUsada)){
+                Alert tieneVisitAlert = new Alert(AlertType.ERROR);
+                tieneVisitAlert.setTitle("No se pudo eliminar");
+                tieneVisitAlert.setHeaderText(null);
+                tieneVisitAlert.setContentText("La propiedad tiene una visita agendada, no se puede eliminar");
+                tieneVisitAlert.show();
+            } else {
+                propiedadDAO.eliminarPropiedadPorId(propiedad);
+                Alert eliminoPropiedad = new Alert(AlertType.INFORMATION);
+                eliminoPropiedad.setTitle("Confirmación eliminación");
+                eliminoPropiedad.setHeaderText("Se elimino correctamente");
+                eliminoPropiedad.setContentText("Se elimino de manera exitosa la propiedad");
+                eliminoPropiedad.show();
+                regresarInicio(event);
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
