@@ -116,6 +116,9 @@ public class LoginController {
                     Stage stage = new Stage();            
                     stage.setScene(new Scene(root));
                     stage.show();
+                    Node source = (Node) event.getSource();
+                    Stage currenStage = (Stage) source.getScene().getWindow();
+                    currenStage.close();
                 } catch (SQLException e){
                     Alert alertDatosVacios = new Alert(AlertType.ERROR);
                     alertDatosVacios.setTitle("Error ingresar");

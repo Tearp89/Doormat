@@ -2,6 +2,7 @@ package logic.DAOs;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import dataAccess.DatabaseManager;
@@ -32,5 +33,19 @@ public class VisitaDAO {
         pStatement.setInt(2, visita.getIdPropiedad());
         result = pStatement.executeUpdate();
         return result;
+    }
+
+    public boolean tieneVisita(int idPropiedad) throws SQLException{
+        DatabaseManager databaseManager = new DatabaseManager();
+        String query = "SELECT COUNT(*) as count FROM visita where Propiedad_idPropiedad = ?";
+        Connection connection = databaseManager.getConnection();
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setInt(1, idPropiedad);
+        ResultSet resultSet = preparedStatement.executeQuery();
+        if (resultSet.next()) {
+            int count = resultSet.getInt("count");
+            return count == 1; 
+        }
+        return false; 
     }
 }
