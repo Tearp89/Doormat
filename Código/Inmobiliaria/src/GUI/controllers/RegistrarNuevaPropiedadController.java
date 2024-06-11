@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -226,23 +227,41 @@ public class RegistrarNuevaPropiedadController {
             } else {
                 propiedad.setPropiedadEn("Venta");
             }
+                
+            Alert registrarNuevaPropiedad = new Alert(AlertType.CONFIRMATION);
+            registrarNuevaPropiedad.setTitle("Confirmación de eliminación");
+            registrarNuevaPropiedad.setHeaderText("Confirmación de eliminación");
+            registrarNuevaPropiedad.setContentText("¿Esta seguro que desea eliminar la propiedad?");
+            ButtonType aceptar = new ButtonType("Aceptar");
+            ButtonType cancelar = new ButtonType("Cancelar");
+            registrarNuevaPropiedad.getButtonTypes().setAll(aceptar, cancelar);
+            Button okButton = (Button) registrarNuevaPropiedad.getDialogPane().lookupButton(aceptar);
+            Button cancelButton = (Button) registrarNuevaPropiedad.getDialogPane().lookupButton(aceptar);
+            
+            okButton.setOnAction(eventRegistrarPropiedad -> {
+                try {
+                    
+                    PropiedadDAO propiedadDAO = new PropiedadDAO();
+                    propiedadDAO.agregarPropiedad(propiedad);
+                    Alert agregoPropiedad = new Alert(AlertType.INFORMATION);
+                    agregoPropiedad.setTitle("Confirmación registro");
+                    agregoPropiedad.setHeaderText("Confirmación se agrego la propiedad");
+                    agregoPropiedad.setContentText("Se abrio de manera exitosa la propiedad");
+                    agregoPropiedad.show();
+                } catch (SQLException e) {
+                    Alert alertBaseDeDatos = new Alert(AlertType.ERROR);
+                    alertBaseDeDatos.setTitle("Ocurrio un error en la base");
+                    alertBaseDeDatos.setContentText("Hubo un error al activar la colaboración");
+                    alertBaseDeDatos.setHeaderText("Ocurrio un error");
+                    alertBaseDeDatos.show();
+                    e.printStackTrace();
+                }
+            });
 
-            try {
-                PropiedadDAO propiedadDAO = new PropiedadDAO();
-                propiedadDAO.agregarPropiedad(propiedad);
-                Alert agregoPropiedad = new Alert(AlertType.INFORMATION);
-                agregoPropiedad.setTitle("Confirmación registro");
-                agregoPropiedad.setHeaderText("Confirmación se agrego la propiedad");
-                agregoPropiedad.setContentText("Se abrio de manera exitosa la propiedad");
-                agregoPropiedad.show();
-            } catch (SQLException e) {
-                Alert alertBaseDeDatos = new Alert(AlertType.ERROR);
-                alertBaseDeDatos.setTitle("Ocurrio un error en la base");
-                alertBaseDeDatos.setContentText("Hubo un error al activar la colaboración");
-                alertBaseDeDatos.setHeaderText("Ocurrio un error");
-                alertBaseDeDatos.show();
-                e.printStackTrace();
-            }
+            cancelButton.setOnAction(eventCancelarEliminacion -> {
+                registrarNuevaPropiedad.close();
+            });
+            
         } else {
             Alert alertDatosVacios = new Alert(AlertType.ERROR);
             alertDatosVacios.setTitle("No ha ingresado datos correctos");

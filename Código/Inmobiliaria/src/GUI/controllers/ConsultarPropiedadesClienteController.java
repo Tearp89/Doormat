@@ -3,6 +3,7 @@ package GUI.controllers;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.function.UnaryOperator;
 
 import logic.DAOs.PropiedadDAO;
 import GUI.windows.UserSessionManager;
@@ -11,10 +12,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.GridPane;
 import logic.classes.Cliente;
 import logic.classes.Propiedad;
@@ -69,18 +73,28 @@ public class ConsultarPropiedadesClienteController {
     private Label labelUsuario;
 
     @FXML
+    private Button buttonLimpiarFiltros;
+
+    @FXML
     private void initialize(){
         Cliente clienteData = new Cliente();
         clienteData = UserSessionManager.getInstance().getClienteData();
         labelUsuario.setText(clienteData.getUsuarioCliente());
         aplicarFiltros(null);
+        aplicarTextFormatterNumerico(textFieldBanios);
+        aplicarTextFormatterNumerico(textFieldPrecioMin);
+        aplicarTextFormatterNumerico(textFieldPrecioMax);
+        aplicarTextFormatterNumerico(textFieldEstancias);
+        aplicarTextFormatterNumerico(textFieldCochera);
+        aplicarTextFormatterNumerico(textFieldBanios);
     }
 
     @FXML
     private void aplicarFiltros(ActionEvent event) {
         PropiedadDAO propiedadDAO = new PropiedadDAO();
-        try {
-            ArrayList<Propiedad> propiedades = propiedadDAO.buscarPropiedadesFiltradas(
+        if (textFieldPrecioMin.getText().trim().isBlank() && textFieldPrecioMax.getText().trim().isBlank()){
+            try {
+                ArrayList<Propiedad> propiedades = propiedadDAO.buscarPropiedadesFiltradas(
                     checkBoxRenta.isSelected(),
                     checkBoxCompra.isSelected(),
                     checkBoxDepartamento.isSelected(),
@@ -92,17 +106,52 @@ public class ConsultarPropiedadesClienteController {
                     checkBoxCentro.isSelected(),
                     checkBoxOrillas.isSelected(),
                     checkBoxResidencial.isSelected(),
+                    
                     parseIntOrDefault(textFieldPrecioMin.getText(), 0),
                     parseIntOrDefault(textFieldPrecioMax.getText(), Integer.MAX_VALUE),
                     parseIntOrDefault(textFieldHabitaciones.getText(), 0),
                     parseIntOrDefault(textFieldEstancias.getText(), 0),
                     parseIntOrDefault(textFieldBanios.getText(), 0),
                     parseIntOrDefault(textFieldCochera.getText(), 0)
-            );
-            populateGridPane(propiedades);
-        } catch (SQLException e) {
-            e.printStackTrace();
+                );
+                populateGridPane(propiedades);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } else if ((Integer.parseInt(textFieldPrecioMin.getText()) > Integer.parseInt(textFieldPrecioMax.getText()))){
+            Alert agregoPropiedad = new Alert(AlertType.ERROR);
+            agregoPropiedad.setTitle("Error en los precios");
+            agregoPropiedad.setHeaderText(null);
+            agregoPropiedad.setContentText("El filtrado del precio minimo supera el precio máximo");
+            agregoPropiedad.show();
+        } else {
+            try {
+                ArrayList<Propiedad> propiedades = propiedadDAO.buscarPropiedadesFiltradas(
+                    checkBoxRenta.isSelected(),
+                    checkBoxCompra.isSelected(),
+                    checkBoxDepartamento.isSelected(),
+                    checkBoxCuarto.isSelected(),
+                    checkBoxCasa.isSelected(),
+                    checkBoxXalapa.isSelected(),
+                    checkBoxOrizaba.isSelected(),
+                    checkBoxVeracruz.isSelected(),
+                    checkBoxCentro.isSelected(),
+                    checkBoxOrillas.isSelected(),
+                    checkBoxResidencial.isSelected(),
+                    
+                    parseIntOrDefault(textFieldPrecioMin.getText(), 0),
+                    parseIntOrDefault(textFieldPrecioMax.getText(), Integer.MAX_VALUE),
+                    parseIntOrDefault(textFieldHabitaciones.getText(), 0),
+                    parseIntOrDefault(textFieldEstancias.getText(), 0),
+                    parseIntOrDefault(textFieldBanios.getText(), 0),
+                    parseIntOrDefault(textFieldCochera.getText(), 0)
+                );
+                populateGridPane(propiedades);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
+        
     }
 
     private int parseIntOrDefault(String value, int defaultValue) {
@@ -227,5 +276,41 @@ public class ConsultarPropiedadesClienteController {
             checkBoxOrizaba.setSelected(false);
             checkBoxXalapa.setSelected(false);
         }
+    }
+
+    private void aplicarTextFormatterNumerico(TextField textField) {
+        UnaryOperator<TextFormatter.Change> filtro = change -> {
+            String newText = change.getControlNewText();
+            if (newText.isEmpty() || newText.matches("[0-9]+")) {
+                return change;
+            }
+            return null;
+        };
+        TextFormatter<String> textFormatter = new TextFormatter<>(filtro);
+        textField.setTextFormatter(textFormatter);
+    }
+
+    @FXML
+    private void limpiarFiltros(ActionEvent event) {
+        checkBoxDepartamento.setSelected(false);
+        checkBoxCuarto.setSelected(false);
+        checkBoxCasa.setSelected(false);
+        checkBoxRenta.setSelected(false);
+        checkBoxCompra.setSelected(false);
+        checkBoxXalapa.setSelected(false);
+        checkBoxOrizaba.setSelected(false);
+        checkBoxVeracruz.setSelected(false);
+        checkBoxCentro.setSelected(false);
+        checkBoxOrillas.setSelected(false);
+        checkBoxResidencial.setSelected(false);
+
+        textFieldPrecioMin.setText("");
+        textFieldPrecioMax.setText("");
+        textFieldHabitaciones.setText("");
+        textFieldEstancias.setText("");
+        textFieldBanios.setText("");
+        textFieldCochera.setText("");
+
+        aplicarFiltros(null);
     }
 }

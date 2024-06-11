@@ -160,6 +160,16 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                  </rowConstraints>
                               </GridPane>
+                              <ImageView fitHeight="43.0" fitWidth="184.0" layoutX="258.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../media/boton%20rectangulo2.png" />
+                                 </image>
+                              </ImageView>
+                              <Button fx:id="buttonLimpiarFiltros" layoutX="258.0" layoutY="18.0" mnemonicParsing="false" onAction="#limpiarFiltros" prefHeight="39.0" prefWidth="184.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Limpiar Filtros" textFill="WHITE">
+                                 <font>
+                                    <Font name="Tahoma" size="14.0" />
+                                 </font>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </content>

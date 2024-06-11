@@ -1,0 +1,34 @@
+{
+    "java.project.sourcePaths": [
+        "Inmobiliaria\\src",
+        "Inmobiliaria\\test"
+    ],
+    "java.project.referencedLibraries": [
+        "Inmobiliaria\\lib\\activation-1.1.1.jar",
+        "Inmobiliaria\\lib\\commons-collections4-4.4.jar",
+        "Inmobiliaria\\lib\\commons-collections4-4.5.0-M1.jar",
+        "Inmobiliaria\\lib\\commons-compress-1.26.1.jar",
+        "Inmobiliaria\\lib\\commons-io-2.16.1.jar",
+        "Inmobiliaria\\lib\\fontawesomefx-8.2.jar",
+        "Inmobiliaria\\lib\\hamcrest-core-1.3.jar",
+        "Inmobiliaria\\lib\\javafx.base.jar",
+        "Inmobiliaria\\lib\\javafx.controls.jar",
+        "Inmobiliaria\\lib\\javafx.fxml.jar",
+        "Inmobiliaria\\lib\\javafx.graphics.jar",
+        "Inmobiliaria\\lib\\javafx.media.jar",
+        "Inmobiliaria\\lib\\javafx.swing.jar",
+        "Inmobiliaria\\lib\\javafx.web.jar",
+        "Inmobiliaria\\lib\\javafx-swt.jar",
+        "Inmobiliaria\\lib\\javax.mail.jar",
+        "Inmobiliaria\\lib\\javax.mail-api-1.6.2.jar",
+        "Inmobiliaria\\lib\\junit-4.13.2.jar",
+        "Inmobiliaria\\lib\\log4j-1.2.17.jar",
+        "Inmobiliaria\\lib\\log4j-api-2.23.1.jar",
+        "Inmobiliaria\\lib\\log4j-core-2.23.1.jar",
+        "Inmobiliaria\\lib\\mysql-connector-java-8.0.23.jar",
+        "Inmobiliaria\\lib\\poi-5.2.5.jar",
+        "Inmobiliaria\\lib\\poi-ooxml-5.2.5.jar",
+        "Inmobiliaria\\lib\\poi-ooxml-full-5.2.5.jar",
+        "Inmobiliaria\\lib\\xmlbeans-5.2.0.jar"
+    ]
+}
