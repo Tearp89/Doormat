@@ -146,11 +146,16 @@ public class LoginController {
     public void goToCrearCuenta(ActionEvent event){
         try{
         
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/SingUp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/SignUp.fxml"));
             Parent root = loader.load();
-            Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.show();
+
+            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            currentStage.close();
+
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root));
+            newStage.setTitle("Sign Up");
+            newStage.show();
         } catch (IOException e){
                 e.printStackTrace();
             }

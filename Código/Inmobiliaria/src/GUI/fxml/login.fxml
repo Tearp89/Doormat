@@ -23,6 +23,11 @@
                   <Image url="@../media/blue-ripples-and-water-splashes-waves-surface-flat-style-design-illustration-vector-Photoroom.png-Photoroom.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="393.0" fitWidth="900.0" layoutY="250.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../media/blue-ripples-and-water-splashes-waves-surface-flat-style-design-illustration-vector-Photoroom.png-Photoroom.png" />
+               </image>
+            </ImageView>
             <AnchorPane layoutX="256.0" layoutY="64.0" prefHeight="506.0" prefWidth="388.0" stylesheets="@../css/hoja%20de%20estilo.css">
                <styleClass>
                   <String fx:value="white-bg" />
@@ -71,11 +76,6 @@
                   </BorderPane>
                </children>
             </AnchorPane>
-            <ImageView fitHeight="393.0" fitWidth="900.0" layoutY="250.0" opacity="0.1" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../media/blue-ripples-and-water-splashes-waves-surface-flat-style-design-illustration-vector-Photoroom.png-Photoroom.png" />
-               </image>
-            </ImageView>
             <Button fx:id="buttonIniciar" layoutX="384.0" layoutY="317.0" mnemonicParsing="false" onAction="#goToInicio" prefHeight="39.0" prefWidth="131.0" styleClass="button-logIn" stylesheets="@../css/hoja%20de%20estilo.css" text="INICIAR" textFill="WHITE">
                <font>
                   <Font name="Arial" size="21.0" />

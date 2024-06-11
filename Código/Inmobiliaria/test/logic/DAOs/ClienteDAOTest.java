@@ -15,7 +15,7 @@ public class ClienteDAOTest {
         Cliente cliente = new Cliente();
         cliente.setContrasenia("contraseña");
         cliente.setCorreo("clinete@gmai.com");
-        cliente.setUsuarioCliente("cliente166");
+        cliente.setnombre("cliente166");
         cliente.setPreferencias("Casas");
         try{
             ClienteDAO clienteDAO = new ClienteDAO();
@@ -32,11 +32,11 @@ public class ClienteDAOTest {
     @Test
     public void eliminarClientePorUsuario(){
         Cliente cliente = new Cliente();
-        cliente.setUsuarioCliente("cliente1");
+        cliente.setCorreo("cliente1");
         try{
             int resultadoEsperado = 1;
             ClienteDAO clienteDAO = new ClienteDAO();
-            int resultado = clienteDAO.eliminarClientePorUsuario(cliente);
+            int resultado = clienteDAO.eliminarClientePorCorreo(cliente);
             assertEquals(resultadoEsperado, resultado);
         } catch (SQLException e){
             e.printStackTrace();

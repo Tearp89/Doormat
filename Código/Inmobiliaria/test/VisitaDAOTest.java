@@ -11,11 +11,6 @@ import logic.classes.Visita;
 
 public class VisitaDAOTest {
 
-    @Test
-    public void TestAgendarVisita() throws SQLException {
-        
-        int resultado = 
-        assertEquals(resultadoEsperado, resultado);
-    }
+    
 
 }
