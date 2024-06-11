@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import GUI.windows.ChangeWindowManager;
 import GUI.windows.UserSessionManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -90,7 +92,7 @@ public class LoginController {
         
         }
     }
-    @FXML
+    /*@FXML
     private TextField textFieldCorreoCrear;
     @FXML
     private TextField textFieldContraseñaCrear;
@@ -138,14 +140,30 @@ public class LoginController {
 
     @FXML
     private Button buttonCrear;
+    @FXML*/
+
     @FXML
+    public void goToCrearCuenta(ActionEvent event){
+        try{
+        
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/SingUp.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+        } catch (IOException e){
+                e.printStackTrace();
+            }
+        
+    }
+
     private void initialize(){
         
         
     }
 
     public static boolean esCorreoValido(String correoElectronico) {
-        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        String regex = "^[a-zA-Z0-9_+&-]+(?:\\.[a-zA-Z0-9_+&-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(correoElectronico);
         return matcher.matches();
