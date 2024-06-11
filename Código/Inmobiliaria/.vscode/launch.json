@@ -9,8 +9,10 @@
             "name": "MainLogin",
             "request": "launch",
             "mainClass": "GUI.windows.MainLogin",
-            "projectName": "Inmobiliaria_a39644a8",
-            "vmArgs": "--module-path \"C:/Users/marla/OneDrive - Universidad Veracruzana/Documentos/4to semestre/Principios de construcción/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            //"projectName": "Inmobiliaria_a39644a8",
+            //"vmArgs": "--module-path \"C:/Users/marla/OneDrive - Universidad Veracruzana/Documentos/4to semestre/Principios de construcción/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            "projectName": "Inmobiliaria_24dbbab4",
+            "vmArgs": "--module-path \"C:/Users/isabe/Desktop/uni 4/Construcción/COIL-VIC-YOYOK/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }

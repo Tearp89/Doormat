@@ -331,6 +331,22 @@
 
 }
 
+.buttonCreate{
+    -fx-background-color: black;
+    -fx-background-radius: 20px;
+    -fx-scale-x: 1.0;
+    -fx-scale-y: 1.0;
+    -fx-transition: all 0.3s ease;
+}
+
+.buttonCreate:hover{
+    -fx-background-color: linear-gradient(to bottom right, #4796ced7, #e85ab2cf);
+    -fx-background-radius: 20px;
+    -fx-scale-x: 1.06;
+    -fx-scale-y: 1.06;
+    -fx-transition: all 0.3s ease;
+}
+
 /*
 -fx-scale-x: 1.0;
     -fx-scale-y: 1.0;

@@ -1,4 +1,4 @@
-
+package GUI.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -144,9 +144,17 @@ public class LoginController {
 
     @FXML
     public void goToCrearCuenta(ActionEvent event){
+        try{
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/SingUp.fxml"));
-        ChangeWindowManager.changeWindowTo(event, loader);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/SingUp.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+        } catch (IOException e){
+                e.printStackTrace();
+            }
+        
     }
 
     private void initialize(){
@@ -155,7 +163,7 @@ public class LoginController {
     }
 
     public static boolean esCorreoValido(String correoElectronico) {
-        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        String regex = "^[a-zA-Z0-9_+&-]+(?:\\.[a-zA-Z0-9_+&-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(correoElectronico);
         return matcher.matches();
