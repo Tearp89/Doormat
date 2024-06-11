@@ -13,6 +13,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -281,14 +282,43 @@ public class EditarPropiedadController {
                     propiedad.setPropiedadEn("Venta");
                 }
 
-                PropiedadDAO propiedadDAO = new PropiedadDAO();
-                propiedadDAO.actualizarPropiedadPorIdPropiedad(propiedad);
+                Alert editarPropiedadConfirmar = new Alert(AlertType.CONFIRMATION);
+                editarPropiedadConfirmar.setTitle("Confirmación de eliminación");
+                editarPropiedadConfirmar.setHeaderText("Confirmación de eliminación");
+                editarPropiedadConfirmar.setContentText("¿Esta seguro que desea eliminar la propiedad?");
+                ButtonType aceptar = new ButtonType("Aceptar");
+                ButtonType cancelar = new ButtonType("Cancelar");
+                editarPropiedadConfirmar.getButtonTypes().setAll(aceptar, cancelar);
+                Button okButton = (Button) editarPropiedadConfirmar.getDialogPane().lookupButton(aceptar);
+                Button cancelButton = (Button) editarPropiedadConfirmar.getDialogPane().lookupButton(aceptar);
+
+                okButton.setOnAction(eventEliminarPropiedad -> {
+                    try {
+                        PropiedadDAO propiedadDAO = new PropiedadDAO();
+                        propiedadDAO.actualizarPropiedadPorIdPropiedad(propiedad);
+                        propiedadDAO.eliminarPropiedadPorId(propiedad);
+                        Alert agregoPropiedad = new Alert(AlertType.INFORMATION);
+                        agregoPropiedad.setTitle("Confirmación edición");
+                        agregoPropiedad.setHeaderText(null);
+                        agregoPropiedad.setContentText("Se modifico de manera correcta la propiedad");
+                        agregoPropiedad.showAndWait();
+                        regresarInicio(event);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        Alert tieneVisitAlert = new Alert(AlertType.ERROR);
+                        tieneVisitAlert.setTitle("No se pudo eliminar");
+                        tieneVisitAlert.setHeaderText(null);
+                        tieneVisitAlert.setContentText("Hubo un problema al momento de eliminar la propiedad");
+                        tieneVisitAlert.show();
+                    }
+                });
+
+                cancelButton.setOnAction(eventCancelarEliminacion -> {
+                    editarPropiedadConfirmar.close();
+                });
+                
     
-                Alert agregoPropiedad = new Alert(AlertType.INFORMATION);
-                agregoPropiedad.setTitle("Confirmación edición");
-                agregoPropiedad.setHeaderText(null);
-                agregoPropiedad.setContentText("Se modifico de manera correcta la propiedad");
-                agregoPropiedad.show();
+                
     
             } catch (NumberFormatException e) {
                 Alert alertDatosInvalidos = new Alert(AlertType.ERROR);
@@ -297,14 +327,7 @@ public class EditarPropiedadController {
                 alertDatosInvalidos.setContentText("Por favor, asegúrate de que todos los campos numéricos contienen valores válidos.");
                 alertDatosInvalidos.show();
                 e.printStackTrace();
-            } catch (SQLException e) {
-                Alert alertBaseDeDatos = new Alert(AlertType.ERROR);
-                alertBaseDeDatos.setTitle("Ocurrió un error en la base de datos");
-                alertBaseDeDatos.setHeaderText("Ocurrió un error al interactuar con la base de datos");
-                alertBaseDeDatos.setContentText("Hubo un error al intentar agregar la propiedad. Por favor, intenta de nuevo.");
-                alertBaseDeDatos.show();
-                e.printStackTrace();
-            }
+            } 
         } else {
             Alert alertDatosVacios = new Alert(AlertType.ERROR);
             alertDatosVacios.setTitle("Datos incompletos");
@@ -334,13 +357,39 @@ public class EditarPropiedadController {
                 tieneVisitAlert.setContentText("La propiedad tiene una visita agendada, no se puede eliminar");
                 tieneVisitAlert.show();
             } else {
-                propiedadDAO.eliminarPropiedadPorId(propiedad);
-                Alert eliminoPropiedad = new Alert(AlertType.INFORMATION);
-                eliminoPropiedad.setTitle("Confirmación eliminación");
-                eliminoPropiedad.setHeaderText("Se elimino correctamente");
-                eliminoPropiedad.setContentText("Se elimino de manera exitosa la propiedad");
-                eliminoPropiedad.show();
-                regresarInicio(event);
+                Alert eliminarPropiedadConfirmar = new Alert(AlertType.CONFIRMATION);
+                eliminarPropiedadConfirmar.setTitle("Confirmación de eliminación");
+                eliminarPropiedadConfirmar.setHeaderText("Confirmación de eliminación");
+                eliminarPropiedadConfirmar.setContentText("¿Esta seguro que desea eliminar la propiedad?");
+                ButtonType aceptar = new ButtonType("Aceptar");
+                ButtonType cancelar = new ButtonType("Cancelar");
+                eliminarPropiedadConfirmar.getButtonTypes().setAll(aceptar, cancelar);
+                Button okButton = (Button) eliminarPropiedadConfirmar.getDialogPane().lookupButton(aceptar);
+                Button cancelButton = (Button) eliminarPropiedadConfirmar.getDialogPane().lookupButton(aceptar);
+
+                okButton.setOnAction(eventEliminarPropiedad -> {
+                    try {
+                        propiedadDAO.eliminarPropiedadPorId(propiedad);
+                        Alert eliminoPropiedad = new Alert(AlertType.INFORMATION);
+                        eliminoPropiedad.setTitle("Confirmación eliminación");
+                        eliminoPropiedad.setHeaderText("Se elimino correctamente");
+                        eliminoPropiedad.setContentText("Se elimino de manera exitosa la propiedad");
+                        eliminoPropiedad.show();
+                        regresarInicio(event);
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        Alert tieneVisitAlert = new Alert(AlertType.ERROR);
+                        tieneVisitAlert.setTitle("No se pudo eliminar");
+                        tieneVisitAlert.setHeaderText(null);
+                        tieneVisitAlert.setContentText("Hubo un problema al momento de eliminar la propiedad");
+                        tieneVisitAlert.show();
+                    }
+                });
+
+                cancelButton.setOnAction(eventCancelarEliminacion -> {
+                    eliminarPropiedadConfirmar.close();
+                });
+                
             }
         } catch (SQLException e) {
             e.printStackTrace();

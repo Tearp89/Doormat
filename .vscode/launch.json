@@ -4,13 +4,19 @@
     // Para más información, visite: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        
         {
             "type": "java",
             "name": "MainLogin",
             "request": "launch",
             "mainClass": "GUI.windows.MainLogin",
-            "projectName": "Doormat_7894e23d",
-            "vmArgs": "--module-path \"C:/Users/daur0/OneDrive/Documentos/Universidad/4to Semestre/Principios de Construcción/Proyecto COIL-VIC/COIL-VIC-YOYOK/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            //PC Daniel
+            "projectName": "Doormat_a30eefde",
+            "vmArgs": "--module-path \"D:/OneDrive/Documentos/Universidad/4to Semestre/Principios de Construcción/Proyecto COIL-VIC/COIL-VIC-YOYOK/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            
+            //Laptop Daniel
+            //"projectName": "Doormat_7894e23d",
+            //"vmArgs": "--module-path \"C:/Users/daur0/OneDrive/Documentos/Universidad/4to Semestre/Principios de Construcción/Proyecto COIL-VIC/COIL-VIC-YOYOK/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",
