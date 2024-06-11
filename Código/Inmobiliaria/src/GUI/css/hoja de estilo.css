@@ -232,6 +232,7 @@
 }
 .textfield-login{
     -fx-background-color:white;
+    -fx-background-radius: 10px;
     -fx-border-color:#6396e1;
     -fx-radius-width: 1px;
     -fx-border-radius:10px;
@@ -345,6 +346,16 @@
     -fx-scale-x: 1.06;
     -fx-scale-y: 1.06;
     -fx-transition: all 0.3s ease;
+}
+
+.anchor-usuario{
+    -fx-background-color: rgb(51, 51, 51);
+    -fx-background-radius: 25px;
+
+}
+.anchor-usuario-top{
+    -fx-background-color: linear-gradient(to bottom right, #4796ced7, #e85ab2cf);
+    -fx-background-radius: 25 25 0 0;
 }
 
 /*
