@@ -192,6 +192,15 @@ public class RegistrarNuevaPropiedadController {
     @FXML
     public void registrarPropiedad(ActionEvent event){
 
+        LoginDAO loginDAO = new LoginDAO();
+
+        Propiedad propiedad = new Propiedad();
+        String resumen = textFieldResumen.getText();
+        String ciudad = textFieldCiudad.getText();
+        String zona = comboBoxZona.getValue();
+        String direccion = textFieldDireccion.getText();
+        String descripcion = textAreaDescripcion.getText();
+
         String correoPropietario = textFieldCorreoPropietario.getText();
 
         // Verifica si el correo del propietario es válido
@@ -201,32 +210,20 @@ public class RegistrarNuevaPropiedadController {
             alertCorreoInvalido.setContentText("El correo ingresado no es válido.");
             alertCorreoInvalido.setHeaderText("Error");
             alertCorreoInvalido.show();
-            return;
-        }
-        // Verifica si el correo del propietario está registrado como cliente
-        LoginDAO loginDAO = new LoginDAO();
-
-        if (!loginDAO.validarClientePorCorreo(correoPropietario)) {
+            
+        }else if (!loginDAO.validarClientePorCorreo(correoPropietario)) {
+            System.out.println("Correo no encontrado en la base de datos");
             Alert alertCorreoNoRegistrado = new Alert(AlertType.ERROR);
             alertCorreoNoRegistrado.setTitle("Correo no registrado");
             alertCorreoNoRegistrado.setContentText("El correo ingresado no está registrado como cliente.");
             alertCorreoNoRegistrado.setHeaderText("Error");
             alertCorreoNoRegistrado.show();
-            return;
-        }
-
-        Propiedad propiedad = new Propiedad();
-        String resumen = textFieldResumen.getText();
-        String ciudad = textFieldCiudad.getText();
-        String zona = comboBoxZona.getValue();
-        String direccion = textFieldDireccion.getText();
-        String descripcion = textAreaDescripcion.getText();
-
-        if(!resumen.isBlank() && !ciudad.isBlank() && ((zona != null && !zona.isBlank())|| (zona != null && !zona.equals("Introduce la zona"))) &&
+            
+        }else if(!resumen.isBlank() && !ciudad.isBlank() && ((zona != null && !zona.isBlank())|| (zona != null && !zona.equals("Introduce la zona"))) &&
         !direccion.isBlank() && (checkBoxDepartamento.isSelected() || checkBoxCuarto.isSelected() || checkBoxCasa.isSelected()) && (checkBoxRenta.isSelected() || checkBoxVenta.isSelected()) &&
         (!textFieldPrecio.getText().isBlank() || (Integer.parseInt(textFieldPrecio.getText()) != 0) && (!textFieldNumeroHabitaciones.getText().isBlank() || (Integer.parseInt(textFieldNumeroHabitaciones.getText())) != 0) && (!textFieldNumeroEstancias.getText().isBlank() || (Integer.parseInt(textFieldNumeroEstancias.getText())) != 0) && 
         (!textFieldNumeroBanios.getText().isBlank() || (Integer.parseInt(textFieldNumeroBanios.getText())) != 0) && ((checkBoxSiCochera.isSelected() && (!textFieldCantidadCochera.getText().isBlank() || (Integer.parseInt(textFieldCantidadCochera.getText())) != 0))|| checkBoxNoCochera.isSelected()) && 
-        (!textFieldTamanioMetros.getText().isBlank() || (Integer.parseInt(textFieldTamanioMetros.getText())) != 0) && !descripcion.isBlank() || !textFieldCorreoPropietario.getText().isBlank())){
+        (!textFieldTamanioMetros.getText().isBlank() || (Integer.parseInt(textFieldTamanioMetros.getText())) != 0) && !descripcion.isBlank() && !correoPropietario.isBlank())){
             int precio = Integer.parseInt(textFieldPrecio.getText());
             int noHabitaciones = Integer.parseInt(textFieldNumeroHabitaciones.getText());
             int noEstancias = Integer.parseInt(textFieldNumeroEstancias.getText());
@@ -251,7 +248,9 @@ public class RegistrarNuevaPropiedadController {
             }
             propiedad.setTamanio(tamanio);
             propiedad.setDescripcion(descripcion);
-            propiedad.setUsuarioAgente("Agente de Prueba");
+            Agente agente = UserSessionManager.getInstance().getAgenteData();
+            String usuarioAgente = agente.getUsuarioAgente();
+            propiedad.setUsuarioAgente(usuarioAgente);
             if (checkBoxDepartamento.isSelected()){
                 propiedad.setTipoPropiedad("Departamento");
             } else if (checkBoxCuarto.isSelected()) {
@@ -267,14 +266,15 @@ public class RegistrarNuevaPropiedadController {
             }
                 
             Alert registrarNuevaPropiedad = new Alert(AlertType.CONFIRMATION);
-            registrarNuevaPropiedad.setTitle("Confirmación de eliminación");
-            registrarNuevaPropiedad.setHeaderText("Confirmación de eliminación");
-            registrarNuevaPropiedad.setContentText("¿Esta seguro que desea eliminar la propiedad?");
+            registrarNuevaPropiedad.setTitle("Confirmación de registro");
+            registrarNuevaPropiedad.setHeaderText("Confirmación de registro");
+            registrarNuevaPropiedad.setContentText("¿Esta seguro que desea registrar la propiedad?");
             ButtonType aceptar = new ButtonType("Aceptar");
             ButtonType cancelar = new ButtonType("Cancelar");
+
             registrarNuevaPropiedad.getButtonTypes().setAll(aceptar, cancelar);
             Button okButton = (Button) registrarNuevaPropiedad.getDialogPane().lookupButton(aceptar);
-            Button cancelButton = (Button) registrarNuevaPropiedad.getDialogPane().lookupButton(aceptar);
+            Button cancelButton = (Button) registrarNuevaPropiedad.getDialogPane().lookupButton(cancelar);
             
             okButton.setOnAction(eventRegistrarPropiedad -> {
                 try {
@@ -299,14 +299,19 @@ public class RegistrarNuevaPropiedadController {
             cancelButton.setOnAction(eventCancelarEliminacion -> {
                 registrarNuevaPropiedad.close();
             });
+            registrarNuevaPropiedad.show();
             
-        } else {
+        }else {
             Alert alertDatosVacios = new Alert(AlertType.ERROR);
             alertDatosVacios.setTitle("No ha ingresado datos correctos");
             alertDatosVacios.setContentText("Revise si hay datos por rellenar o dejo alguno en 0");
             alertDatosVacios.setHeaderText("Ocurrio un error");
             alertDatosVacios.show();
         }
+
+        
+
+        
     }
 
     @FXML

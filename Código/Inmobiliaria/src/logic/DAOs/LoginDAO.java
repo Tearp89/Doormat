@@ -71,4 +71,24 @@ public class LoginDAO {
         }
         return false;
     }
+
+    public boolean validarClientePorCorreo(String correo) {
+        DatabaseManager dbManager = new DatabaseManager();
+        String query = "SELECT COUNT(*) AS count FROM Cliente WHERE correoElectrónico = ?";
+
+        try {
+            Connection connection = dbManager.getConnection();
+            PreparedStatement statement = connection.prepareStatement(query);
+            statement.setString(1, correo);
+            ResultSet resultSet = statement.executeQuery();
+            if(resultSet.next()) {
+                int count = resultSet.getInt("count");
+                return count == 1;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }

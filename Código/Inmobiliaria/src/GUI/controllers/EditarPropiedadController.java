@@ -283,20 +283,19 @@ public class EditarPropiedadController {
                 }
 
                 Alert editarPropiedadConfirmar = new Alert(AlertType.CONFIRMATION);
-                editarPropiedadConfirmar.setTitle("Confirmación de eliminación");
-                editarPropiedadConfirmar.setHeaderText("Confirmación de eliminación");
-                editarPropiedadConfirmar.setContentText("¿Esta seguro que desea eliminar la propiedad?");
+                editarPropiedadConfirmar.setTitle("Confirmación de edición");
+                editarPropiedadConfirmar.setHeaderText("Confirmación de edición");
+                editarPropiedadConfirmar.setContentText("¿Esta seguro que desea editar la propiedad?");
                 ButtonType aceptar = new ButtonType("Aceptar");
                 ButtonType cancelar = new ButtonType("Cancelar");
                 editarPropiedadConfirmar.getButtonTypes().setAll(aceptar, cancelar);
                 Button okButton = (Button) editarPropiedadConfirmar.getDialogPane().lookupButton(aceptar);
-                Button cancelButton = (Button) editarPropiedadConfirmar.getDialogPane().lookupButton(aceptar);
+                Button cancelButton = (Button) editarPropiedadConfirmar.getDialogPane().lookupButton(cancelar);
 
                 okButton.setOnAction(eventEliminarPropiedad -> {
                     try {
                         PropiedadDAO propiedadDAO = new PropiedadDAO();
                         propiedadDAO.actualizarPropiedadPorIdPropiedad(propiedad);
-                        propiedadDAO.eliminarPropiedadPorId(propiedad);
                         Alert agregoPropiedad = new Alert(AlertType.INFORMATION);
                         agregoPropiedad.setTitle("Confirmación edición");
                         agregoPropiedad.setHeaderText(null);
@@ -317,7 +316,7 @@ public class EditarPropiedadController {
                     editarPropiedadConfirmar.close();
                 });
                 
-    
+                editarPropiedadConfirmar.show();
                 
     
             } catch (NumberFormatException e) {
@@ -365,7 +364,7 @@ public class EditarPropiedadController {
                 ButtonType cancelar = new ButtonType("Cancelar");
                 eliminarPropiedadConfirmar.getButtonTypes().setAll(aceptar, cancelar);
                 Button okButton = (Button) eliminarPropiedadConfirmar.getDialogPane().lookupButton(aceptar);
-                Button cancelButton = (Button) eliminarPropiedadConfirmar.getDialogPane().lookupButton(aceptar);
+                Button cancelButton = (Button) eliminarPropiedadConfirmar.getDialogPane().lookupButton(cancelar);
 
                 okButton.setOnAction(eventEliminarPropiedad -> {
                     try {
@@ -374,7 +373,7 @@ public class EditarPropiedadController {
                         eliminoPropiedad.setTitle("Confirmación eliminación");
                         eliminoPropiedad.setHeaderText("Se elimino correctamente");
                         eliminoPropiedad.setContentText("Se elimino de manera exitosa la propiedad");
-                        eliminoPropiedad.show();
+                        eliminoPropiedad.showAndWait();
                         regresarInicio(event);
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -390,6 +389,7 @@ public class EditarPropiedadController {
                     eliminarPropiedadConfirmar.close();
                 });
                 
+                eliminarPropiedadConfirmar.show();
             }
         } catch (SQLException e) {
             e.printStackTrace();

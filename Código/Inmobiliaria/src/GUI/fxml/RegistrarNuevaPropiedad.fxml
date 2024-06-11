@@ -188,7 +188,7 @@
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="textFieldResumen1" layoutX="139.0" layoutY="514.0" prefHeight="25.0" prefWidth="381.0" promptText="Introduce el correo asociado a la cuenta del propietario" styleClass="white-textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <TextField fx:id="textFieldCorreoPropietario" layoutX="139.0" layoutY="514.0" prefHeight="25.0" prefWidth="381.0" promptText="Introduce el correo asociado a la cuenta del propietario" styleClass="white-textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="65.0" layoutY="64.0" prefHeight="320.0" prefWidth="227.0" styleClass="grey-anchor" stylesheets="@../css/hoja%20de%20estilo.css">
