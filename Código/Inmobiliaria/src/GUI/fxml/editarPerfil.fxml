@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.EditarPerfilController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="900.0">
+         <children>
+            <BorderPane layoutX="228.0" layoutY="89.0" prefHeight="600.0" prefWidth="900.0" styleClass="pane-background" stylesheets="@../css/hoja%20de%20estilo.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <top>
+                  <AnchorPane prefHeight="98.0" prefWidth="900.0" styleClass="top-form" stylesheets="@../css/hoja%20de%20estilo.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <AnchorPane layoutX="160.0" layoutY="-63.0" prefHeight="36.0" prefWidth="900.0" styleClass="semi-top-form" stylesheets="@../css/hoja%20de%20estilo.css" AnchorPane.bottomAnchor="62.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <FontAwesomeIcon fx:id="iconInstagram" fill="WHITE" glyphName="INSTAGRAM" layoutX="750.0" layoutY="26.0" size="2em" styleClass="top-icons" />
+                              <FontAwesomeIcon fx:id="iconLinkedin" fill="WHITE" glyphName="LINKEDIN" layoutX="815.0" layoutY="26.0" size="2em" styleClass="top-icons" text="" />
+                              <FontAwesomeIcon fx:id="iconFacebook" fill="WHITE" glyphName="FACEBOOK" layoutX="685.0" layoutY="26.0" size="2em" styleClass="top-icons" />
+                           </children>
+                        </AnchorPane>
+                        <Button fx:id="logo" layoutX="-5.0" layoutY="38.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="58.0" prefWidth="163.0" styleClass="top-logo" stylesheets="@../css/hoja%20de%20estilo.css" text="Dormat">
+                           <graphic>
+                              <ImageView fitHeight="45.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../media/logo%205%201.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Tahoma Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="buttonCitas" layoutX="653.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Citas" visible="false">
+                           <font>
+                              <Font size="9.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="buttonUser" layoutX="849.0" layoutY="51.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="4.0" styleClass="user-buttom" stylesheets="@../css/hoja%20de%20estilo.css">
+                           <graphic>
+                              <FontAwesomeIcon fill="#0066ff" glyphName="USER" size="2em" />
+                           </graphic>
+                        </Button>
+                        <Label fx:id="labelUsuario" layoutX="814.0" layoutY="59.0" text="User" textFill="#0066ff" />
+                     </children>
+                  </AnchorPane>
+               </top>
+               <center>
+                  <ScrollPane prefHeight="625.0" prefWidth="900.0" BorderPane.alignment="CENTER">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="800.0" prefWidth="900.0">
+                           <children>
+                              <Label layoutX="75.0" layoutY="36.0" prefHeight="11.0" prefWidth="78.0" styleClass="label-blue" stylesheets="@../css/hoja%20de%20estilo.css" text="             ">
+                                 <font>
+                                    <Font size="6.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="75.0" layoutY="20.0" text="Consultar perfil" textFill="#0066ff">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="24.0" />
+                                 </font>
+                              </Label>
+                              <AnchorPane layoutX="152.0" layoutY="84.0" minHeight="-Infinity" prefHeight="353.0" prefWidth="596.0" styleClass="anchor-usuario" stylesheets="@../css/hoja%20de%20estilo.css">
+                                 <children>
+                                    <AnchorPane prefHeight="163.0" prefWidth="596.0" styleClass="anchor-usuario-top" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <Circle fill="#88bdff" layoutX="102.0" layoutY="137.0" radius="76.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" />
+                                    <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="60.0" layoutY="175.0" size="9em" />
+                                    <Label fx:id="labelNombreCompleto" layoutX="53.0" layoutY="222.0" text="full name" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="50.0" layoutY="264.0" text="Asegúrate de mantener tus datos actualizados para una mejor experiencia." textFill="WHITE" />
+                                    <Button fx:id="buttonEliminarPerfil" layoutX="48.0" layoutY="304.0" mnemonicParsing="false" onAction="#eliminarPerfil" prefHeight="35.0" prefWidth="500.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Eliminar Perfil">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane layoutX="152.0" layoutY="459.0" minHeight="-Infinity" prefHeight="300.0" prefWidth="596.0" styleClass="anchor-usuario" stylesheets="@../css/hoja%20de%20estilo.css">
+                                 <children>
+                                    <Label layoutX="20.0" layoutY="10.0" text="Información Personal" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma" size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="20.0" layoutY="50.0" text="Nombre Completo" textFill="WHITE" />
+                                    <TextField fx:id="textFieldNombre" layoutX="20.0" layoutY="70.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="550.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <FontAwesomeIcon glyphName="USER" layoutX="28.0" layoutY="89.0" />
+                                    <Label layoutX="20.0" layoutY="115.0" text="Correo" textFill="WHITE" />
+                                    <TextField fx:id="textFieldCorreo" layoutX="20.0" layoutY="136.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="550.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <FontAwesomeIcon glyphName="AT" layoutX="28.0" layoutY="155.0" />
+                                    <Label layoutX="20.0" layoutY="180.0" text="Cambiar Contraseña" textFill="WHITE" />
+                                    <TextField fx:id="textFieldContraseniaVieja" layoutX="19.0" layoutY="201.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="260.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <FontAwesomeIcon glyphName="LOCK" layoutX="27.0" layoutY="220.0" />
+                                    <TextField fx:id="textFieldContraseniaNueva" layoutX="308.0" layoutY="201.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="260.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <FontAwesomeIcon glyphName="LOCK" layoutX="316.0" layoutY="220.0" />
+                                    <Button fx:id="buttonEditar" layoutX="460.0" layoutY="250.0" mnemonicParsing="false" onAction="#editarPerfil" prefHeight="19.0" prefWidth="104.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Editar perfil">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="buttonCancelar" disable="true" layoutX="360.0" layoutY="250.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="31.0" prefWidth="78.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Cancelar">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </center>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import GUI.windows.ChangeWindowManager;
 import GUI.windows.UserSessionManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -38,9 +40,10 @@ public class LoginController {
     
     @FXML
     private void goToInicio(ActionEvent event){
-        String usuario = textFieldCorreoIniciar.getText();
+        String correo = textFieldCorreoIniciar.getText();
         String contraseña = textFieldContraseñaIniciar.getText();
-        if(!(usuario.isEmpty() && contraseña.isEmpty())){
+        String usuario = textFieldCorreoIniciar.getText();
+        if(!(correo.trim().isEmpty() && contraseña.trim().isEmpty())){
             buttonIniciar.setDisable(false);
         }
         LoginDAO loginDAO = new LoginDAO();
@@ -67,11 +70,17 @@ public class LoginController {
             
 
 
-        } else if(loginDAO.validarCliente(usuario, contraseña)) {
+        } else if(loginDAO.validarCliente(correo, contraseña)) {
             Cliente clienteData = new Cliente();
+            ClienteDAO clienteDAO = new ClienteDAO();
             clienteData.setContrasenia(contraseña);
-            clienteData.setUsuarioCliente(usuario);
+            clienteData.setCorreo(correo);
+            try{
+                clienteData.setUsuarioCliente(clienteDAO.obtenerUsuarioClientePorUsuario(correo));
 
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
             UserSessionManager.getInstance().loginCliente(clienteData);
             Node source = (Node) event.getSource();
             stage = (Stage) source.getScene().getWindow();
@@ -93,7 +102,6 @@ public class LoginController {
             noExisteUsuario.show();
         }
     }
-
     @FXML
     private TextField textFieldCorreoCrear;
     @FXML
@@ -158,16 +166,15 @@ public class LoginController {
         
     }
 
-    @FXML
-    private Button buttonCrear;
-    @FXML
-    private void initialize(){
+    
+
+    public void initialize(){
         
         
     }
 
     public static boolean esCorreoValido(String correoElectronico) {
-        String regex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        String regex = "^[a-zA-Z0-9_+&-]+(?:\\.[a-zA-Z0-9_+&-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(correoElectronico);
         return matcher.matches();
