@@ -46,7 +46,7 @@ public class AgenteDAO {
 
     public int calificarAgente(int calificacion, String usuarioAgente) throws SQLException{
         DatabaseManager databaseManager = new DatabaseManager();
-        String query = "INSERT INTO CalificacionesAgente (calificacion, Agente_usuarioAgente) VALUES = (?, ?)";
+        String query = "INSERT INTO CalificacionesAgente (calificación, Agente_usuarioAgente) VALUES (?, ?)";
         int result = 0;
         Connection connection = databaseManager.getConnection();
         PreparedStatement pStatement = connection.prepareStatement(query);
