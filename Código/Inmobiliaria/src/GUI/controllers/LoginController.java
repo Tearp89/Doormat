@@ -42,7 +42,7 @@ public class LoginController {
     private void goToInicio(ActionEvent event){
         String correo = textFieldCorreoIniciar.getText();
         String contraseña = textFieldContraseñaIniciar.getText();
-        if(!(correo.isEmpty() && contraseña.isEmpty())){
+        if(!(correo.trim().isEmpty() && contraseña.trim().isEmpty())){
             buttonIniciar.setDisable(false);
         }
         LoginDAO loginDAO = new LoginDAO();
@@ -71,9 +71,15 @@ public class LoginController {
 
         } else if(loginDAO.validarCliente(correo, contraseña)) {
             Cliente clienteData = new Cliente();
+            ClienteDAO clienteDAO = new ClienteDAO();
             clienteData.setContrasenia(contraseña);
             clienteData.setCorreo(correo);
+            try{
+                clienteData.setUsuarioCliente(clienteDAO.obtenerUsuarioClientePorUsuario(correo));
 
+            }catch (SQLException e){
+                e.printStackTrace();
+            }
             UserSessionManager.getInstance().loginCliente(clienteData);
             Node source = (Node) event.getSource();
             stage = (Stage) source.getScene().getWindow();
@@ -162,7 +168,7 @@ public class LoginController {
         
     }
 
-    private void initialize(){
+    public void initialize(){
         
         
     }

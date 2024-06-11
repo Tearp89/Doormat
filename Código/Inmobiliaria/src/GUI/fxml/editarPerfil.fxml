@@ -13,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.EditarPropiedadController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.EditarPerfilController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="900.0">
          <children>
@@ -50,7 +50,7 @@
                               <FontAwesomeIcon fill="#0066ff" glyphName="USER" size="2em" />
                            </graphic>
                         </Button>
-                        <Label fx:id="labelUser" layoutX="814.0" layoutY="59.0" text="User" textFill="#0066ff" />
+                        <Label fx:id="labelUsuario" layoutX="814.0" layoutY="59.0" text="User" textFill="#0066ff" />
                      </children>
                   </AnchorPane>
                </top>
@@ -74,13 +74,13 @@
                                     <AnchorPane prefHeight="163.0" prefWidth="596.0" styleClass="anchor-usuario-top" stylesheets="@../css/hoja%20de%20estilo.css" />
                                     <Circle fill="#88bdff" layoutX="102.0" layoutY="137.0" radius="76.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" />
                                     <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="60.0" layoutY="175.0" size="9em" />
-                                    <Label layoutX="53.0" layoutY="222.0" text="full name" textFill="WHITE">
+                                    <Label fx:id="labelNombreCompleto" layoutX="53.0" layoutY="222.0" text="full name" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="24.0" />
                                        </font>
                                     </Label>
                                     <Label layoutX="50.0" layoutY="264.0" text="Asegúrate de mantener tus datos actualizados para una mejor experiencia." textFill="WHITE" />
-                                    <Button fx:id="buttonEliminar" layoutX="48.0" layoutY="304.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="500.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Eliminar Perfil">
+                                    <Button fx:id="buttonEliminarPerfil" layoutX="48.0" layoutY="304.0" mnemonicParsing="false" onAction="#eliminarPerfil" prefHeight="35.0" prefWidth="500.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Eliminar Perfil">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
@@ -95,22 +95,22 @@
                                        </font>
                                     </Label>
                                     <Label layoutX="20.0" layoutY="50.0" text="Nombre Completo" textFill="WHITE" />
-                                    <TextField fx:id="textFieldNombre" editable="false" layoutX="20.0" layoutY="70.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="550.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <TextField fx:id="textFieldNombre" layoutX="20.0" layoutY="70.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="550.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
                                     <FontAwesomeIcon glyphName="USER" layoutX="28.0" layoutY="89.0" />
                                     <Label layoutX="20.0" layoutY="115.0" text="Correo" textFill="WHITE" />
-                                    <TextField fx:id="textFieldCorreo" editable="false" layoutX="20.0" layoutY="136.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="550.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <TextField fx:id="textFieldCorreo" layoutX="20.0" layoutY="136.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="550.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
                                     <FontAwesomeIcon glyphName="AT" layoutX="28.0" layoutY="155.0" />
                                     <Label layoutX="20.0" layoutY="180.0" text="Cambiar Contraseña" textFill="WHITE" />
-                                    <TextField fx:id="textFieldContraseniaVieja" editable="false" layoutX="19.0" layoutY="201.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="260.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <TextField fx:id="textFieldContraseniaVieja" layoutX="19.0" layoutY="201.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="260.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
                                     <FontAwesomeIcon glyphName="LOCK" layoutX="27.0" layoutY="220.0" />
-                                    <TextField fx:id="textFieldContraseniaNueva" editable="false" layoutX="308.0" layoutY="201.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="260.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                    <TextField fx:id="textFieldContraseniaNueva" layoutX="308.0" layoutY="201.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="260.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
                                     <FontAwesomeIcon glyphName="LOCK" layoutX="316.0" layoutY="220.0" />
-                                    <Button fx:id="buttonEditar" layoutX="460.0" layoutY="250.0" mnemonicParsing="false" prefHeight="19.0" prefWidth="104.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Editar perfil">
+                                    <Button fx:id="buttonEditar" layoutX="460.0" layoutY="250.0" mnemonicParsing="false" onAction="#editarPerfil" prefHeight="19.0" prefWidth="104.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Editar perfil">
                                        <font>
                                           <Font size="15.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="buttonCancelar" disable="true" layoutX="360.0" layoutY="250.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="78.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Cancelar">
+                                    <Button fx:id="buttonCancelar" disable="true" layoutX="360.0" layoutY="250.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="31.0" prefWidth="78.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Cancelar">
                                        <font>
                                           <Font size="15.0" />
                                        </font>

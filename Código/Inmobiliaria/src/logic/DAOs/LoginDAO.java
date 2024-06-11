@@ -33,7 +33,7 @@ public class LoginDAO {
 
     public boolean validarCliente(String usuarioCliente, String contraseñaCliente){
         DatabaseManager dbManager = new DatabaseManager();
-        String query = "SELECT COUNT(*) AS count FROM Cliente WHERE usuarioCliente = ? AND contraseña = SHA2(?, 256)";
+        String query = "SELECT COUNT(*) AS count FROM Cliente WHERE correoElectrónico = ? AND contraseña = SHA2(?, 256)";
         try{
             Connection connection = dbManager.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement(query);

@@ -36,7 +36,7 @@ public class ClienteDAOTest {
         try{
             int resultadoEsperado = 1;
             ClienteDAO clienteDAO = new ClienteDAO();
-            int resultado = clienteDAO.eliminarClientePorCorreo(cliente);
+            int resultado = clienteDAO.eliminarClientePorUsuario(cliente);
             assertEquals(resultadoEsperado, resultado);
         } catch (SQLException e){
             e.printStackTrace();
