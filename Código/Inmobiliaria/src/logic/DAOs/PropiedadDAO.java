@@ -12,7 +12,7 @@ import logic.classes.Propiedad;
 public class PropiedadDAO {
     public int agregarPropiedad(Propiedad propiedad) throws SQLException{
         DatabaseManager databaseManager = new DatabaseManager();
-        String query = "INSERT INTO propiedad (dirección, descripción, estadoPropiedad, Agente_Usuario, Ciudad, Zona, Tipo, Precio, NoHabitaciones, NoEstancias, NoBaños, Cochera, Tamaño, Resumen, PropiedadEn) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO propiedad (dirección, descripción, estadoPropiedad, Agente_Usuario, Ciudad, Zona, Tipo, Precio, NoHabitaciones, NoEstancias, NoBaños, Cochera, Tamaño, Resumen, PropiedadEn, CorreoPropietario) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
         int result = 0;
         Connection connection = databaseManager.getConnection();
         PreparedStatement pStatement = connection.prepareStatement(query);
@@ -31,6 +31,7 @@ public class PropiedadDAO {
         pStatement.setInt(13, propiedad.getTamanio());
         pStatement.setString(14, propiedad.getResumen());
         pStatement.setString(15, propiedad.getPropiedadEn());
+        pStatement.setString(16, propiedad.getCorreoPropietario());
 
         result = pStatement.executeUpdate();
         return result;
@@ -49,7 +50,7 @@ public class PropiedadDAO {
 
     public int actualizarPropiedadPorIdPropiedad(Propiedad propiedad) throws SQLException{
         DatabaseManager databaseManager = new DatabaseManager();
-        String query = "UPDATE propiedad SET dirección = ?, descripción = ?, estadoPropiedad = ?, Ciudad = ?, Zona = ?, Tipo = ?, Precio = ?, NoHabitaciones = ?, NoEstancias = ?, NoBaños = ?, Cochera = ?, Tamaño = ?, Resumen = ?, PropiedadEn = ? WHERE idPropiedad = ?";
+        String query = "UPDATE propiedad SET dirección = ?, descripción = ?, estadoPropiedad = ?, Ciudad = ?, Zona = ?, Tipo = ?, Precio = ?, NoHabitaciones = ?, NoEstancias = ?, NoBaños = ?, Cochera = ?, Tamaño = ?, Resumen = ?, PropiedadEn = ?, CorreoPropietario = ? WHERE idPropiedad = ?";
         int result = 0;
         Connection connection = databaseManager.getConnection();
         PreparedStatement pStatement = connection.prepareStatement(query);
@@ -68,6 +69,7 @@ public class PropiedadDAO {
         pStatement.setString(13, propiedad.getResumen());
         pStatement.setString(14, propiedad.getPropiedadEn());
         pStatement.setInt(15, propiedad.getIdPropiedad()); 
+        pStatement.setString(16, propiedad.getCorreoPropietario());
 
         result = pStatement.executeUpdate();
         return result;

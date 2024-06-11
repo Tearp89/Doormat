@@ -62,9 +62,7 @@
                            <children>
                               <TextField fx:id="textFieldCorreoIniciar" layoutX="67.0" layoutY="42.0" prefHeight="30.0" prefWidth="254.0" promptText="Correo" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
                               <FontAwesomeIcon fill="#6396e1" glyphName="USER" layoutX="77.0" layoutY="63.0" selectionFill="#6396e1" size="1.6em" />
-                              <PasswordField fx:id="textFieldContraseñaIniciar" layoutX="67.0" layoutY="102.0" prefHeight="30.0" prefWidth="254.0" promptText="Contraseña" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
                               <Line endX="156.0" layoutX="177.0" layoutY="235.0" startX="-122.0" stroke="#6f6f6f" />
-                              <FontAwesomeIcon fill="#6396e1" glyphName="LOCK" layoutX="77.0" layoutY="123.0" selectionFill="#6396e1" size="1.6em" />
                            </children>
                         </AnchorPane>
                      </center>
@@ -76,6 +74,8 @@
                   <Image url="@../media/blue-ripples-and-water-splashes-waves-surface-flat-style-design-illustration-vector-Photoroom.png-Photoroom.png" />
                </image>
             </ImageView>
+            <PasswordField fx:id="textFieldContraseñaIniciar" layoutX="323.0" layoutY="257.0" prefHeight="30.0" prefWidth="254.0" promptText="Contraseña" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+            <FontAwesomeIcon fill="#6396e1" glyphName="LOCK" layoutX="333.0" layoutY="278.0" selectionFill="#6396e1" size="1.6em" />
             <Button fx:id="buttonIniciar" layoutX="384.0" layoutY="317.0" mnemonicParsing="false" onAction="#goToInicio" prefHeight="39.0" prefWidth="131.0" styleClass="button-logIn" stylesheets="@../css/hoja%20de%20estilo.css" text="INICIAR" textFill="WHITE">
                <font>
                   <Font name="Arial" size="21.0" />

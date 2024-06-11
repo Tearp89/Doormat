@@ -52,4 +52,26 @@ public class LoginDAO {
         return false;
     }
 
+    public boolean validarClientePorCorreo(String correoPropietario) {
+        DatabaseManager dbManager = new DatabaseManager();
+        String query = "SELECT * FROM clientes WHERE CorreoPropietario = ?";
+
+        try {
+            Connection connection = dbManager.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, correoPropietario);
+
+            try (ResultSet rs = preparedStatement.executeQuery()) {
+                if(rs.next()) {
+                    int count = rs.getInt("count");
+                    return count == 1;
+                }
+            }
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
 }

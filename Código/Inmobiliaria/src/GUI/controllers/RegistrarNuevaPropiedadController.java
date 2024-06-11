@@ -2,6 +2,8 @@ package GUI.controllers;
 
 import java.sql.SQLException;
 import java.util.function.UnaryOperator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import GUI.windows.ChangeWindowManager;
 import GUI.windows.UserSessionManager;
@@ -19,9 +21,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import logic.DAOs.LoginDAO;
 import logic.DAOs.PropiedadDAO;
 import logic.classes.Agente;
 import logic.classes.Propiedad;
+
 
 public class RegistrarNuevaPropiedadController {
     @FXML
@@ -74,6 +78,9 @@ public class RegistrarNuevaPropiedadController {
 
     @FXML
     private TextField textFieldTamanioMetros;
+
+    @FXML
+    private TextField textFieldCorreoPropietario;
 
     @FXML
     private TextArea textAreaDescripcion;
@@ -174,21 +181,51 @@ public class RegistrarNuevaPropiedadController {
         }
     }
 
+    public static boolean esCorreoValido(String correoElectronico) {
+        String regex = "^[a-zA-Z0-9_+&-]+(?:\\.[a-zA-Z0-9_+&-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(correoElectronico);
+        return matcher.matches();
+    }
+
     @FXML
     public void registrarPropiedad(ActionEvent event){
+
+        String correoPropietario = textFieldCorreoPropietario.getText();
+
+        // Verifica si el correo del propietario es válido
+        if (!esCorreoValido(correoPropietario)) {
+            Alert alertCorreoInvalido = new Alert(AlertType.ERROR);
+            alertCorreoInvalido.setTitle("Correo no válido");
+            alertCorreoInvalido.setContentText("El correo ingresado no es válido.");
+            alertCorreoInvalido.setHeaderText("Error");
+            alertCorreoInvalido.show();
+            return;
+        }
+        // Verifica si el correo del propietario está registrado como cliente
+        LoginDAO loginDAO = new LoginDAO();
+
+        if (!loginDAO.validarClientePorCorreo(correoPropietario)) {
+            Alert alertCorreoNoRegistrado = new Alert(AlertType.ERROR);
+            alertCorreoNoRegistrado.setTitle("Correo no registrado");
+            alertCorreoNoRegistrado.setContentText("El correo ingresado no está registrado como cliente.");
+            alertCorreoNoRegistrado.setHeaderText("Error");
+            alertCorreoNoRegistrado.show();
+            return;
+        }
+
         Propiedad propiedad = new Propiedad();
         String resumen = textFieldResumen.getText();
         String ciudad = textFieldCiudad.getText();
         String zona = comboBoxZona.getValue();
         String direccion = textFieldDireccion.getText();
-        
         String descripcion = textAreaDescripcion.getText();
 
         if(!resumen.isBlank() && !ciudad.isBlank() && ((zona != null && !zona.isBlank())|| (zona != null && !zona.equals("Introduce la zona"))) &&
         !direccion.isBlank() && (checkBoxDepartamento.isSelected() || checkBoxCuarto.isSelected() || checkBoxCasa.isSelected()) && (checkBoxRenta.isSelected() || checkBoxVenta.isSelected()) &&
         (!textFieldPrecio.getText().isBlank() || (Integer.parseInt(textFieldPrecio.getText()) != 0) && (!textFieldNumeroHabitaciones.getText().isBlank() || (Integer.parseInt(textFieldNumeroHabitaciones.getText())) != 0) && (!textFieldNumeroEstancias.getText().isBlank() || (Integer.parseInt(textFieldNumeroEstancias.getText())) != 0) && 
         (!textFieldNumeroBanios.getText().isBlank() || (Integer.parseInt(textFieldNumeroBanios.getText())) != 0) && ((checkBoxSiCochera.isSelected() && (!textFieldCantidadCochera.getText().isBlank() || (Integer.parseInt(textFieldCantidadCochera.getText())) != 0))|| checkBoxNoCochera.isSelected()) && 
-        (!textFieldTamanioMetros.getText().isBlank() || (Integer.parseInt(textFieldTamanioMetros.getText())) != 0) && !descripcion.isBlank())){
+        (!textFieldTamanioMetros.getText().isBlank() || (Integer.parseInt(textFieldTamanioMetros.getText())) != 0) && !descripcion.isBlank() || !textFieldCorreoPropietario.getText().isBlank())){
             int precio = Integer.parseInt(textFieldPrecio.getText());
             int noHabitaciones = Integer.parseInt(textFieldNumeroHabitaciones.getText());
             int noEstancias = Integer.parseInt(textFieldNumeroEstancias.getText());
@@ -203,6 +240,7 @@ public class RegistrarNuevaPropiedadController {
             propiedad.setNoHabitaciones(noHabitaciones);
             propiedad.setNoEstancias(noEstancias);
             propiedad.setNoBanios(noBanios);
+            propiedad.setCorreoPropietario(correoPropietario);
             String tempCochera = textFieldCantidadCochera.getText();
             if(tempCochera != null && tempCochera.isBlank()){
                 int noCocheras = Integer.parseInt(textFieldCantidadCochera.getText());
@@ -257,4 +295,5 @@ public class RegistrarNuevaPropiedadController {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/consultarPropiedadesAdmin.fxml"));
         ChangeWindowManager.changeWindowTo(event, loader);
     }
+    
 }

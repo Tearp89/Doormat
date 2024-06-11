@@ -20,6 +20,7 @@ public class Propiedad {
     private String resumen;
     private int calificacion;
     private String propiedadEn;
+    private String correoPropietario;
 
     public String getEtiquetas() {
         return etiquetas;
@@ -134,5 +135,11 @@ public class Propiedad {
     }
     public void setPropiedadEn(String propiedadEn) {
         this.propiedadEn = propiedadEn;
+    }
+    public String getCorreoPropietario(){
+        return correoPropietario;
+    }
+    public void setCorreoPropietario(String correoPropietario){
+        this.correoPropietario = correoPropietario;
     }
 }

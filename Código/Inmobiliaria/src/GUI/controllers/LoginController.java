@@ -40,6 +40,8 @@ public class LoginController {
     
     @FXML
     private void goToInicio(ActionEvent event){
+        
+
         String correo = textFieldCorreoIniciar.getText();
         String contraseña = textFieldContraseñaIniciar.getText();
         if(!(correo.isEmpty() && contraseña.isEmpty())){
@@ -89,7 +91,19 @@ public class LoginController {
             }
             
 
+        }else if (correo.isEmpty() || contraseña.isEmpty()){
+            Alert emptyFieldsAlert = new Alert(AlertType.ERROR);
+                emptyFieldsAlert.setTitle("Campos incorrectos o vacíos");
+                emptyFieldsAlert.setHeaderText("Campos incorrectos o vacíos");
+                emptyFieldsAlert.setContentText("Hay campos vacíos y/o incorrectos.");
+                emptyFieldsAlert.showAndWait();
         
+        }else {
+            Alert userNotInDatabase = new Alert(AlertType.INFORMATION);
+            userNotInDatabase.setHeaderText("No existe en el sistema");
+            userNotInDatabase.setTitle("No hay existencia del usuario");
+            userNotInDatabase.setContentText("No hay un registro de su cuenta en el sistema");
+            userNotInDatabase.show();
         }
     }
     /*@FXML

@@ -69,7 +69,7 @@
                <center>
                   <ScrollPane prefHeight="625.0" prefWidth="900.0" BorderPane.alignment="CENTER">
                      <content>
-                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="900.0" prefWidth="900.0">
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1100.0" prefWidth="900.0">
                            <children>
                               <Label layoutX="75.0" layoutY="36.0" prefHeight="11.0" prefWidth="78.0" styleClass="label-blue" stylesheets="@../css/hoja%20de%20estilo.css" text="             ">
                                  <font>
@@ -81,7 +81,7 @@
                                     <Font name="Arial Rounded MT Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <AnchorPane layoutX="227.0" layoutY="88.0" prefHeight="720.0" prefWidth="596.0" styleClass="black-anchor" stylesheets="@../css/hoja%20de%20estilo.css">
+                              <AnchorPane layoutX="227.0" layoutY="88.0" prefHeight="820.0" prefWidth="596.0" styleClass="black-anchor" stylesheets="@../css/hoja%20de%20estilo.css">
                                  <children>
                                     <Label layoutX="139.0" layoutY="30.0" text="Agrega la información requerida" textFill="#0dedff">
                                        <font>
@@ -159,30 +159,36 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="textFieldTamanioMetros" layoutX="343.0" layoutY="444.0" prefHeight="25.0" prefWidth="175.0" promptText="Introduzca el tamaño" />
-                                    <Label layoutX="139.0" layoutY="492.0" prefHeight="15.0" prefWidth="100.0" text="Descripción" textFill="WHITE">
+                                    <Label layoutX="139.0" layoutY="557.0" prefHeight="15.0" prefWidth="100.0" text="Descripción" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
-                                    <TextArea fx:id="textAreaDescripcion" layoutX="139.0" layoutY="514.0" prefHeight="130.0" prefWidth="381.0" promptText="Indroduce la descripción de la propiedad" />
+                                    <TextArea fx:id="textAreaDescripcion" layoutX="139.0" layoutY="577.0" prefHeight="130.0" prefWidth="381.0" promptText="Indroduce la descripción de la propiedad" />
                                     <Label layoutX="418.0" layoutY="264.0" text="Precio" textAlignment="CENTER" textFill="WHITE">
                                        <font>
                                           <Font name="Tahoma" size="12.0" />
                                        </font>
                                     </Label>
                                     <TextField fx:id="textFieldPrecio" alignment="CENTER" layoutX="418.0" layoutY="283.0" prefHeight="25.0" prefWidth="102.0" promptText="Cantidad" styleClass="white-textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
-                                    <ImageView fitHeight="33.0" fitWidth="147.0" layoutX="454.0" layoutY="675.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fitHeight="33.0" fitWidth="147.0" layoutX="454.0" layoutY="730.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../media/botón%20finalizar.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="buttonFinalizarRegistro" layoutX="453.0" layoutY="675.0" mnemonicParsing="false" onAction="#registrarPropiedad" prefHeight="33.0" prefWidth="127.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Finalizar Registro" />
-                                    <ImageView fitHeight="34.0" fitWidth="70.0" layoutX="350.0" layoutY="675.0" pickOnBounds="true" preserveRatio="true">
+                                    <Button fx:id="buttonFinalizarRegistro" layoutX="453.0" layoutY="730.0" mnemonicParsing="false" onAction="#registrarPropiedad" prefHeight="33.0" prefWidth="127.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Finalizar Registro" />
+                                    <ImageView fitHeight="34.0" fitWidth="70.0" layoutX="350.0" layoutY="730.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../media/botón%20cancelar.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="buttonCancelar" layoutX="348.0" layoutY="675.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="36.0" prefWidth="73.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Cancelar" />
+                                    <Button fx:id="buttonCancelar" layoutX="348.0" layoutY="730.0" mnemonicParsing="false" onAction="#regresarInicio" prefHeight="36.0" prefWidth="73.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Cancelar" />
+                                    <Label layoutX="139.0" layoutY="492.0" text="Correo del propietario" textFill="WHITE">
+                                       <font>
+                                          <Font name="Tahoma" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="textFieldResumen1" layoutX="139.0" layoutY="514.0" prefHeight="25.0" prefWidth="381.0" promptText="Introduce el correo asociado a la cuenta del propietario" styleClass="white-textfield" stylesheets="@../css/hoja%20de%20estilo.css" />
                                  </children>
                               </AnchorPane>
                               <AnchorPane layoutX="65.0" layoutY="64.0" prefHeight="320.0" prefWidth="227.0" styleClass="grey-anchor" stylesheets="@../css/hoja%20de%20estilo.css">
