@@ -14,7 +14,7 @@ public class ClienteDAOTest {
     public void TestAgregarCliente(){
         Cliente cliente = new Cliente();
         cliente.setContrasenia("contraseña");
-        cliente.setCorreo("clinete@gmai.com");
+        cliente.setCorreo("cliente@gmail.com");
         cliente.setnombre("cliente166");
         cliente.setPreferencias("Casas");
         try{

@@ -94,7 +94,16 @@ public class LoginController {
             } catch (IOException e){
                 e.printStackTrace();
             }
-        } else {
+        } else if (correo.isEmpty() || contraseña.isEmpty()){
+            Alert emptyFieldsAlert = new Alert(AlertType.ERROR);
+                emptyFieldsAlert.setTitle("Campos incorrectos o vacíos");
+                emptyFieldsAlert.setHeaderText("Campos incorrectos o vacíos");
+                emptyFieldsAlert.setContentText("Hay campos vacíos y/o incorrectos.");
+                emptyFieldsAlert.showAndWait();
+        
+        }
+        
+        else {
             Alert noExisteUsuario = new Alert(AlertType.ERROR);
             noExisteUsuario.setTitle("No existe en el sistema");
             noExisteUsuario.setHeaderText(null);
@@ -102,7 +111,7 @@ public class LoginController {
             noExisteUsuario.show();
         }
     }
-    @FXML
+    /*@FXML
     private TextField textFieldCorreoCrear;
     @FXML
     private TextField textFieldContraseñaCrear;
@@ -162,11 +171,25 @@ public class LoginController {
             existeCuenta.setHeaderText(null);
             existeCuenta.setContentText("Ya existe una cuenta registrada con este correo");
             existeCuenta.show();
-        }
+        } 
+        
+    }*/
+
+    @FXML
+    public void goToCrearCuenta(ActionEvent event){
+        try{
+        
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/SignUp.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+                stage.setScene(new Scene(root));
+                stage.show();
+        } catch (IOException e){
+                e.printStackTrace();
+            }
         
     }
 
-    
 
     public void initialize(){
         
