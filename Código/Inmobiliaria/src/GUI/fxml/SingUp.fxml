@@ -15,7 +15,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SingUpController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.LoginController">
    <children>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="black-anchor" stylesheets="@../css/hoja%20de%20estilo.css">
          <children>
@@ -71,9 +71,9 @@
                                           <FontAwesomeIcon fill="#6396e1" glyphName="LOCK" layoutX="71.0" layoutY="77.0" selectionFill="#6396e1" size="1.6em" />
                                        </children>
                                     </AnchorPane>
-                                    <StackPane minWidth="-Infinity" prefHeight="437.0" prefWidth="340.0" styleClass="stack-pane-singup" stylesheets="@../css/hoja%20de%20estilo.css">
+                                    <StackPane fx:id="stackPane" minWidth="-Infinity" prefHeight="437.0" prefWidth="340.0" styleClass="stack-pane-singup" stylesheets="@../css/hoja%20de%20estilo.css">
                                        <children>
-                                          <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="pane-signup" stylesheets="@../css/hoja%20de%20estilo.css">
+                                          <Pane fx:id="pane5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="pane-signup" stylesheets="@../css/hoja%20de%20estilo.css">
                                              <children>
                                                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="46.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
@@ -82,13 +82,40 @@
                                                 </ImageView>
                                              </children>
                                           </Pane>
-                                          <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="pane-signup" stylesheets="@../css/hoja%20de%20estilo.css">
+                                          <Pane fx:id="pane4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="pane-signup" stylesheets="@../css/hoja%20de%20estilo.css">
                                              <children>
-                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="46.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                                                    <image>
-                                                      <Image url="@../media/edificio.png" />
+                                                      <Image url="@../media/pexels-daria-shevtsova-1030986%201.png" />
                                                    </image>
                                                 </ImageView>
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="pane3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="pane-signup" stylesheets="@../css/hoja%20de%20estilo.css">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="45.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../media/pexels-jeffrey-czum-2394446%201.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="pane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="pane-signup" stylesheets="@../css/hoja%20de%20estilo.css">
+                                             <children>
+                                                <Label layoutX="19.0" layoutY="75.0" text="Encuentra todo lo &#10;que buscas" textAlignment="CENTER" textFill="#2d2583">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="20.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="pane1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="pane-signup" stylesheets="@../css/hoja%20de%20estilo.css">
+                                             <children>
+                                                <Label layoutX="21.0" layoutY="75.0" text="Inmobiliaria #1&#10;en todo México" textAlignment="CENTER" textFill="#2d2583">
+                                                   <font>
+                                                      <Font name="Tahoma Bold" size="20.0" />
+                                                   </font>
+                                                </Label>
                                              </children>
                                           </Pane>
                                        </children>
