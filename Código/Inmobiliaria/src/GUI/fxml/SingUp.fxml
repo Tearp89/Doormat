@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="634.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.controllers.SingUpController">
+   <children>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="black-anchor" stylesheets="@../css/hoja%20de%20estilo.css">
+         <children>
+            <ImageView fitHeight="393.0" fitWidth="900.0" layoutY="250.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../media/blue-ripples-and-water-splashes-waves-surface-flat-style-design-illustration-vector-Photoroom.png-Photoroom.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="53.0" layoutY="54.0" prefHeight="528.0" prefWidth="795.0" stylesheets="@../css/hoja%20de%20estilo.css">
+               <styleClass>
+                  <String fx:value="white-bg" />
+                  <String fx:value="shadow" />
+               </styleClass>
+               <children>
+                  <BorderPane layoutX="-160.0" prefHeight="506.0" prefWidth="524.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <top>
+                        <AnchorPane prefHeight="91.0" prefWidth="388.0" styleClass="top-login" stylesheets="@../css/hoja%20de%20estilo.css" BorderPane.alignment="CENTER">
+                           <children>
+                              <ImageView fitHeight="62.0" fitWidth="58.0" layoutX="80.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../media/logo%205%201-Photoroom.png-Photoroom.png" />
+                                 </image>
+                              </ImageView>
+                              <Line endX="-40.0" layoutX="217.0" layoutY="45.0" rotate="90.0" startX="-100.0" stroke="WHITE" />
+                              <Label layoutX="155.0" layoutY="23.0" text="DOOR" textFill="#01013c">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="244.0" layoutY="23.0" text="MAT" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="29.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="155.0" layoutY="57.0" text="INMOBILIARIA" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial Rounded MT Bold" size="8.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </top>
+                     <center>
+                        <AnchorPane prefHeight="415.0" prefWidth="697.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox layoutX="324.0" layoutY="137.0" prefHeight="437.0" prefWidth="795.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <AnchorPane prefHeight="437.0" prefWidth="433.0">
+                                       <children>
+                                          <TextField fx:id="textFieldCorreoIniciar" layoutX="58.0" layoutY="14.0" prefHeight="30.0" prefWidth="254.0" promptText="Correo" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                          <FontAwesomeIcon fill="#6396e1" glyphName="USER" layoutX="68.0" layoutY="40.0" selectionFill="#6396e1" size="1.6em" />
+                                          <PasswordField fx:id="textFieldContraseñaIniciar" layoutX="58.0" layoutY="53.0" prefHeight="30.0" prefWidth="254.0" promptText="Contraseña" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
+                                          <FontAwesomeIcon fill="#6396e1" glyphName="LOCK" layoutX="71.0" layoutY="77.0" selectionFill="#6396e1" size="1.6em" />
+                                       </children>
+                                    </AnchorPane>
+                                    <StackPane minWidth="-Infinity" prefHeight="437.0" prefWidth="340.0" styleClass="stack-pane-singup" stylesheets="@../css/hoja%20de%20estilo.css">
+                                       <children>
+                                          <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="pane-signup" stylesheets="@../css/hoja%20de%20estilo.css">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="46.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../media/edificio.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </Pane>
+                                          <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" styleClass="pane-signup" stylesheets="@../css/hoja%20de%20estilo.css">
+                                             <children>
+                                                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="46.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../media/edificio.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </StackPane>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </center>
+                  </BorderPane>
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="393.0" fitWidth="900.0" layoutY="250.0" opacity="0.1" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../media/blue-ripples-and-water-splashes-waves-surface-flat-style-design-illustration-vector-Photoroom.png-Photoroom.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>

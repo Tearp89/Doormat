@@ -1,9 +1,11 @@
-package GUI.controllers;
+
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import GUI.windows.ChangeWindowManager;
 import GUI.windows.UserSessionManager;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -90,7 +92,7 @@ public class LoginController {
         
         }
     }
-    @FXML
+    /*@FXML
     private TextField textFieldCorreoCrear;
     @FXML
     private TextField textFieldContraseñaCrear;
@@ -138,7 +140,15 @@ public class LoginController {
 
     @FXML
     private Button buttonCrear;
+    @FXML*/
+
     @FXML
+    public void goToCrearCuenta(ActionEvent event){
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/SingUp.fxml"));
+        ChangeWindowManager.changeWindowTo(event, loader);
+    }
+
     private void initialize(){
         
         
