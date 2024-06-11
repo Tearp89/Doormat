@@ -203,6 +203,7 @@ public class RegistrarNuevaPropiedadController {
             propiedad.setNoHabitaciones(noHabitaciones);
             propiedad.setNoEstancias(noEstancias);
             propiedad.setNoBanios(noBanios);
+            propiedad.setUsuarioAgente(labelUser.getText());
             String tempCochera = textFieldCantidadCochera.getText();
             if(tempCochera != null && tempCochera.isBlank()){
                 int noCocheras = Integer.parseInt(textFieldCantidadCochera.getText());
