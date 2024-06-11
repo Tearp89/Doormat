@@ -166,6 +166,28 @@ public class SignUpController {
 
         
     }
+
+    @FXML
+    private Button buttonRegresar;
+    @FXML
+    private void goToLogin(ActionEvent event){
+        try {
+            FXMLLoader inicioLoader = new FXMLLoader(getClass().getResource("/GUI/fxml/login.fxml"));
+        Parent root = inicioLoader.load();
+        Scene scene = new Scene(root);
+
+        Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        Stage newStage = new Stage();
+        newStage.setScene(scene);
+        newStage.setTitle("Consultar Propiedades Clientes");
+        newStage.show();
+
+        currentStage.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
 
     private int currentPaneIndex = 0;

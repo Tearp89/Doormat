@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `Doormat`.`Cliente` (
   `correoElectrónico` VARCHAR(45) NOT NULL,
   `contraseña` VARCHAR(256) NOT NULL,
   `preferencias` TEXT NOT NULL,
+  `nombre` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`usuarioCliente`),
   UNIQUE INDEX `correoElectrónico_UNIQUE` (`correoElectrónico` ASC) VISIBLE)
 ENGINE = InnoDB;

@@ -111,82 +111,23 @@ public class LoginController {
             noExisteUsuario.show();
         }
     }
-    /*@FXML
-    private TextField textFieldCorreoCrear;
     @FXML
-    private TextField textFieldContraseñaCrear;
+    private Button buttonCrear;
     @FXML
-    private void crear(ActionEvent event){
-        ClienteDAO clienteDao = new ClienteDAO();
-        String contraseña = textFieldContraseñaCrear.getText();
-        String correo = textFieldCorreoCrear.getText();
-        LoginDAO loginDAO = new LoginDAO();
-        if(!loginDAO.esCuentaRegistrada(correo)){
-            if (esCorreoValido(correo)){
-                try{
-                    Cliente cliente = new Cliente();
-                    cliente.setContrasenia(contraseña);
-                    cliente.setCorreo(correo);
-                    String[] parteCorreo = correo.split("@");
-                    String usuario = parteCorreo[0];
-                    cliente.setUsuarioCliente(usuario);
-                    cliente.setPreferencias("Ninguna");
-                    try{
-                        clienteDao.agregarCliente(cliente);
-                        UserSessionManager.getInstance().loginCliente(cliente);
-                        Alert alertDatosVacios = new Alert(AlertType.INFORMATION);
-                        alertDatosVacios.setTitle("Se creo correctamente la cuenta");
-                        alertDatosVacios.setHeaderText(null);
-                        alertDatosVacios.setContentText("Se creo de manera correcta su usuario, sus credenciales son: \nUsuario:" + usuario + "\nContraseña:" + contraseña);
-                        alertDatosVacios.showAndWait();
-                        FXMLLoader clienteInicioLoader = new FXMLLoader(getClass().getResource("/GUI/fxml/consultarPropiedadesCliente.fxml"));
-                        Parent root = clienteInicioLoader.load();
-                        Stage stage = new Stage();            
-                        stage.setScene(new Scene(root));
-                        stage.show();
-                        Node source = (Node) event.getSource();
-                        Stage currenStage = (Stage) source.getScene().getWindow();
-                        currenStage.close();
-                    } catch (SQLException e){
-                        Alert alertDatosVacios = new Alert(AlertType.ERROR);
-                        alertDatosVacios.setTitle("Error ingresar");
-                        alertDatosVacios.setHeaderText("Error ingresar");
-                        alertDatosVacios.setContentText("Hubo un error al intentar agregar su usuario");
-                        alertDatosVacios.show();
-                        e.printStackTrace();
-                    }
-                } catch (IOException e){
-                    e.printStackTrace();
-                }
-            } else {
-                Alert alertDatosVacios = new Alert(AlertType.ERROR);
-                alertDatosVacios.setTitle("Correo incorrecto");
-                alertDatosVacios.setHeaderText("Correo incorrecto");
-                alertDatosVacios.setContentText("Por favor, asegúrate de que haya ingresado un correo valido");
-                alertDatosVacios.show();
-            }
-        } else {
-            Alert existeCuenta = new Alert(AlertType.ERROR);
-            existeCuenta.setTitle("Ya existe una cuenta");
-            existeCuenta.setHeaderText(null);
-            existeCuenta.setContentText("Ya existe una cuenta registrada con este correo");
-            existeCuenta.show();
-        } 
-        
-    }*/
-
-    @FXML
-    public void goToCrearCuenta(ActionEvent event){
+    
+    private void goToCrearCuenta(ActionEvent event){
+        Node source = (Node) event.getSource();
+        stage = (Stage) source.getScene().getWindow();
+        stage.close();
         try{
-        
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/fxml/SignUp.fxml"));
-            Parent root = loader.load();
+            FXMLLoader clienteInicioLoader = new FXMLLoader(getClass().getResource("/GUI/fxml/SignUp.fxml"));
+            Parent root = clienteInicioLoader.load();
             Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.show();
+            stage.setScene(new Scene(root));
+            stage.show();
         } catch (IOException e){
-                e.printStackTrace();
-            }
+            e.printStackTrace();
+        }
         
     }
 

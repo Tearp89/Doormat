@@ -57,6 +57,12 @@
                                     <Font name="Arial Rounded MT Bold" size="8.0" />
                                  </font>
                               </Label>
+                              <Button fx:id="buttonRegresar" layoutX="22.0" layoutY="28.0" mnemonicParsing="false" onAction="#goToLogin" prefHeight="24.0" prefWidth="50.0" styleClass="buttonCreate" stylesheets="@../css/hoja%20de%20estilo.css" textFill="WHITE">
+                                 <font>
+                                    <Font name="Arial" size="13.0" />
+                                 </font>
+                              </Button>
+                              <FontAwesomeIcon fill="#fcfcfc" glyphName="ARROW_LEFT" layoutX="42.0" layoutY="44.0" wrappingWidth="9.600006103515625" />
                            </children>
                         </AnchorPane>
                      </top>
