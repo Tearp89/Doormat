@@ -335,29 +335,4 @@ public class ConsultarPropiedadesClienteController {
             e.printStackTrace();
         }
     }
-
-    @FXML
-    private Button logo;
-    @FXML
-    private void goToLogin(ActionEvent event){
-        try {
-            UserSessionManager.getInstance().logoutCliente();
-
-            FXMLLoader inicioLoader = new FXMLLoader(getClass().getResource("/GUI/fxml/login.fxml"));
-            Parent root = inicioLoader.load();
-            Scene scene = new Scene(root);
-
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            Stage newStage = new Stage();
-            newStage.setScene(scene);
-            newStage.setTitle("Consultar Propiedades Clientes");
-            newStage.show();
-
-            currentStage.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-    }
-
 }

@@ -290,7 +290,7 @@ public class RegistrarNuevaPropiedadController {
                 } catch (SQLException e) {
                     Alert alertBaseDeDatos = new Alert(AlertType.ERROR);
                     alertBaseDeDatos.setTitle("Ocurrio un error en la base");
-                    alertBaseDeDatos.setContentText("Hubo un error al agregar la propiedad");
+                    alertBaseDeDatos.setContentText("Hubo un error al activar la colaboración");
                     alertBaseDeDatos.setHeaderText("Ocurrio un error");
                     alertBaseDeDatos.show();
                     e.printStackTrace();

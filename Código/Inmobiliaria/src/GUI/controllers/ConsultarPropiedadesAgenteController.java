@@ -12,9 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -23,7 +21,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 import logic.classes.Agente;
 import logic.classes.Propiedad;
 
@@ -324,30 +321,5 @@ public class ConsultarPropiedadesAgenteController {
 
         aplicarFiltros(null);
     }
-
-    @FXML
-    private Button logo;
-    @FXML
-    private void goToLogin(ActionEvent event){
-        try {
-            UserSessionManager.getInstance().logoutAgente();
-
-            FXMLLoader inicioLoader = new FXMLLoader(getClass().getResource("/GUI/fxml/login.fxml"));
-            Parent root = inicioLoader.load();
-            Scene scene = new Scene(root);
-
-            Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            Stage newStage = new Stage();
-            newStage.setScene(scene);
-            newStage.setTitle("Consultar Propiedades Clientes");
-            newStage.show();
-
-            currentStage.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-    }
-
 
 }

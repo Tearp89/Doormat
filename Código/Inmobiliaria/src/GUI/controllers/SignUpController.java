@@ -102,7 +102,7 @@ public class SignUpController {
                 nombreInvalidoAlert.setHeaderText("Nombre inválido");
                 nombreInvalidoAlert.setContentText("Por favor ingrese un nombre válido, iniciando por mayúscula");
                 nombreInvalidoAlert.show();
-            } else if (!validatePassword(contraseña)){
+            } else if (contraseña.trim().isEmpty()){
                 Alert contraseñaInvalidaAlert = new Alert(AlertType.ERROR);
                 contraseñaInvalidaAlert.setTitle("Contraseña inválida");
                 contraseñaInvalidaAlert.setHeaderText("Contraseña inválida");
@@ -375,22 +375,6 @@ public class SignUpController {
         } else {
             return false;
         }
-    }
-
-    private boolean validatePassword(String password) {
-        if (password.length() < 8) {
-            return false;
-        }
-        Pattern upperCasePattern = Pattern.compile("[A-Z]");
-        Pattern lowerCasePattern = Pattern.compile("[a-z]");
-        Pattern digitPattern = Pattern.compile("[0-9]");
-        Pattern specialCharacterPattern = Pattern.compile("[^a-zA-Z0-9]");
-        Matcher upperCaseMatcher = upperCasePattern.matcher(password);
-        Matcher lowerCaseMatcher = lowerCasePattern.matcher(password);
-        Matcher digitMatcher = digitPattern.matcher(password);
-        Matcher specialCharacterMatcher = specialCharacterPattern.matcher(password);
-
-        return upperCaseMatcher.find() && lowerCaseMatcher.find() && digitMatcher.find() && specialCharacterMatcher.find();
     }
 
 }

@@ -111,16 +111,16 @@ public class EditarPerfilController {
                     labelUsuario.setText(usuario);
                     mostrarResultadoActualizacion(resultado);
                 } else {
-                    if(confirmarContraseña.equals(nuevaContraseña) && validatePassword(nuevaContraseña)){
+                    if(confirmarContraseña.equals(nuevaContraseña)){
                         cliente.setContrasenia(nuevaContraseña);
                         int resultado = clienteDAO.actualizarClienteConContrasenia(cliente, confirmarContraseña, usuarioActual);
                         labelUsuario.setText(usuario);
                         mostrarResultadoActualizacion(resultado);
                     } else {
                         Alert contaseñaInvalidaAlert = new Alert(AlertType.ERROR);
-                        contaseñaInvalidaAlert.setTitle("Contraseña inválida o equivocada");
+                        contaseñaInvalidaAlert.setTitle("Contraseña vieja equivocada");
                         contaseñaInvalidaAlert.setHeaderText(null);
-                        contaseñaInvalidaAlert.setContentText("No se puede actualizar el perfil, verifique la contraseña");
+                        contaseñaInvalidaAlert.setContentText("No se puede actualizar el perfil, la contraseña antigua está equivocada");
                         contaseñaInvalidaAlert.show();
                     }
                     
@@ -244,28 +244,7 @@ public class EditarPerfilController {
         }}
         
     }
-
-    private boolean validatePassword(String password) {
-        if (password.length() < 8) {
-            return false;
-        }
-        Pattern upperCasePattern = Pattern.compile("[A-Z]");
-        Pattern lowerCasePattern = Pattern.compile("[a-z]");
-        Pattern digitPattern = Pattern.compile("[0-9]");
-        Pattern specialCharacterPattern = Pattern.compile("[^a-zA-Z0-9]");
-        Matcher upperCaseMatcher = upperCasePattern.matcher(password);
-        Matcher lowerCaseMatcher = lowerCasePattern.matcher(password);
-        Matcher digitMatcher = digitPattern.matcher(password);
-        Matcher specialCharacterMatcher = specialCharacterPattern.matcher(password);
-
-        return upperCaseMatcher.find() && lowerCaseMatcher.find() && digitMatcher.find() && specialCharacterMatcher.find();
-    }
-
-        
-        
    
-
-    
 
 
 
