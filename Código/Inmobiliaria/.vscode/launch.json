@@ -15,16 +15,16 @@
             //"vmArgs": "--module-path \"C:/Users/marla/OneDrive - Universidad Veracruzana/Documentos/4to semestre/Principios de construcción/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
             
             //PC Daniel
-            "projectName": "Inmobiliaria_d01d9595",
-            "vmArgs": "--module-path \"D:/OneDrive/Documentos/Universidad/4to Semestre/Principios de Construcción/Proyecto COIL-VIC/COIL-VIC-YOYOK/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            //"projectName": "Inmobiliaria_d01d9595",
+            //"vmArgs": "--module-path \"D:/OneDrive/Documentos/Universidad/4to Semestre/Principios de Construcción/Proyecto COIL-VIC/COIL-VIC-YOYOK/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
             
             //Laptop Daniel
             //"projectName": "Doormat_7894e23d",
             //"vmArgs": "--module-path \"C:/Users/daur0/OneDrive/Documentos/Universidad/4to Semestre/Principios de Construcción/Proyecto COIL-VIC/COIL-VIC-YOYOK/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
 
             //IsaPizza
-            //"projectName": "Inmobiliaria_24dbbab4",
-            //"vmArgs": "--module-path \"C:/Users/isabe/Desktop/uni 4/Construcción/COIL-VIC-YOYOK/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
+            "projectName": "Inmobiliaria_24dbbab4",
+            "vmArgs": "--module-path \"C:/Users/isabe/Desktop/uni 4/Construcción/COIL-VIC-YOYOK/javafx-sdk-21.0.2/lib\" --add-modules javafx.controls,javafx.fxml"
         
         }
     ]
