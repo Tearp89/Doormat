@@ -248,7 +248,7 @@
                                     <Font name="Arial Rounded MT Bold" size="24.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="buttonCal1Propiedad" layoutX="164.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad1" style="-fx-background-color: TRANPARENT;">
+                              <Button fx:id="buttonCal1Propiedad" layoutX="164.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad1" style="-fx-background-color: #FFFFFF00;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -256,7 +256,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="buttonCal2Propiedad" layoutX="204.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad2" style="-fx-background-color: TRANPAENT;">
+                              <Button fx:id="buttonCal2Propiedad" layoutX="204.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad2" style="-fx-background-color: #FFFFFF00;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -264,7 +264,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="buttonCal3Propiedad" layoutX="244.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad3" style="-fx-background-color: TRANPAENT;">
+                              <Button fx:id="buttonCal3Propiedad" layoutX="244.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad3" style="-fx-background-color: #FFFFFF00;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -272,7 +272,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="buttonCal4Propiedad" layoutX="284.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad4" style="-fx-background-color: TRANPAENT;">
+                              <Button fx:id="buttonCal4Propiedad" layoutX="284.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad4" style="-fx-background-color: #FFFFFF00;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -280,7 +280,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="buttonCal5Propiedad" layoutX="324.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad5" style="-fx-background-color: TRANPAENT;">
+                              <Button fx:id="buttonCal5Propiedad" layoutX="324.0" layoutY="65.0" mnemonicParsing="false" onAction="#califcarPropiedad5" style="-fx-background-color: #FFFFFF00;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -288,7 +288,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="buttonCal1Asesor" layoutX="164.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente1" style="-fx-background-color: TRANPAENT;">
+                              <Button fx:id="buttonCal1Asesor" layoutX="164.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente1" style="-fx-background-color: #FFFFFF00;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -296,7 +296,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="buttonCal2Asesor" layoutX="204.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente2" style="-fx-background-color: TRANPAENT;">
+                              <Button fx:id="buttonCal2Asesor" layoutX="204.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente2" style="-fx-background-color: #FFFFFF00;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -304,7 +304,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="buttonCal3Asesor" layoutX="244.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente3" style="-fx-background-color: TRANPAENT;">
+                              <Button fx:id="buttonCal3Asesor" layoutX="244.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente3" style="-fx-background-color: #FFFFFF00;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -312,7 +312,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="buttonCal4Asesor" layoutX="284.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente4" style="-fx-background-color: TRANPAENT;">
+                              <Button fx:id="buttonCal4Asesor" layoutX="284.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente4" style="-fx-background-color: #FFFFFF00;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -320,7 +320,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </Button>
-                              <Button fx:id="buttonCal5Asesor" layoutX="324.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente5" style="-fx-background-color: TRANPAENT;">
+                              <Button fx:id="buttonCal5Asesor" layoutX="324.0" layoutY="180.0" mnemonicParsing="false" onAction="#califcarAgente5" style="-fx-background-color: #FFFFFF00;">
                                  <graphic>
                                     <FontAwesomeIcon fill="#c0c0c0" glyphName="STAR" size="2em" />
                                  </graphic>
@@ -359,14 +359,6 @@
                      <center>
                         <AnchorPane prefHeight="200.0" prefWidth="444.0" BorderPane.alignment="CENTER">
                            <children>
-                              <ImageView fitHeight="290.0" fitWidth="528.0" layoutY="51.0" opacity="0.81" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../media/blue-ripples-and-water-splashes-waves-surface-flat-style-design-illustration-vector-Photoroom.png-Photoroom.png" />
-                                 </image>
-                                 <effect>
-                                    <BoxBlur height="1.0" width="1.0" />
-                                 </effect>
-                              </ImageView>
                               <AnchorPane layoutX="14.0" layoutY="16.0" prefHeight="245.0" prefWidth="501.0" stylesheets="@../css/hoja%20de%20estilo.css">
                                  <styleClass>
                                     <String fx:value="white-bg" />

@@ -50,7 +50,7 @@ public class PropiedadDAO {
 
     public int actualizarPropiedadPorIdPropiedad(Propiedad propiedad) throws SQLException{
         DatabaseManager databaseManager = new DatabaseManager();
-        String query = "UPDATE propiedad SET dirección = ?, descripción = ?, estadoPropiedad = ?, Ciudad = ?, Zona = ?, Tipo = ?, Precio = ?, NoHabitaciones = ?, NoEstancias = ?, NoBaños = ?, Cochera = ?, Tamaño = ?, Resumen = ?, PropiedadEn = ?, CorreoPropietario = ? WHERE idPropiedad = ?";
+        String query = "UPDATE propiedad SET dirección = ?, descripción = ?, estadoPropiedad = ?, Ciudad = ?, Zona = ?, Tipo = ?, Precio = ?, NoHabitaciones = ?, NoEstancias = ?, NoBaños = ?, Cochera = ?, Tamaño = ?, Resumen = ?, PropiedadEn = ?  WHERE idPropiedad = ?";
         int result = 0;
         Connection connection = databaseManager.getConnection();
         PreparedStatement pStatement = connection.prepareStatement(query);
@@ -68,8 +68,7 @@ public class PropiedadDAO {
         pStatement.setInt(12, propiedad.getTamanio());
         pStatement.setString(13, propiedad.getResumen());
         pStatement.setString(14, propiedad.getPropiedadEn());
-        pStatement.setInt(15, propiedad.getIdPropiedad()); 
-        pStatement.setString(16, propiedad.getCorreoPropietario());
+        pStatement.setInt(15, propiedad.getIdPropiedad());
 
         result = pStatement.executeUpdate();
         return result;
