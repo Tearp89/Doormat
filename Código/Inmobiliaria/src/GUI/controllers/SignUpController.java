@@ -106,7 +106,7 @@ public class SignUpController {
                 Alert contraseñaInvalidaAlert = new Alert(AlertType.ERROR);
                 contraseñaInvalidaAlert.setTitle("Contraseña inválida");
                 contraseñaInvalidaAlert.setHeaderText("Contraseña inválida");
-                contraseñaInvalidaAlert.setContentText("Por favor ingrese una contraseña valida");
+                contraseñaInvalidaAlert.setContentText("Por favor ingrese una contraseña valida, debe contener al menos una mayúscula, una minúscula, un caracter especial y una longitud miníma de 8 caracteres");
                 contraseñaInvalidaAlert.show();
             }
             else if(!clienteDAO.correoDisponible(correo)){

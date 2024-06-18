@@ -42,7 +42,7 @@
                               <Font name="Tahoma Bold" size="20.0" />
                            </font>
                         </Button>
-                        <Button fx:id="buttonCitas" layoutX="653.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Citas" visible="false">
+                        <Button fx:id="buttonCitas" layoutX="653.0" layoutY="59.0" mnemonicParsing="false" styleClass="top-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Citas">
                            <font>
                               <Font size="9.0" />
                            </font>
@@ -166,7 +166,7 @@
                                           <Image url="@../media/botón%20finalizar.png" />
                                        </image>
                                     </ImageView>
-                                    <Button fx:id="buttonEditarPropiedad" layoutX="453.0" layoutY="675.0" mnemonicParsing="false" onAction="#editarPropiedad" prefHeight="33.0" prefWidth="127.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Editar Propiedad">
+                                    <Button fx:id="buttonEditarPropiedad" layoutX="453.0" layoutY="675.0" mnemonicParsing="false" onAction="#editarPropiedad" prefHeight="33.0" prefWidth="127.0" styleClass="blue-buttom" stylesheets="@../css/hoja%20de%20estilo.css" text="Guardar cambios">
                                        <graphic>
                                           <FontAwesomeIcon glyphName="PENCIL" />
                                        </graphic></Button>

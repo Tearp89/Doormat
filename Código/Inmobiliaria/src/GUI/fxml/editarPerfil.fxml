@@ -105,7 +105,7 @@
                                     <FontAwesomeIcon glyphName="LOCK" layoutX="27.0" layoutY="220.0" />
                                     <TextField fx:id="textFieldContraseniaNueva" layoutX="308.0" layoutY="201.0" maxWidth="-Infinity" minHeight="30.0" prefHeight="30.0" prefWidth="260.0" styleClass="textfield-login" stylesheets="@../css/hoja%20de%20estilo.css" />
                                     <FontAwesomeIcon glyphName="LOCK" layoutX="316.0" layoutY="220.0" />
-                                    <Button fx:id="buttonEditar" layoutX="460.0" layoutY="250.0" mnemonicParsing="false" onAction="#editarPerfil" prefHeight="19.0" prefWidth="104.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Editar perfil">
+                                    <Button fx:id="buttonEditar" layoutX="460.0" layoutY="250.0" mnemonicParsing="false" onAction="#editarPerfil" prefHeight="19.0" prefWidth="104.0" styleClass="button-consultar" stylesheets="@../css/hoja%20de%20estilo.css" text="Guardar cambios">
                                        <font>
                                           <Font size="15.0" />
                                        </font>

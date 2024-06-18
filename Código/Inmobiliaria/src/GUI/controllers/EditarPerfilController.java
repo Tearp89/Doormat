@@ -120,7 +120,7 @@ public class EditarPerfilController {
                         Alert contaseñaInvalidaAlert = new Alert(AlertType.ERROR);
                         contaseñaInvalidaAlert.setTitle("Contraseña inválida o equivocada");
                         contaseñaInvalidaAlert.setHeaderText(null);
-                        contaseñaInvalidaAlert.setContentText("No se puede actualizar el perfil, verifique la contraseña");
+                        contaseñaInvalidaAlert.setContentText("No se puede actualizar el perfil, verifique que la contraseña ingresada sea una contraseña valida, debe contener al menos una mayúscula, una minúscula, un caracter especial y una longitud miníma de 8 caracteres");
                         contaseñaInvalidaAlert.show();
                     }
                     
